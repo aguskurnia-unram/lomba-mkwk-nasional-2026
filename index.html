@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lomba Project MKWK Nasional 2026 — Festival Pesona Karakter | Universitas Mataram</title>
+<meta name="description" content="Pusat informasi resmi Lomba Project MKWK Nasional 2026. Juknis, template, biaya pendaftaran, dan link pendaftaran. Pendaftaran 2 Juni – 3 Agustus 2026.">
+<meta property="og:title" content="Lomba Project MKWK Nasional 2026 — Festival Pesona Karakter">
+<meta property="og:description" content="Generasi Berkarakter untuk Indonesia Emas 2045. Terbuka untuk mahasiswa PTU se-Indonesia. Daftar sebelum 3 Agustus 2026.">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --navy:#0f3b63; --navy2:#1a5490; --gold:#d4a017; --gold-l:#f5c542;
+  --ink:#16202b; --muted:#5b6b7c; --line:#dde5ee; --bg:#f6f9fc; --white:#fff;
+  --ok:#1a7f4b; --warn:#b45309; --danger:#b91c1c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--navy2)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(15,59,99,.97);backdrop-filter:blur(8px)}
+nav .wrap{display:flex;align-items:center;gap:6px;height:56px;overflow-x:auto;scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+nav .brand{color:#fff;font-weight:800;font-size:14px;letter-spacing:.3px;white-space:nowrap;margin-right:auto}
+nav a{color:#cfe0f0;text-decoration:none;font-size:13.5px;padding:7px 11px;border-radius:7px;white-space:nowrap}
+nav a:hover{background:rgba(255,255,255,.12);color:#fff}
+nav a.cta{background:var(--gold);color:#2b1d00;font-weight:700}
+nav a.cta:hover{background:var(--gold-l);color:#2b1d00}
+
+/* HERO */
+header{background:linear-gradient(155deg,#0f3b63 0%,#1a5490 55%,#236ba8 100%);color:#fff;position:relative;overflow:hidden}
+header::after{content:"";position:absolute;inset:auto -60px -90px auto;width:340px;height:340px;
+  background:radial-gradient(circle,rgba(212,160,23,.35),transparent 65%);border-radius:50%}
+header .wrap{padding:54px 20px 60px;position:relative;z-index:2}
+.eyebrow{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);
+  padding:5px 13px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
+h1{font-size:clamp(27px,5.4vw,46px);line-height:1.15;margin:16px 0 10px;font-weight:800;letter-spacing:-.4px}
+.tagline{font-size:clamp(15px,2.4vw,20px);color:var(--gold-l);font-style:italic;font-weight:600}
+.sub{margin-top:14px;color:#d5e5f5;max-width:620px;font-size:15.5px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-block;padding:13px 24px;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px;transition:.15s}
+.btn-primary{background:var(--gold);color:#2b1d00;box-shadow:0 5px 18px rgba(212,160,23,.4)}
+.btn-primary:hover{background:var(--gold-l);transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.42)}
+.btn-ghost:hover{background:rgba(255,255,255,.22)}
+
+/* COUNTDOWN */
+.count{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.count .u{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:10px;
+  padding:10px 6px;min-width:74px;text-align:center}
+.count .n{font-size:26px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+.count .l{font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:#bcd4ea;margin-top:2px}
+#cd-note{margin-top:10px;font-size:13.5px;color:#d5e5f5}
+
+/* SECTIONS */
+section{padding:52px 0;border-bottom:1px solid var(--line)}
+section:nth-child(even){background:var(--white)}
+h2{font-size:clamp(21px,3.4vw,28px);color:var(--navy);font-weight:800;letter-spacing:-.3px}
+h2 .num{color:var(--gold);font-size:.72em;margin-right:8px}
+.lead{color:var(--muted);margin-top:8px;max-width:660px;font-size:15.5px}
+h3{font-size:17px;color:var(--navy);margin-bottom:8px;font-weight:700}
+
+.grid{display:grid;gap:18px;margin-top:26px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--white);border:1px solid var(--line);border-radius:13px;padding:22px;
+  box-shadow:0 1px 3px rgba(15,59,99,.05)}
+section:nth-child(even) .card{background:var(--bg)}
+.card.hl{border-color:var(--gold);border-width:2px}
+
+/* STEPS */
+.step{display:flex;gap:16px;align-items:flex-start}
+.step .no{flex:0 0 40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;
+  display:grid;place-items:center;font-weight:800;font-size:17px}
+.step p{color:var(--muted);font-size:14.5px}
+.step code{background:#eef3f9;padding:2px 7px;border-radius:5px;font-size:13px;color:var(--navy);word-break:break-all}
+
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;margin-top:20px;font-size:14.5px;background:var(--white)}
+.tbl th{background:var(--navy);color:#fff;text-align:left;padding:11px 13px;font-weight:700;font-size:13.5px}
+.tbl td{padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:#f4f8fc}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:11px;border:1px solid var(--line)}
+
+/* PAY */
+.pay{background:linear-gradient(135deg,#fffbef,#fff6dd);border:2px solid var(--gold);border-radius:14px;padding:26px}
+.price{font-size:38px;font-weight:800;color:var(--navy);line-height:1.1}
+.price small{font-size:15px;font-weight:600;color:var(--muted);display:block;margin-top:3px}
+.rek{background:var(--navy);color:#fff;border-radius:11px;padding:18px;margin-top:18px}
+.rek .no{font-size:25px;font-weight:800;letter-spacing:1.5px;font-variant-numeric:tabular-nums;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.rek .an{font-size:13.5px;color:#bcd4ea;margin-top:5px}
+.copy{background:var(--gold);color:#2b1d00;border:none;padding:6px 13px;border-radius:7px;
+  font-weight:700;font-size:12.5px;cursor:pointer;font-family:inherit}
+.copy:hover{background:var(--gold-l)}
+
+/* CHECK */
+.check{list-style:none;margin-top:18px}
+.check li{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+.check li:last-child{border:none}
+.check input{margin-top:4px;width:17px;height:17px;accent-color:var(--navy2);flex:0 0 auto;cursor:pointer}
+.check label{cursor:pointer}
+.tag{display:inline-block;font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:999px;
+  text-transform:uppercase;letter-spacing:.6px;margin-left:6px;vertical-align:2px}
+.t-all{background:#e3edf7;color:var(--navy)}
+.t-vid{background:#fde8e8;color:#9b1c1c}
+.t-pos{background:#e6f4ec;color:var(--ok)}
+
+/* DOWNLOAD */
+.dl{display:flex;gap:15px;align-items:center;text-decoration:none;color:inherit;
+  background:var(--white);border:1px solid var(--line);border-radius:13px;padding:18px;transition:.15s}
+.dl:hover{border-color:var(--navy2);transform:translateY(-2px);box-shadow:0 6px 18px rgba(15,59,99,.1)}
+.dl .ic{flex:0 0 46px;height:46px;border-radius:10px;background:var(--navy);color:#fff;
+  display:grid;place-items:center;font-size:20px;font-weight:800}
+.dl .ic.g{background:var(--gold);color:#2b1d00}
+.dl h3{margin:0 0 2px}
+.dl p{font-size:13px;color:var(--muted)}
+
+/* TIMELINE */
+.tl{margin-top:24px;position:relative;padding-left:28px}
+.tl::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl .it{position:relative;padding-bottom:22px}
+.tl .it::before{content:"";position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;
+  background:var(--white);border:3px solid var(--navy2)}
+.tl .it.big::before{background:var(--gold);border-color:var(--gold);width:14px;height:14px;left:-25px}
+.tl .d{font-size:12.5px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:.7px}
+.tl .t{font-weight:700;color:var(--navy);font-size:15.5px}
+.tl .x{font-size:14px;color:var(--muted)}
+
+/* FAQ */
+details{background:var(--white);border:1px solid var(--line);border-radius:11px;margin-bottom:11px;overflow:hidden}
+details[open]{border-color:var(--navy2)}
+summary{padding:16px 19px;font-weight:700;cursor:pointer;color:var(--navy);font-size:15px;list-style:none;
+  display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:21px;color:var(--gold);font-weight:800;line-height:1}
+details[open] summary::after{content:"−"}
+details .body{padding:0 19px 17px;color:var(--muted);font-size:14.5px}
+
+/* NOTE */
+.note{border-left:4px solid var(--gold);background:#fffbef;padding:15px 18px;border-radius:0 10px 10px 0;
+  font-size:14.5px;margin-top:20px}
+.note.red{border-color:var(--danger);background:#fef4f4}
+.note strong{color:var(--ink)}
+
+/* FLIER */
+.flier{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--white)}
+.flier a{display:block;line-height:0}
+.flier img{width:100%;cursor:zoom-in;transition:opacity .15s}
+.flier img:hover{opacity:.92}
+.flier .cap{padding:13px 16px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;
+  gap:10px;flex-wrap:wrap;align-items:center}
+
+/* CONTACT */
+.ct{display:flex;gap:13px;align-items:center;text-decoration:none;color:inherit;padding:14px 0}
+.ct .ic{flex:0 0 40px;height:40px;border-radius:10px;background:#e3edf7;color:var(--navy);
+  display:grid;place-items:center;font-size:18px}
+.ct b{display:block;font-size:15px;color:var(--navy)}
+.ct span{font-size:13.5px;color:var(--muted)}
+
+/* FOOTER */
+footer{background:var(--navy);color:#c4d8ea;padding:40px 0 30px;font-size:14px}
+footer h4{color:#fff;font-size:15px;margin-bottom:9px}
+footer a{color:var(--gold-l);text-decoration:none}
+footer a:hover{text-decoration:underline}
+.fgrid{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.fbot{border-top:1px solid rgba(255,255,255,.15);margin-top:28px;padding-top:18px;font-size:12.5px;color:#8fadc9}
+
+/* FLOAT */
+.float{position:fixed;right:16px;bottom:16px;z-index:60;background:var(--gold);color:#2b1d00;
+  padding:13px 20px;border-radius:999px;text-decoration:none;font-weight:800;font-size:14.5px;
+  box-shadow:0 6px 22px rgba(0,0,0,.28)}
+.float:hover{background:var(--gold-l)}
+@media(max-width:560px){
+  section{padding:40px 0}
+  .float{left:16px;right:16px;text-align:center}
+  body{padding-bottom:70px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">MKWK NASIONAL 2026</span>
+    <a href="#cara">Cara Daftar</a>
+    <a href="#biaya">Biaya</a>
+    <a href="#kategori">Kategori</a>
+    <a href="#jadwal">Jadwal</a>
+    <a href="#unduhan">Unduhan</a>
+    <a href="#faq">FAQ</a>
+    <a href="#kontak">Kontak</a>
+    <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSd-CnLl_mBdWRWaQvBwFo7fxlXfhlVmMwnT8TixLYXc7NDpjw/viewform" target="_blank" rel="noopener">Daftar</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow">Festival Pesona Karakter Tingkat Nasional</span>
+    <h1>Lomba Project MKWK Nasional 2026</h1>
+    <p class="tagline">“Generasi Berkarakter untuk Indonesia Emas 2045”</p>
+    <p class="sub">Ajang nasional bagi mahasiswa Perguruan Tinggi Umum se-Indonesia untuk menampilkan project Mata Kuliah Wajib Kurikulum yang benar-benar dijalankan dan berdampak nyata bagi masyarakat. Diselenggarakan Pusat MKWK-MKWU, LPMPP Universitas Mataram — <strong>sepenuhnya daring</strong>.</p>
+
+    <div class="btns">
+      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSd-CnLl_mBdWRWaQvBwFo7fxlXfhlVmMwnT8TixLYXc7NDpjw/viewform" target="_blank" rel="noopener">Daftarkan Tim Anda →</a>
+      <a class="btn btn-ghost" href="#unduhan">Unduh Juknis &amp; Template</a>
+    </div>
+
+    <div class="count" id="cd">
+      <div class="u"><div class="n" id="cd-d">–</div><div class="l">Hari</div></div>
+      <div class="u"><div class="n" id="cd-h">–</div><div class="l">Jam</div></div>
+      <div class="u"><div class="n" id="cd-m">–</div><div class="l">Menit</div></div>
+      <div class="u"><div class="n" id="cd-s">–</div><div class="l">Detik</div></div>
+    </div>
+    <p id="cd-note">menuju penutupan pendaftaran — <strong>3 Agustus 2026, 23.59 WITA</strong></p>
+  </div>
+</header>
+
+<!-- CARA DAFTAR -->
+<section id="cara">
+  <div class="wrap">
+    <h2><span class="num">01</span>Cara Mendaftar — Cukup 3 Langkah</h2>
+    <p class="lead">Semua pengumpulan dilakukan lewat <strong>satu formulir</strong>. Tidak ada pengiriman berkas melalui email.</p>
+
+    <div class="grid g3">
+      <div class="card">
+        <div class="step">
+          <div class="no">1</div>
+          <div>
+            <h3>Siapkan folder Drive</h3>
+            <p>Buat satu folder bernama <code>NamaUniversitas_NamaTim_ProjectMKWK2026</code> berisi seluruh berkas. Ubah izinnya menjadi <strong>“Siapa saja yang memiliki link → Pembaca”</strong>, lalu salin tautannya.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="step">
+          <div class="no">2</div>
+          <div>
+            <h3>Bayar &amp; simpan bukti</h3>
+            <p>Transfer Rp50.000 per kategori ke rekening panitia, beri keterangan <strong>“Sarasehan Unram”</strong>. Simpan tangkapan layar buktinya untuk diunggah di formulir.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="step">
+          <div class="no">3</div>
+          <div>
+            <h3>Isi formulir</h3>
+            <p>Tempelkan tautan folder Drive, tautan video YouTube (jika ikut kategori Video), dan bukti pembayaran. Konfirmasi dikirim ke email ketua tim.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note red">
+      <strong>Dua kesalahan yang paling sering menggugurkan peserta:</strong> folder Drive masih berstatus “Terbatas” sehingga panitia tidak bisa membukanya, dan video YouTube disetel <em>Pribadi</em> sehingga juri tidak bisa menilai. Gunakan <strong>Publik</strong> atau <strong>Tidak Terdaftar (Unlisted)</strong>.
+    </div>
+
+    <h3 style="margin-top:34px">Checklist Berkas</h3>
+    <ul class="check">
+      <li><input type="checkbox" id="c1"><label for="c1">Tim 3–5 mahasiswa aktif Semester 1–4 dari satu perguruan tinggi <span class="tag t-all">semua</span></label></li>
+      <li><input type="checkbox" id="c2"><label for="c2">Satu dosen pendamping (dosen MKWK) <span class="tag t-all">semua</span></label></li>
+      <li><input type="checkbox" id="c3"><label for="c3">Scan KTM seluruh anggota, digabung dalam satu PDF <span class="tag t-all">semua</span></label></li>
+      <li><input type="checkbox" id="c4"><label for="c4">Surat rekomendasi pimpinan perguruan tinggi <span class="tag t-all">semua</span></label></li>
+      <li><input type="checkbox" id="c5"><label for="c5">Surat pernyataan orisinalitas bermeterai <span class="tag t-all">semua</span></label></li>
+      <li><input type="checkbox" id="c6"><label for="c6">Naskah deskripsi project (PDF, maks. 5 halaman) <span class="tag t-all">semua</span></label></li>
+      <li><input type="checkbox" id="c7"><label for="c7">Video 5–7 menit sudah tayang di YouTube <span class="tag t-vid">kategori video</span></label></li>
+      <li><input type="checkbox" id="c8"><label for="c8">Poster A1 dalam format PDF dan JPG/PNG <span class="tag t-pos">kategori poster</span></label></li>
+      <li><input type="checkbox" id="c9"><label for="c9">Bukti transfer biaya pendaftaran <span class="tag t-all">semua</span></label></li>
+      <li><input type="checkbox" id="c10"><label for="c10">Folder Drive sudah diatur “Siapa saja yang memiliki link → Pembaca” <span class="tag t-all">semua</span></label></li>
+    </ul>
+  </div>
+</section>
+
+<!-- BIAYA -->
+<section id="biaya">
+  <div class="wrap">
+    <h2><span class="num">02</span>Biaya Pendaftaran</h2>
+    <p class="lead">Dibayar per kelompok untuk setiap kategori yang diikuti.</p>
+
+    <div class="grid g2">
+      <div class="pay">
+        <div class="price">Rp50.000<small>per kelompok, per kategori</small></div>
+        <p style="margin-top:14px;font-size:14.5px;color:var(--muted)">Tim yang mengikuti dua kategori sekaligus (Video dan Poster) membayar <strong>Rp100.000</strong>.</p>
+
+        <div class="rek">
+          <div style="font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:#bcd4ea">Bank Mandiri</div>
+          <div class="no">
+            <span id="rekno">1610014541382</span>
+            <button class="copy" onclick="salinRek()">Salin</button>
+          </div>
+          <div class="an">a.n. <strong style="color:#fff">RPL 038 BLU UNRAM UNTUK DK</strong></div>
+        </div>
+
+        <div class="note" style="margin-top:16px;background:#fff;border-color:var(--danger)">
+          <strong>Wajib:</strong> tulis keterangan/berita transfer <strong>“Sarasehan Unram”</strong>. Tanpa keterangan ini pembayaran sulit diverifikasi panitia.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Yang Diperoleh Peserta</h3>
+        <ul style="margin:12px 0 0 18px;font-size:14.5px;color:var(--muted);line-height:2">
+          <li>Penilaian oleh dewan juri nasional</li>
+          <li>E-sertifikat untuk seluruh anggota tim</li>
+          <li>E-sertifikat untuk dosen pendamping</li>
+          <li>Publikasi karya di kanal resmi Universitas Mataram</li>
+        </ul>
+        <h3 style="margin-top:22px">Hadiah Pemenang</h3>
+        <p style="font-size:14.5px;color:var(--muted)">Uang pembinaan, sertifikat, dan suvenir menarik untuk Juara I–III serta Juara Harapan I–III, ditambah penghargaan khusus <em>Best Video</em>, <em>Best Poster</em>, dan <em>Best Presenter</em>.</p>
+        <p style="font-size:13.5px;color:var(--muted);margin-top:12px">Hadiah dikirim melalui transfer rekening dan sertifikat diterbitkan dalam bentuk digital.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KATEGORI -->
+<section id="kategori">
+  <div class="wrap">
+    <h2><span class="num">03</span>Kategori Lomba</h2>
+    <p class="lead">Tim boleh memilih satu kategori atau keduanya. Luaran yang dikumpulkan mengikuti kategori yang dipilih.</p>
+
+    <div class="grid g2">
+      <div class="card hl">
+        <h3>🎬 Video Projek MKWK</h3>
+        <p style="font-size:14.5px;color:var(--muted);margin-bottom:14px">Dokumenter atau film pendek yang merekam pelaksanaan project secara utuh: latar masalah, proses, dampak, dan refleksi nilai MKWK.</p>
+        <div class="scroll">
+        <table class="tbl">
+          <tr><td width="38%"><strong>Durasi</strong></td><td>5–7 menit</td></tr>
+          <tr><td><strong>Format</strong></td><td>MP4 atau MOV</td></tr>
+          <tr><td><strong>Resolusi</strong></td><td>Minimal 720p, orientasi lanskap</td></tr>
+          <tr><td><strong>Bahasa</strong></td><td>Indonesia; bahasa daerah wajib bersubtitle</td></tr>
+          <tr><td><strong>Pengumpulan</strong></td><td>Unggah ke YouTube (Publik/Unlisted), tempel tautannya di formulir</td></tr>
+        </table>
+        </div>
+      </div>
+
+      <div class="card hl">
+        <h3>🖼️ Poster Projek MKWK</h3>
+        <p style="font-size:14.5px;color:var(--muted);margin-bottom:14px">Infografis ilmiah-kreatif yang merangkum latar belakang, metode, hasil, dan dampak project secara visual dan informatif.</p>
+        <div class="scroll">
+        <table class="tbl">
+          <tr><td width="38%"><strong>Ukuran</strong></td><td>A1 (594 × 841 mm)</td></tr>
+          <tr><td><strong>Format</strong></td><td>PDF dan JPG/PNG</td></tr>
+          <tr><td><strong>Resolusi</strong></td><td>Minimal 300 dpi, mode warna RGB</td></tr>
+          <tr><td><strong>Bahasa</strong></td><td>Indonesia</td></tr>
+          <tr><td><strong>Pengumpulan</strong></td><td>Simpan di folder Drive tim — tidak perlu dicetak</td></tr>
+        </table>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:34px">Sub-Tema Project</h3>
+    <p style="font-size:14.5px;color:var(--muted)">Daftar berikut bersifat ilustratif, bukan membatasi. Tim boleh mengangkat tema lain sepanjang relevan dengan capaian pembelajaran MKWK.</p>
+    <div class="scroll">
+    <table class="tbl">
+      <thead><tr><th>Sub-Tema</th><th>Cakupan Isu</th><th>Nilai MKWK</th></tr></thead>
+      <tbody>
+        <tr><td>Kebangsaan dan Bela Negara</td><td>Nasionalisme, bela negara, cinta tanah air</td><td>PKn, Pancasila</td></tr>
+        <tr><td>Moderasi Beragama dan Toleransi</td><td>Kerukunan umat, dialog antaragama, inklusivitas</td><td>Agama</td></tr>
+        <tr><td>Literasi dan Budaya</td><td>Literasi bahasa, budaya dan kearifan lokal</td><td>Bahasa Indonesia</td></tr>
+        <tr><td>Pemberdayaan Masyarakat</td><td>Pengabdian sosial, UMKM, desa, komunitas marginal</td><td>Pancasila, PKn</td></tr>
+        <tr><td>Lingkungan dan Ketahanan Pangan</td><td>Ekologi, pangan lokal, pertanian, sanitasi</td><td>Semua MKWK</td></tr>
+        <tr><td>Pendidikan Karakter dan Anti-Korupsi</td><td>Integritas, anti-korupsi, etika publik</td><td>Pancasila, Agama</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="note">
+      <strong>Syarat mutlak konten project:</strong> project harus sudah benar-benar dilaksanakan dalam pembelajaran MKWK — bukan gagasan atau rancangan konseptual — melibatkan masyarakat atau komunitas sebagai penerima manfaat, menghasilkan dampak yang terukur dan dapat diverifikasi, serta bukan duplikasi karya yang pernah memenangkan lomba sejenis.
+    </div>
+  </div>
+</section>
+
+<!-- JADWAL -->
+<section id="jadwal">
+  <div class="wrap">
+    <h2><span class="num">04</span>Jadwal Kegiatan</h2>
+    <p class="lead">Seluruh rangkaian dilaksanakan secara daring melalui Zoom Meeting.</p>
+
+    <div class="tl">
+      <div class="it"><div class="d">2 Juni – 3 Agustus 2026</div><div class="t">Pendaftaran &amp; Pengumpulan Karya</div><div class="x">Ditutup 3 Agustus pukul 23.59 WITA</div></div>
+      <div class="it"><div class="d">4 – 7 Agustus 2026</div><div class="t">Seleksi Administrasi &amp; Penilaian Karya</div><div class="x">Verifikasi berkas oleh panitia dan penilaian video/poster oleh dewan juri</div></div>
+      <div class="it big"><div class="d">8 Agustus 2026</div><div class="t">Pengumuman Finalis</div><div class="x">Diumumkan melalui email dan kanal resmi panitia</div></div>
+      <div class="it"><div class="d">9 – 16 Agustus 2026</div><div class="t">Registrasi Ulang Finalis</div><div class="x">Konfirmasi keikutsertaan secara daring</div></div>
+      <div class="it"><div class="d">21 Agustus 2026</div><div class="t">Technical Meeting</div><div class="x">Briefing teknis dan undian urutan presentasi</div></div>
+      <div class="it big"><div class="d">22 Agustus 2026</div><div class="t">Presentasi Finalis</div><div class="x">Presentasi daring via Zoom Meeting</div></div>
+      <div class="it big"><div class="d">27 Agustus 2026</div><div class="t">Pengumuman Pemenang &amp; Awarding</div><div class="x">Penutupan resmi secara daring</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- UNDUHAN -->
+<section id="unduhan">
+  <div class="wrap">
+    <h2><span class="num">05</span>Unduhan &amp; Template</h2>
+    <p class="lead">Untuk template, klik tautannya lalu pilih <em>Buat salinan</em> agar Anda memperoleh berkas sendiri yang bisa diedit.</p>
+
+    <div class="grid g2">
+      <a class="dl" href="https://docs.google.com/document/d/1sRjgyUH2JcNu1juVjZFs9oZZAZ61Y3EDXEN-cvltEcA/edit?usp=sharing" target="_blank" rel="noopener">
+        <div class="ic">📘</div>
+        <div><h3>Petunjuk Teknis (Juknis)</h3><p>Dokumen resmi lengkap — syarat, spesifikasi karya, rubrik penilaian, dan tata tertib</p></div>
+      </a>
+
+      <a class="dl" href="https://docs.google.com/document/d/1sRjgyUH2JcNu1juVjZFs9oZZAZ61Y3EDXEN-cvltEcA/export?format=pdf" target="_blank" rel="noopener">
+        <div class="ic">⬇️</div>
+        <div><h3>Juknis versi PDF</h3><p>Unduh langsung untuk dibaca luring atau dibagikan ke tim</p></div>
+      </a>
+
+      <a class="dl" href="https://docs.google.com/document/d/1ylYpb9hJrfiZN4uYhByc_nKBSg_RY2RgBmJlfNCIogg/copy" target="_blank" rel="noopener">
+        <div class="ic g">📝</div>
+        <div><h3>Template Naskah Deskripsi Project</h3><p>Kerangka siap isi — ringkasan, latar belakang, metode, hasil, integrasi MKWK</p></div>
+      </a>
+
+      <a class="dl" href="https://docs.google.com/document/d/1wEc3DsLaibd60gvcbSNYwcUM9wva62EqXk-Xbc9c2jg/copy" target="_blank" rel="noopener">
+        <div class="ic g">✍️</div>
+        <div><h3>Template Surat Pernyataan Orisinalitas</h3><p>Ditandatangani Ketua Tim dan Dosen Pendamping di atas meterai</p></div>
+      </a>
+
+      <a class="dl" href="flier.jpg" target="_blank" rel="noopener">
+        <div class="ic">📣</div>
+        <div><h3>Flier Resmi Lomba</h3><p>Silakan sebarkan ke grup kelas, prodi, dan media sosial kampus Anda</p></div>
+      </a>
+
+      <a class="dl" href="https://docs.google.com/forms/d/e/1FAIpQLSd-CnLl_mBdWRWaQvBwFo7fxlXfhlVmMwnT8TixLYXc7NDpjw/viewform" target="_blank" rel="noopener">
+        <div class="ic g">🚀</div>
+        <div><h3>Formulir Pendaftaran</h3><p>Satu formulir untuk seluruh proses pendaftaran dan pengumpulan karya</p></div>
+      </a>
+    </div>
+
+    <h3 style="margin-top:38px">Flier Resmi</h3>
+    <div class="flier" style="margin-top:14px">
+      <a href="flier.jpg" target="_blank" rel="noopener" title="Klik untuk membuka ukuran penuh">
+        <img src="flier.jpg" alt="Flier Lomba Project MKWK Nasional 2026" loading="lazy">
+      </a>
+      <div class="cap">
+        <span>Flier resmi Festival Pesona Karakter Tingkat Nasional 2026</span>
+        <a href="flier.jpg" download="Flier-Lomba-Project-MKWK-Nasional-2026.jpg"><strong>Unduh gambar →</strong></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <h2><span class="num">06</span>Pertanyaan yang Sering Diajukan</h2>
+
+    <div style="margin-top:24px">
+      <details><summary>Siapa saja yang boleh ikut?</summary><div class="body">Mahasiswa aktif Semester 1–4 yang sedang atau telah menempuh Mata Kuliah Wajib Kurikulum di Perguruan Tinggi Umum mana pun di Indonesia. Tim terdiri atas 3–5 mahasiswa dari satu perguruan tinggi yang sama, boleh lintas program studi, dan wajib didampingi satu dosen MKWK.</div></details>
+
+      <details><summary>Apakah saya boleh masuk ke lebih dari satu tim?</summary><div class="body">Tidak. Setiap mahasiswa hanya boleh terdaftar dalam satu tim.</div></details>
+
+      <details><summary>Harus ikut kedua kategori, atau boleh pilih salah satu?</summary><div class="body">Boleh memilih salah satu. Tim yang hanya mengikuti kategori Video cukup mengumpulkan video, begitu pula sebaliknya. Jika mengikuti kedua kategori, kedua luaran wajib dikumpulkan dan biaya pendaftarannya dua kali.</div></details>
+
+      <details><summary>Project-nya belum selesai dilaksanakan, boleh didaftarkan?</summary><div class="body">Project harus sudah atau sedang benar-benar dijalankan, bukan sekadar rancangan di atas kertas. Yang dinilai adalah pelaksanaan nyata beserta dampaknya, sehingga project yang masih berupa konsep tidak memenuhi syarat.</div></details>
+
+      <details><summary>Bagaimana kalau video kami berbahasa daerah?</summary><div class="body">Diperbolehkan, dengan syarat menyertakan subtitle Bahasa Indonesia untuk seluruh dialog atau narasi berbahasa daerah maupun asing.</div></details>
+
+      <details><summary>Apakah poster perlu dicetak dan dikirim ke Mataram?</summary><div class="body">Tidak. Seluruh kegiatan dilaksanakan daring, sehingga poster cukup dikumpulkan dalam bentuk berkas digital dan akan dipamerkan melalui galeri virtual.</div></details>
+
+      <details><summary>Bagaimana cara membuat folder Drive bisa diakses panitia?</summary><div class="body">Buka folder Anda di Google Drive, klik kanan lalu pilih <em>Bagikan</em>. Pada bagian <em>Akses umum</em>, ubah dari “Terbatas” menjadi <strong>“Siapa saja yang memiliki link”</strong> dengan peran <strong>“Pembaca”</strong>. Salin tautannya, lalu tempel di formulir pendaftaran. Pastikan Anda mengetes tautan tersebut dengan membukanya di jendela penyamaran (incognito).</div></details>
+
+      <details><summary>Bagaimana kalau kami salah mengunggah berkas setelah formulir dikirim?</summary><div class="body">Selama pendaftaran belum ditutup, cukup perbaiki isi folder Google Drive Anda — tidak perlu mengisi ulang formulir, karena panitia mengakses berkas melalui tautan yang sama. Untuk perubahan data tim, hubungi panitia melalui WhatsApp.</div></details>
+
+      <details><summary>Biaya pendaftaran dihitung per orang atau per tim?</summary><div class="body">Per kelompok, bukan per orang. Rp50.000 untuk satu kategori, Rp100.000 jika mengikuti kedua kategori. Jangan lupa menuliskan keterangan “Sarasehan Unram” pada transaksi.</div></details>
+
+      <details><summary>Apakah biaya pendaftaran dapat dikembalikan?</summary><div class="body">Biaya pendaftaran yang telah disetorkan tidak dapat ditarik kembali, termasuk apabila tim mengundurkan diri atau tidak lolos seleksi.</div></details>
+
+      <details><summary>Kapan dan bagaimana pengumuman finalis disampaikan?</summary><div class="body">Pada 8 Agustus 2026 melalui email ketua tim dan kanal resmi panitia. Pastikan alamat email yang Anda isi di formulir aktif dan sering diperiksa, termasuk folder spam.</div></details>
+
+      <details><summary>Saya masih bingung. Ke mana harus bertanya?</summary><div class="body">Hubungi panitia melalui WhatsApp di <strong>+62 899-6085-314</strong> (Agus Kurnia, S.S., M.Ag.) pada hari dan jam kerja, atau kirim email ke <strong>mku@unram.ac.id</strong>.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+  <div class="wrap">
+    <h2><span class="num">07</span>Kontak Panitia</h2>
+    <p class="lead">Layanan Senin–Jumat, pukul 08.00–16.00 WITA, di luar hari libur nasional.</p>
+
+    <div class="grid g2" style="margin-top:20px">
+      <div class="card">
+        <a class="ct" href="https://wa.me/628996085314" target="_blank" rel="noopener">
+          <div class="ic">💬</div>
+          <div><b>+62 899-6085-314</b><span>WhatsApp — Agus Kurnia, S.S., M.Ag. (PJ Lomba)</span></div>
+        </a>
+        <a class="ct" href="mailto:mku@unram.ac.id">
+          <div class="ic">✉️</div>
+          <div><b>mku@unram.ac.id</b><span>Email resmi panitia</span></div>
+        </a>
+      </div>
+      <div class="card">
+        <h3>Penyelenggara</h3>
+        <p style="font-size:14.5px;color:var(--muted);margin-top:8px">
+          Pusat MKWK-MKWU, LPMPP<br>
+          <strong style="color:var(--ink)">Universitas Mataram</strong><br>
+          Jalan Majapahit Nomor 62, Mataram<br>
+          Nusa Tenggara Barat 83125
+        </p>
+        <p style="margin-top:14px"><a href="https://www.unram.ac.id" target="_blank" rel="noopener">www.unram.ac.id →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>Lomba Project MKWK Nasional 2026</h4>
+        <p>Festival Pesona Karakter Tingkat Nasional<br>“Generasi Berkarakter untuk Indonesia Emas 2045”</p>
+      </div>
+      <div>
+        <h4>Tautan Cepat</h4>
+        <p>
+          <a href="#cara">Cara Mendaftar</a><br>
+          <a href="#unduhan">Juknis &amp; Template</a><br>
+          <a href="#faq">Pertanyaan Umum</a><br>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSd-CnLl_mBdWRWaQvBwFo7fxlXfhlVmMwnT8TixLYXc7NDpjw/viewform" target="_blank" rel="noopener">Formulir Pendaftaran</a>
+        </p>
+      </div>
+      <div>
+        <h4>Hubungi Kami</h4>
+        <p>
+          <a href="https://wa.me/628996085314" target="_blank" rel="noopener">WhatsApp +62 899-6085-314</a><br>
+          <a href="mailto:mku@unram.ac.id">mku@unram.ac.id</a>
+        </p>
+      </div>
+    </div>
+    <div class="fbot">
+      © 2026 Pusat MKWK-MKWU, LPMPP Universitas Mataram. Seluruh informasi di laman ini mengacu pada Petunjuk Teknis resmi. Apabila terdapat perbedaan, ketentuan dalam Juknis yang berlaku.
+    </div>
+  </div>
+</footer>
+
+<a class="float" href="https://docs.google.com/forms/d/e/1FAIpQLSd-CnLl_mBdWRWaQvBwFo7fxlXfhlVmMwnT8TixLYXc7NDpjw/viewform" target="_blank" rel="noopener">Daftar Sekarang →</a>
+
+<script>
+// Hitung mundur ke 3 Agustus 2026, 23.59.59 WITA (UTC+8)
+var target = new Date("2026-08-03T23:59:59+08:00").getTime();
+function tick(){
+  var now = Date.now(), gap = target - now;
+  if (gap <= 0){
+    document.getElementById("cd").style.display = "none";
+    document.getElementById("cd-note").innerHTML = "<strong>Pendaftaran telah ditutup.</strong> Silakan pantau kanal resmi panitia untuk pengumuman finalis.";
+    clearInterval(timer);
+    return;
+  }
+  var d = Math.floor(gap/86400000),
+      h = Math.floor(gap%86400000/3600000),
+      m = Math.floor(gap%3600000/60000),
+      s = Math.floor(gap%60000/1000);
+  document.getElementById("cd-d").textContent = d;
+  document.getElementById("cd-h").textContent = String(h).padStart(2,"0");
+  document.getElementById("cd-m").textContent = String(m).padStart(2,"0");
+  document.getElementById("cd-s").textContent = String(s).padStart(2,"0");
+}
+tick();
+var timer = setInterval(tick, 1000);
+
+function salinRek(){
+  var no = document.getElementById("rekno").textContent.trim();
+  var btn = event.target;
+  function done(){ btn.textContent = "Tersalin ✓"; setTimeout(function(){ btn.textContent = "Salin"; }, 1800); }
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(no).then(done).catch(fallback);
+  } else { fallback(); }
+  function fallback(){
+    var t = document.createElement("textarea");
+    t.value = no; t.style.position = "fixed"; t.style.opacity = "0";
+    document.body.appendChild(t); t.select();
+    try { document.execCommand("copy"); done(); } catch(e){ btn.textContent = "Salin manual"; }
+    document.body.removeChild(t);
+  }
+}
+</script>
+
+</body>
+</html>
