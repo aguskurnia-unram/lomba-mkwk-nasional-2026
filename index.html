@@ -152,7 +152,7 @@ details .body{padding:0 19px 17px;color:var(--muted);font-size:14.5px}
 /* FLIER */
 .flier{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--white)}
 .flier a{display:block;line-height:0}
-.flier img{width:100%;cursor:zoom-in;transition:opacity .15s}
+.flier img{width:100%;height:auto;aspect-ratio:4/5;object-fit:contain;background:var(--bg);cursor:zoom-in;transition:opacity .15s}
 .flier img:hover{opacity:.92}
 .flier .cap{padding:13px 16px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;
   gap:10px;flex-wrap:wrap;align-items:center}
@@ -205,7 +205,7 @@ footer a:hover{text-decoration:underline}
     <span class="eyebrow">Festival Pesona Karakter Tingkat Nasional</span>
     <h1>Lomba Project MKWK Nasional 2026</h1>
     <p class="tagline">“Generasi Berkarakter untuk Indonesia Emas 2045”</p>
-    <p class="sub">Ajang nasional bagi mahasiswa Perguruan Tinggi Umum se-Indonesia untuk menampilkan project Mata Kuliah Wajib Kurikulum yang benar-benar dijalankan dan berdampak nyata bagi masyarakat. Diselenggarakan Pusat MKWK-MKWU, LPMPP Universitas Mataram — <strong>sepenuhnya daring</strong>.</p>
+    <p class="sub">Ajang nasional bagi mahasiswa Perguruan Tinggi Umum se-Indonesia untuk menampilkan project Mata Kuliah Wajib Kurikulum yang benar-benar dijalankan dan berdampak nyata bagi masyarakat. Diselenggarakan Pusat MKWK-MKWU, LPMPP Universitas Mataram — <strong>proses lomba sepenuhnya daring</strong>, dengan Pengumuman &amp; Awarding secara hybrid di Hotel Lombok Raya.</p>
 
     <div class="btns">
       <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSd-CnLl_mBdWRWaQvBwFo7fxlXfhlVmMwnT8TixLYXc7NDpjw/viewform" target="_blank" rel="noopener">Daftarkan Tim Anda →</a>
@@ -258,8 +258,8 @@ footer a:hover{text-decoration:underline}
       </div>
     </div>
 
-    <div class="note red">
-      <strong>Dua kesalahan yang paling sering menggugurkan peserta:</strong> folder Drive masih berstatus “Terbatas” sehingga panitia tidak bisa membukanya, dan video YouTube disetel <em>Pribadi</em> sehingga juri tidak bisa menilai. Gunakan <strong>Publik</strong> atau <strong>Tidak Terdaftar (Unlisted)</strong>.
+    <div class="note">
+      <strong>Agar juri lebih mudah menilai karya Anda:</strong> atur folder Drive ke “Siapa saja yang memiliki link” dan setel video YouTube ke <strong>Publik</strong> atau <strong>Tidak Terdaftar (Unlisted)</strong>, bukan Pribadi. Ini bukan soal menggugurkan nilai — semata agar dewan juri bisa langsung membuka dan menilai karya tim Anda tanpa hambatan teknis.
     </div>
 
     <h3 style="margin-top:34px">Checklist Berkas</h3>
@@ -381,7 +381,7 @@ footer a:hover{text-decoration:underline}
 <section id="jadwal">
   <div class="wrap">
     <h2><span class="num">04</span>Jadwal Kegiatan</h2>
-    <p class="lead">Seluruh rangkaian dilaksanakan secara daring melalui Zoom Meeting.</p>
+    <p class="lead">Seluruh proses lomba dilaksanakan secara daring melalui Zoom Meeting, kecuali Pengumuman Pemenang &amp; Awarding yang berlangsung hybrid — luring di Hotel Lombok Raya (bersamaan Sarasehan Nasional MKWK) dengan live streaming Zoom bagi yang mengikuti daring.</p>
 
     <div class="tl">
       <div class="it"><div class="d">2 Juni – 3 Agustus 2026</div><div class="t">Pendaftaran &amp; Pengumpulan Karya</div><div class="x">Ditutup 3 Agustus pukul 23.59 WITA</div></div>
@@ -390,7 +390,7 @@ footer a:hover{text-decoration:underline}
       <div class="it"><div class="d">9 – 16 Agustus 2026</div><div class="t">Registrasi Ulang Finalis</div><div class="x">Konfirmasi keikutsertaan secara daring</div></div>
       <div class="it"><div class="d">21 Agustus 2026</div><div class="t">Technical Meeting</div><div class="x">Briefing teknis dan undian urutan presentasi</div></div>
       <div class="it big"><div class="d">22 Agustus 2026</div><div class="t">Presentasi Finalis</div><div class="x">Presentasi daring via Zoom Meeting</div></div>
-      <div class="it big"><div class="d">27 Agustus 2026</div><div class="t">Pengumuman Pemenang &amp; Awarding</div><div class="x">Penutupan resmi secara daring</div></div>
+      <div class="it big"><div class="d">27 Agustus 2026</div><div class="t">Pengumuman Pemenang &amp; Awarding</div><div class="x">Hybrid: luring di Hotel Lombok Raya (bersamaan Sarasehan Nasional MKWK) + live streaming Zoom bagi finalis daring</div></div>
     </div>
   </div>
 </section>
@@ -436,7 +436,7 @@ footer a:hover{text-decoration:underline}
     <h3 style="margin-top:38px">Flier Resmi</h3>
     <div class="flier" style="margin-top:14px">
       <a href="flier.jpg" target="_blank" rel="noopener" title="Klik untuk membuka ukuran penuh">
-        <img src="flier.jpg" alt="Flier Lomba Project MKWK Nasional 2026" loading="lazy">
+        <img src="flier.jpg" alt="Flier Lomba Project MKWK Nasional 2026" width="1080" height="1350" decoding="async">
       </a>
       <div class="cap">
         <span>Flier resmi Festival Pesona Karakter Tingkat Nasional 2026</span>
@@ -462,7 +462,9 @@ footer a:hover{text-decoration:underline}
 
       <details><summary>Bagaimana kalau video kami berbahasa daerah?</summary><div class="body">Diperbolehkan, dengan syarat menyertakan subtitle Bahasa Indonesia untuk seluruh dialog atau narasi berbahasa daerah maupun asing.</div></details>
 
-      <details><summary>Apakah poster perlu dicetak dan dikirim ke Mataram?</summary><div class="body">Tidak. Seluruh kegiatan dilaksanakan daring, sehingga poster cukup dikumpulkan dalam bentuk berkas digital dan akan dipamerkan melalui galeri virtual.</div></details>
+      <details><summary>Apakah poster perlu dicetak dan dikirim ke Mataram?</summary><div class="body">Tidak. Proses lomba dilaksanakan daring, sehingga poster cukup dikumpulkan dalam bentuk berkas digital dan akan dipamerkan melalui galeri virtual.</div></details>
+
+      <details><summary>Kalau saya tidak bisa hadir ke Hotel Lombok Raya saat awarding, apakah tetap bisa mengikuti?</summary><div class="body">Bisa. Sesi Pengumuman Pemenang &amp; Awarding pada 27 Agustus 2026 bersifat hybrid — finalis yang tidak dapat hadir secara luring tetap dapat mengikuti secara daring melalui live streaming Zoom.</div></details>
 
       <details><summary>Bagaimana cara membuat folder Drive bisa diakses panitia?</summary><div class="body">Buka folder Anda di Google Drive, klik kanan lalu pilih <em>Bagikan</em>. Pada bagian <em>Akses umum</em>, ubah dari “Terbatas” menjadi <strong>“Siapa saja yang memiliki link”</strong> dengan peran <strong>“Pembaca”</strong>. Salin tautannya, lalu tempel di formulir pendaftaran. Pastikan Anda mengetes tautan tersebut dengan membukanya di jendela penyamaran (incognito).</div></details>
 
