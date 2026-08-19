@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Penilaian Juri MKWK 2026</title>
+<meta name="description" content="Form input skor juri dan rekap peringkat sementara tahap pra-event Lomba Project MKWK Nasional 2026, mengikuti rubrik Bab VII Juknis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f7f4ec; --paper-raised:#ffffff; --paper-sunk:#efe9d9;
+  --ink:#1c1f24; --ink-dim:#615c4e; --ink-faint:#8b8574;
+  --line:#e2dbc7; --line-strong:#cfc6ab;
+  --navy:#173e60; --navy-soft:#e2eaf1;
+  --gold:#a97a1f; --gold-soft:#f2e4bf;
+  --ok:#2c7a56; --ok-soft:#dcefe2;
+  --warn:#a85a17; --warn-soft:#f6e2c9;
+  --danger:#b3261e; --danger-soft:#fbe4e1;
+  --shadow:0 1px 2px rgba(23,42,58,.06), 0 8px 24px -12px rgba(23,42,58,.18);
+  --radius:12px;
+  --font-display:'Fraunces',ui-serif,Georgia,'Times New Roman',serif;
+  --font-body:'Public Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#12151b; --paper-raised:#1a1e26; --paper-sunk:#0d0f14;
+    --ink:#eae6da; --ink-dim:#aba695; --ink-faint:#7b7768;
+    --line:#2b2f38; --line-strong:#3a3f4a;
+    --navy:#8fb8dd; --navy-soft:#1c2c3c;
+    --gold:#e0b45f; --gold-soft:#332a13;
+    --ok:#68c79a; --ok-soft:#173226;
+    --warn:#e2954a; --warn-soft:#392712;
+    --danger:#e5786f; --danger-soft:#3a1a17;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12151b; --paper-raised:#1a1e26; --paper-sunk:#0d0f14;
+  --ink:#eae6da; --ink-dim:#aba695; --ink-faint:#7b7768;
+  --line:#2b2f38; --line-strong:#3a3f4a;
+  --navy:#8fb8dd; --navy-soft:#1c2c3c;
+  --gold:#e0b45f; --gold-soft:#332a13;
+  --ok:#68c79a; --ok-soft:#173226;
+  --warn:#e2954a; --warn-soft:#392712;
+  --danger:#e5786f; --danger-soft:#3a1a17;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--font-body); line-height:1.55; -webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 22px}
+.ic{width:16px;height:16px;flex:0 0 auto}
+
+/* Lock screen (shared pattern with the verification dashboard) */
+.lock-screen{position:fixed; inset:0; z-index:999; display:flex; align-items:center; justify-content:center; background:linear-gradient(160deg,var(--navy) 0%, #0e2c47 100%); padding:24px}
+.lock-card{width:100%; max-width:360px; background:var(--paper-raised); border-radius:16px; padding:30px 28px 26px; box-shadow:0 20px 60px -18px rgba(0,0,0,.5)}
+.lock-card .lock-icon{width:42px; height:42px; border-radius:11px; background:var(--gold-soft); color:var(--gold); display:flex; align-items:center; justify-content:center; margin-bottom:14px}
+.lock-card .lock-icon svg{width:22px; height:22px}
+.lock-card h2{font-family:var(--font-display); font-size:21px; font-weight:700; margin:0 0 6px; color:var(--ink)}
+.lock-card p{font-size:13px; color:var(--ink-dim); margin:0 0 18px; line-height:1.5}
+.lock-form{display:flex; flex-direction:column; gap:10px}
+.lock-form input{font:inherit; font-size:15px; padding:11px 13px; border-radius:9px; border:1.5px solid var(--line); background:var(--paper); color:var(--ink); outline:none}
+.lock-form input:focus{border-color:var(--navy)}
+.lock-form button{font:inherit; font-weight:700; font-size:14px; padding:11px 13px; border-radius:9px; border:none; background:var(--navy); color:#fff; cursor:pointer}
+.lock-form button:hover{background:#0e2c47}
+.lock-error{font-size:12.5px; color:var(--warn); min-height:16px; margin:0}
+
+/* Masthead */
+.masthead{background:linear-gradient(160deg,var(--navy) 0%, #0e2c47 100%); color:#f3f0e6}
+.masthead .wrap{padding:30px 22px 26px}
+.eyebrow{font-size:12px; letter-spacing:1.3px; text-transform:uppercase; font-weight:600; color:#c9dcec; display:flex; align-items:center; gap:8px}
+.eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.page-tabs{display:flex; gap:4px; margin-top:16px}
+.page-tabs a{font-size:13px; font-weight:700; padding:8px 14px; border-radius:8px 8px 0 0; text-decoration:none; color:#c9dcec; background:rgba(255,255,255,.06)}
+.page-tabs a.active{background:var(--paper); color:var(--navy)}
+.page-tabs a:not(.active):hover{background:rgba(255,255,255,.14); color:#fff}
+h1{font-family:var(--font-display); font-weight:700; text-wrap:balance; font-size:clamp(26px,4vw,38px); margin:10px 0 8px; letter-spacing:-.01em}
+.masthead .lede{max-width:660px; color:#d8e2ea; font-size:15px; margin:0 0 4px}
+.masthead .flag{margin-top:16px; display:inline-flex; gap:10px; align-items:flex-start; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); border-radius:10px; padding:10px 14px; font-size:13px; color:#eef1e9; max-width:660px}
+.masthead .flag b{color:#fff}
+
+.weight-strip{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+.weight-chip{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:5px 12px; font-size:12px; color:#e6edf3}
+.weight-chip b{color:#fff}
+
+/* Juror bar */
+.juror-bar{position:sticky; top:0; z-index:5; background:var(--paper); border-bottom:1px solid var(--line); padding:14px 0; margin-top:0}
+.juror-bar .row{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.juror-bar label{font-size:12.5px; font-weight:700; color:var(--ink-dim)}
+.juror-bar input[type="text"]{font:inherit; font-size:14px; padding:9px 12px; border-radius:8px; border:1.5px solid var(--line); background:var(--paper-raised); color:var(--ink); min-width:220px}
+.juror-bar input[type="text"]:focus{outline:none; border-color:var(--navy)}
+.tabbtns{display:inline-flex; background:var(--paper-raised); border:1px solid var(--line); border-radius:9px; padding:3px; gap:2px; margin-left:auto}
+.tabbtns button{border:none; background:transparent; font:inherit; font-size:13px; padding:8px 14px; border-radius:6px; color:var(--ink-dim); cursor:pointer; font-weight:600}
+.tabbtns button.active{background:var(--navy); color:#fff}
+.conn-status{font-size:12px; padding:4px 10px; border-radius:999px; font-weight:700}
+.conn-ok{background:var(--ok-soft); color:var(--ok)}
+.conn-bad{background:var(--danger-soft); color:var(--danger)}
+.conn-wait{background:var(--gold-soft); color:var(--gold)}
+
+.banner{margin:18px 0; padding:12px 16px; border-radius:10px; font-size:13.5px; display:flex; gap:10px; align-items:flex-start}
+.banner-danger{background:var(--danger-soft); color:var(--danger)}
+.banner code{background:rgba(0,0,0,.08); padding:1px 5px; border-radius:4px}
+
+/* Team scoring cards */
+.roster{display:flex; flex-direction:column; gap:14px; margin:20px 0 44px}
+.score-card{background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius); padding:18px 19px; box-shadow:var(--shadow); border-left:4px solid var(--line-strong)}
+.score-card.is-saved{border-left-color:var(--ok)}
+.sc-head{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap}
+.sc-title{font-family:var(--font-display); font-size:18px; font-weight:700; margin:0}
+.sc-sub{font-size:12.5px; color:var(--ink-dim); margin:2px 0 0}
+.sc-judul{font-size:13.5px; color:var(--ink); margin:6px 0 0; font-weight:600}
+.sc-pills{display:flex; gap:6px}
+.pill{display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px}
+.pill-video{background:var(--navy-soft); color:var(--navy)}
+.pill-poster{background:var(--gold-soft); color:var(--gold)}
+
+.crit-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin-top:14px}
+.crit{background:var(--paper-sunk); border-radius:9px; padding:11px 12px}
+.crit label{display:block; font-size:12px; font-weight:700; color:var(--ink)}
+.crit .hint{font-size:11px; color:var(--ink-faint); margin:2px 0 8px; line-height:1.4; min-height:28px}
+.crit .inrow{display:flex; align-items:center; gap:8px}
+.crit input[type="number"]{width:70px; font:inherit; font-size:15px; font-variant-numeric:tabular-nums; padding:6px 8px; border-radius:7px; border:1.5px solid var(--line-strong); background:var(--paper-raised); color:var(--ink)}
+.crit input[type="number"]:focus{outline:none; border-color:var(--navy)}
+.crit .band{font-size:11px; font-weight:700; color:var(--ink-faint)}
+.crit .band.b-top{color:var(--ok)}
+.crit .band.b-hi{color:var(--navy)}
+.crit .band.b-mid{color:var(--gold)}
+.crit .band.b-low{color:var(--danger)}
+
+.sc-foot{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:14px; flex-wrap:wrap}
+.save-status{font-size:12px; color:var(--ink-faint)}
+.save-status.ok{color:var(--ok); font-weight:700}
+.btn-save{font:inherit; font-weight:700; font-size:13.5px; padding:9px 16px; border-radius:8px; border:none; background:var(--navy); color:#fff; cursor:pointer}
+.btn-save:hover{background:#0e2c47}
+.btn-save:disabled{background:var(--line-strong); cursor:not-allowed}
+
+/* Rekap table */
+.rekap-wrap{margin:20px 0 44px; overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius); background:var(--paper-raised)}
+table.rekap{width:100%; border-collapse:collapse; font-size:13.5px}
+table.rekap th{background:var(--navy); color:#fff; text-align:left; padding:10px 12px; font-size:12px; position:sticky; top:0}
+table.rekap td{padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top}
+table.rekap tr.top10 td{background:var(--ok-soft)}
+table.rekap tr.cutoff td{border-bottom:2px dashed var(--warn)}
+table.rekap td.num{font-variant-numeric:tabular-nums; text-align:right}
+table.rekap .rank{font-family:var(--font-display); font-weight:700; font-size:15px}
+table.rekap .jcount{font-size:11px; color:var(--ink-faint)}
+
+footer.site{border-top:1px solid var(--line); padding:26px 0 40px; font-size:12.5px; color:var(--ink-faint)}
+
+@media print{
+  .juror-bar, .lock-screen{display:none !important}
+  .roster{grid-template-columns:1fr}
+  .score-card{break-inside:avoid; box-shadow:none}
+}
+@media (prefers-reduced-motion: reduce){ *{transition:none !important} }
+</style>
+</head>
+<body>
+
+<div class="lock-screen" id="lockScreen">
+  <div class="lock-card">
+    <div class="lock-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
+    </div>
+    <h2>Akses Panitia</h2>
+    <p>Halaman penilaian ini khusus panitia dan dewan juri Lomba Project MKWK Nasional 2026. Masukkan sandi akses untuk melanjutkan.</p>
+    <form class="lock-form" id="lockForm" autocomplete="off">
+      <input type="password" id="lockPass" placeholder="Sandi akses" autocomplete="off" autofocus>
+      <p class="lock-error" id="lockError"></p>
+      <button type="submit">Buka Halaman</button>
+    </form>
+  </div>
+</div>
+
+<div id="app" style="display:none">
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Pusat MKWK&ndash;MKWU, LPMPP &middot; Universitas Mataram &middot; Dokumen kerja internal</div>
+    <nav class="page-tabs">
+      <a href="../">Verifikasi Peserta</a>
+      <a href="./" class="active">Penilaian Juri</a>
+    </nav>
+    <h1>Penilaian Juri &mdash; Tahap Pra-Event</h1>
+    <p class="lede">Input skor Video &amp; Poster mengikuti rubrik resmi Bab VII Juknis. Nilai tersimpan langsung ke server sehingga rekap peringkat di bawah selalu menggabungkan skor semua juri secara real-time.</p>
+    <div class="flag"><span>&#9888;&#65039;</span><span><b>Bukan pengumuman resmi.</b> Rekap &amp; peringkat di sini adalah alat bantu kerja dewan juri untuk mengusulkan finalis &mdash; keputusan final tetap melalui rapat dewan juri. Pengumuman finalis resmi disampaikan panitia terpisah pada 20 Agustus 2026.</span></div>
+    <div class="weight-strip">
+      <span class="weight-chip"><b>Video 30%</b> &mdash; Konten 15% + Produksi 10% + Integrasi MKWK 5%</span>
+      <span class="weight-chip"><b>Poster 20%</b> &mdash; Isi Ilmiah 10% + Estetika 10%</span>
+      <span class="weight-chip">Presentasi hari-H (50%) dinilai terpisah pada 22 Agustus</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div id="connBanner"></div>
+</div>
+
+<div class="juror-bar">
+  <div class="wrap row">
+    <label for="jurorName">Nama juri:</label>
+    <input type="text" id="jurorName" placeholder="Nama lengkap Anda">
+    <span id="connStatus" class="conn-status conn-wait">Menghubungkan&hellip;</span>
+    <div class="tabbtns" id="viewTabs">
+      <button data-view="input" class="active">Input Nilai</button>
+      <button data-view="rekap">Rekap &amp; Peringkat</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="viewInput">
+    <div class="roster" id="roster"><!-- rendered by JS --></div>
+  </section>
+
+  <section id="viewRekap" style="display:none">
+    <p style="font-size:13px; color:var(--ink-dim); margin-top:18px">Skor Akhir = rata-rata seluruh juri yang sudah mengisi, dihitung dengan bobot resmi Juknis. Tim kategori ganda digabung <code>(Video&times;30 + Poster&times;20) / 50</code> agar setara dengan tim satu kategori. 10 baris teratas (garis putus-putus) diusulkan sebagai finalis.</p>
+    <div class="rekap-wrap">
+      <table class="rekap">
+        <thead>
+          <tr><th>Peringkat</th><th>Tim</th><th>Perguruan Tinggi</th><th>Kategori</th><th>Skor Video</th><th>Skor Poster</th><th>Skor Akhir</th><th>Juri mengisi</th></tr>
+        </thead>
+        <tbody id="rekapBody"></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    Data skor tersimpan di database internal panitia (Cloudflare D1), bukan di browser Anda &mdash; aman dibuka dari perangkat berbeda selama memakai sandi &amp; nama juri yang sama. Dokumen kerja internal; mohon tidak disebarluaskan.
+  </div>
+</footer>
+
+</div>
+
+<script>
+const TEAMS = [{"slug": "nusa-data-team", "team": "Nusa Data Team", "univ": "Politeknik Al Islam Bandung", "cats": ["Video"], "judul": "Tertib Administrasi Kependudukan: Studi Kasus di Kelurahan Babakan Sari", "subtema": "4. Pemberdayaan Masyarakat"}, {"slug": "garudaaksi", "team": "GarudaAksi", "univ": "Universitas Muhammadiyah Riau", "cats": ["Poster"], "judul": "GARUDA (Gerakan Edukasi Bela Negara Untuk Anak Indonesia)  Membangun Generasi Berkarakter Menuju Indonesia Emas 2045", "subtema": "1. Kebangsaan dan Bela Negara"}, {"slug": "nawasena", "team": "Nawasena", "univ": "Sekolah Tinggi Agama Hindu Dharma Nusantara Jakarta", "cats": ["Video"], "judul": "Mini Work Shop pendidikan karakter Berbasis nilai Satya Sebagai Upaya Pencegahan Prilaku Koruptif", "subtema": "6. Pendidikan Karakter dan Anti-Korupsi"}, {"slug": "tim-karsa-nusantara-umri", "team": "Tim Karsa Nusantara UMRI", "univ": "Universitas Muhammadiyah Riau", "cats": ["Video", "Poster"], "judul": "Penguatan Karakter Bela Negara melalui Edukasi Partisipatif dan Media Edukasi Berkelanjutan Pada Anak Panti Asuhan", "subtema": "1. Kebangsaan dan Bela Negara"}, {"slug": "grow-with-nature", "team": "Grow With Nature", "univ": "Universitas Mataram", "cats": ["Video"], "judul": "Pembuatan pupuk kompos dari daun kering untuk mendukung pertanian berkelanjutan di Dusun Mulejati Desa Sekotong Tengah.", "subtema": "4. Pemberdayaan Masyarakat"}, {"slug": "panca-inspirasi", "team": "PANCA INSPIRASI", "univ": "Universitas Borneo Tarakan", "cats": ["Poster"], "judul": "BELIMPUNG TAKA TAGAS PERBEDAAN BUKAN BATAS", "subtema": "1. Kebangsaan dan Bela Negara"}, {"slug": "teamkwu", "team": "TeamKWU", "univ": "Universitas Pasir Pengaraian", "cats": ["Video"], "judul": "Pelestarian Budaya Melayu Dalam Pembuataan Lukah Sebagai Mata Pencarian Masyarakat Kepenuhan Timur", "subtema": "3. Literasi dan Budaya"}, {"slug": "bahagia-grup", "team": "bahagia grup", "univ": "Universitas Negeri Surabaya", "cats": ["Poster"], "judul": "semarak kemerdekaan", "subtema": "1. Kebangsaan dan Bela Negara"}, {"slug": "ecorizz", "team": "EcoRizz", "univ": "Universitas Mataram", "cats": ["Poster"], "judul": "PENINGKATAN PENGETAHUAN SISWA SISWI SDN BILE PENANGGAK TERHADAP BAHAYA SAMPAH PLASTIK SULIT TERURAI", "subtema": "4. Pemberdayaan Masyarakat"}, {"slug": "sortnova-team", "team": "SortNova.team", "univ": "Universitas Mataram", "cats": ["Video"], "judul": "EcoSort Nova: Smart Sorting System Berbasis Teknologi dengan Integrasi  Edukasi Digital sebagai Solusi Pengelolaan Sampah Berkelanjutan", "subtema": "5. Lingkungan dan Ketahanan Pangan"}, {"slug": "tim-hore", "team": "tim hore", "univ": "Universitas Mataram", "cats": ["Poster"], "judul": "inovasi pemanfaatan limbah cangkang telur program MBG sebagai pupuk organik dan sumber kalsium pakan ternak", "subtema": "4. Pemberdayaan Masyarakat"}, {"slug": "the-last-trace-team", "team": "The last trace team", "univ": "Universitas Mataram", "cats": ["Video"], "judul": "Digital Graveyard; Jejak Digital Tak Pernah Mati", "subtema": "Literasi digital"}];
+
+const CRITERIA = {
+  a1: { label: "Kualitas Konten & Pesan", cat: "Video", weight: 15, hint: "Isu relevan, data akurat, pesan jelas, storytelling kuat" },
+  a2: { label: "Kualitas Produksi",       cat: "Video", weight: 10, hint: "Resolusi HD, suara jernih, editing rapi, transisi halus" },
+  a3: { label: "Integrasi Nilai MKWK",    cat: "Video", weight: 5,  hint: "Nilai MKWK eksplisit & terdokumentasi kuat dalam video" },
+  b1: { label: "Kualitas Isi Ilmiah",     cat: "Poster", weight: 10, hint: "Masalah jelas, metode tepat, dampak terukur & berbasis data" },
+  b2: { label: "Estetika & Keterbacaan",  cat: "Poster", weight: 10, hint: "Desain menarik, hierarki tipografi jelas, terbaca di layar" },
+};
+const CRIT_ORDER = ["a1", "a2", "a3", "b1", "b2"];
+
+const PASSWORD_KEY = "mkwk2026-jury-access";
+const JUROR_KEY = "mkwk2026-juror-name";
+
+let TOKEN = "";
+let ALL_SCORES = []; // {team_slug, juror_name, criterion, score, note, updated_at}
+let apiOk = false;
+
+/* ---------------- Lock screen ---------------- */
+(function initLock(){
+  const lockScreen = document.getElementById("lockScreen");
+  const app = document.getElementById("app");
+  const lockForm = document.getElementById("lockForm");
+  const lockPass = document.getElementById("lockPass");
+  const lockError = document.getElementById("lockError");
+
+  function unlock(token){
+    TOKEN = token;
+    lockScreen.style.display = "none";
+    app.style.display = "";
+    boot();
+  }
+
+  try {
+    const saved = sessionStorage.getItem(PASSWORD_KEY);
+    if (saved) { unlock(saved); return; }
+  } catch (e) {}
+
+  lockForm.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    const val = lockPass.value;
+    // We don't know the password client-side beyond what the server accepts;
+    // try it against the API and only unlock the UI on a real 200/401 signal.
+    fetch("/api/scores", { headers: { Authorization: "Bearer " + val } })
+      .then(function(res){
+        if (res.status === 401) {
+          lockError.textContent = "Sandi salah. Hubungi koordinator panitia jika lupa.";
+          lockPass.value = ""; lockPass.focus();
+          return;
+        }
+        try { sessionStorage.setItem(PASSWORD_KEY, val); } catch (e) {}
+        unlock(val);
+      })
+      .catch(function(){
+        // API unreachable (server belum di-deploy) — tetap buka UI lokal
+        // agar panitia bisa melihat tampilan, tapi tandai token belum teruji.
+        try { sessionStorage.setItem(PASSWORD_KEY, val); } catch (e) {}
+        unlock(val);
+      });
+  });
+})();
+
+/* ---------------- App ---------------- */
+function boot(){
+  const jurorInput = document.getElementById("jurorName");
+  try { jurorInput.value = localStorage.getItem(JUROR_KEY) || ""; } catch (e) {}
+  jurorInput.addEventListener("input", function(){
+    try { localStorage.setItem(JUROR_KEY, jurorInput.value.trim()); } catch (e) {}
+    renderRoster();
+  });
+
+  document.getElementById("viewTabs").addEventListener("click", function(ev){
+    const btn = ev.target.closest("button");
+    if (!btn) return;
+    document.querySelectorAll("#viewTabs button").forEach(b => b.classList.toggle("active", b === btn));
+    const isRekap = btn.dataset.view === "rekap";
+    document.getElementById("viewInput").style.display = isRekap ? "none" : "";
+    document.getElementById("viewRekap").style.display = isRekap ? "" : "none";
+    if (isRekap) renderRekap();
+  });
+
+  renderRoster();
+  loadScores();
+}
+
+function setConn(state, text){
+  const el = document.getElementById("connStatus");
+  el.className = "conn-status " + (state === "ok" ? "conn-ok" : state === "bad" ? "conn-bad" : "conn-wait");
+  el.textContent = text;
+  const banner = document.getElementById("connBanner");
+  if (state === "bad") {
+    banner.innerHTML = '<div class="banner banner-danger">&#9888;&#65039; Tidak bisa terhubung ke server penilaian (<code>/api/scores</code>). Kemungkinan database belum di-deploy panitia. Nilai yang Anda isi <b>tidak akan tersimpan</b> sampai koneksi ini kembali normal — hubungi PJ Lomba.</div>';
+  } else {
+    banner.innerHTML = "";
+  }
+}
+
+function loadScores(){
+  setConn("wait", "Menghubungkan…");
+  fetch("/api/scores", { headers: { Authorization: "Bearer " + TOKEN } })
+    .then(function(res){
+      if (res.status === 401) { setConn("bad", "Sandi ditolak server"); throw new Error("unauthorized"); }
+      if (!res.ok) throw new Error("http " + res.status);
+      return res.json();
+    })
+    .then(function(data){
+      ALL_SCORES = data.scores || [];
+      apiOk = true;
+      setConn("ok", "Terhubung · " + ALL_SCORES.length + " skor tersimpan");
+      renderRoster();
+    })
+    .catch(function(err){
+      apiOk = false;
+      setConn("bad", "Tidak terhubung");
+    });
+}
+
+function scoreFor(slug, juror, criterion){
+  const j = (juror || "").trim().toLowerCase();
+  const row = ALL_SCORES.find(s => s.team_slug === slug && s.criterion === criterion && (s.juror_name || "").trim().toLowerCase() === j);
+  return row ? row.score : "";
+}
+
+function bandFor(score){
+  if (score === "" || score === null || isNaN(score)) return { cls: "", text: "" };
+  const n = Number(score);
+  if (n >= 86) return { cls: "b-top", text: "Sangat baik" };
+  if (n >= 71) return { cls: "b-hi", text: "Baik" };
+  if (n >= 56) return { cls: "b-mid", text: "Cukup" };
+  return { cls: "b-low", text: "Kurang" };
+}
+
+function renderRoster(){
+  const juror = document.getElementById("jurorName").value.trim();
+  const roster = document.getElementById("roster");
+  roster.innerHTML = TEAMS.map(function(t, idx){
+    const crits = CRIT_ORDER.filter(c => t.cats.indexOf(CRITERIA[c].cat) !== -1);
+    const critHtml = crits.map(function(c){
+      const meta = CRITERIA[c];
+      const val = scoreFor(t.slug, juror, c);
+      const band = bandFor(val);
+      return '<div class="crit">' +
+        '<label>' + c.toUpperCase() + ' &middot; ' + meta.label + ' (' + meta.weight + '%)</label>' +
+        '<div class="hint">' + meta.hint + '</div>' +
+        '<div class="inrow">' +
+          '<input type="number" min="0" max="100" step="1" data-slug="' + t.slug + '" data-crit="' + c + '" value="' + val + '">' +
+          '<span class="band ' + band.cls + '" data-band-for="' + t.slug + '-' + c + '">' + band.text + '</span>' +
+        '</div>' +
+      '</div>';
+    }).join("");
+
+    const pills = t.cats.map(c => '<span class="pill pill-' + c.toLowerCase() + '">' + c + '</span>').join("");
+    const savedRows = ALL_SCORES.filter(s => s.team_slug === t.slug && (s.juror_name || "").trim().toLowerCase() === juror.toLowerCase());
+    const lastSaved = savedRows.length ? savedRows.reduce((a, b) => (a.updated_at > b.updated_at ? a : b)).updated_at : null;
+
+    return '<article class="score-card' + (savedRows.length ? ' is-saved' : '') + '" id="team-' + t.slug + '" data-slug="' + t.slug + '">' +
+      '<div class="sc-head">' +
+        '<div><h3 class="sc-title">' + esc(t.team) + '</h3>' +
+        '<p class="sc-sub">' + esc(t.univ) + ' &middot; ' + esc(t.subtema) + '</p>' +
+        '<p class="sc-judul">' + esc(t.judul) + '</p></div>' +
+        '<div class="sc-pills">' + pills + '</div>' +
+      '</div>' +
+      '<div class="crit-grid">' + critHtml + '</div>' +
+      '<div class="sc-foot">' +
+        '<span class="save-status' + (savedRows.length ? ' ok' : '') + '" data-status-for="' + t.slug + '">' +
+          (savedRows.length ? ("Tersimpan oleh Anda · " + fmtTime(lastSaved)) : "Belum dinilai oleh Anda") +
+        '</span>' +
+        '<button class="btn-save" data-save-for="' + t.slug + '">Simpan Nilai</button>' +
+      '</div>' +
+    '</article>';
+  }).join("");
+
+  roster.querySelectorAll('input[type="number"]').forEach(function(inp){
+    inp.addEventListener("input", function(){
+      const key = inp.dataset.slug + "-" + inp.dataset.crit;
+      const band = bandFor(inp.value);
+      const el = roster.querySelector('[data-band-for="' + key + '"]');
+      if (el) { el.className = "band " + band.cls; el.textContent = band.text; }
+    });
+  });
+  roster.querySelectorAll("[data-save-for]").forEach(function(btn){
+    btn.addEventListener("click", function(){ saveTeam(btn.dataset.saveFor); });
+  });
+}
+
+function fmtTime(iso){
+  if (!iso) return "";
+  // D1 stores UTC "YYYY-MM-DD HH:MM:SS"
+  const d = new Date(iso.replace(" ", "T") + "Z");
+  if (isNaN(d)) return iso;
+  return d.toLocaleString("id-ID", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }) + " WITA";
+}
+
+function esc(s){
+  const d = document.createElement("div");
+  d.textContent = s == null ? "" : s;
+  return d.innerHTML;
+}
+
+function saveTeam(slug){
+  const jurorInput = document.getElementById("jurorName");
+  const juror = jurorInput.value.trim();
+  const card = document.querySelector('.score-card[data-slug="' + slug + '"]');
+  const statusEl = card.querySelector("[data-status-for='" + slug + "']");
+  const btn = card.querySelector("[data-save-for='" + slug + "']");
+
+  if (!juror) {
+    statusEl.textContent = "Isi nama juri terlebih dahulu ↑";
+    statusEl.className = "save-status";
+    jurorInput.focus();
+    return;
+  }
+
+  const entries = [];
+  card.querySelectorAll('input[type="number"]').forEach(function(inp){
+    if (inp.value === "") return;
+    const n = Number(inp.value);
+    if (!isFinite(n) || n < 0 || n > 100) return;
+    entries.push({ criterion: inp.dataset.crit, score: n });
+  });
+  if (!entries.length) {
+    statusEl.textContent = "Isi minimal satu nilai sebelum menyimpan";
+    statusEl.className = "save-status";
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "Menyimpan…";
+  fetch("/api/scores", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: "Bearer " + TOKEN },
+    body: JSON.stringify({ team_slug: slug, juror_name: juror, entries: entries }),
+  })
+    .then(function(res){
+      if (!res.ok) throw new Error("http " + res.status);
+      return res.json();
+    })
+    .then(function(){
+      // reflect saved state locally without a full refetch
+      const now = new Date().toISOString().replace("T", " ").slice(0, 19);
+      entries.forEach(function(e){
+        const idx = ALL_SCORES.findIndex(s => s.team_slug === slug && s.criterion === e.criterion && (s.juror_name || "").trim().toLowerCase() === juror.toLowerCase());
+        const row = { team_slug: slug, juror_name: juror, criterion: e.criterion, score: e.score, note: null, updated_at: now };
+        if (idx === -1) ALL_SCORES.push(row); else ALL_SCORES[idx] = row;
+      });
+      card.classList.add("is-saved");
+      statusEl.className = "save-status ok";
+      statusEl.textContent = "Tersimpan oleh Anda · " + fmtTime(now);
+    })
+    .catch(function(){
+      statusEl.className = "save-status";
+      statusEl.textContent = "Gagal menyimpan — coba lagi (periksa koneksi)";
+    })
+    .finally(function(){
+      btn.disabled = false;
+      btn.textContent = "Simpan Nilai";
+    });
+}
+
+/* ---------------- Rekap & Peringkat ---------------- */
+function avgOf(slug, criterion){
+  const rows = ALL_SCORES.filter(s => s.team_slug === slug && s.criterion === criterion);
+  if (!rows.length) return null;
+  return rows.reduce((a, b) => a + Number(b.score), 0) / rows.length;
+}
+
+function renderRekap(){
+  const rows = TEAMS.map(function(t){
+    const hasVideo = t.cats.indexOf("Video") !== -1;
+    const hasPoster = t.cats.indexOf("Poster") !== -1;
+    let videoScore = null, posterScore = null;
+    if (hasVideo) {
+      const a1 = avgOf(t.slug, "a1"), a2 = avgOf(t.slug, "a2"), a3 = avgOf(t.slug, "a3");
+      if (a1 !== null || a2 !== null || a3 !== null) {
+        videoScore = ((a1 || 0) * 15 + (a2 || 0) * 10 + (a3 || 0) * 5) / 30;
+      }
+    }
+    if (hasPoster) {
+      const b1 = avgOf(t.slug, "b1"), b2 = avgOf(t.slug, "b2");
+      if (b1 !== null || b2 !== null) {
+        posterScore = ((b1 || 0) * 10 + (b2 || 0) * 10) / 20;
+      }
+    }
+    let finalScore = null;
+    if (videoScore !== null && posterScore !== null) finalScore = (videoScore * 30 + posterScore * 20) / 50;
+    else if (videoScore !== null) finalScore = videoScore;
+    else if (posterScore !== null) finalScore = posterScore;
+
+    const jurors = new Set(ALL_SCORES.filter(s => s.team_slug === t.slug).map(s => (s.juror_name || "").trim().toLowerCase()));
+
+    return { t, videoScore, posterScore, finalScore, jurorCount: jurors.size };
+  });
+
+  rows.sort(function(a, b){
+    if (a.finalScore === null && b.finalScore === null) return 0;
+    if (a.finalScore === null) return 1;
+    if (b.finalScore === null) return -1;
+    return b.finalScore - a.finalScore;
+  });
+
+  const body = document.getElementById("rekapBody");
+  body.innerHTML = rows.map(function(r, i){
+    const rank = r.finalScore === null ? "–" : (i + 1);
+    const cls = (typeof rank === "number" && rank <= 10 ? "top10" : "") + (rank === 10 ? " cutoff" : "");
+    return "<tr class=\"" + cls + "\">" +
+      "<td class=\"rank\">" + rank + "</td>" +
+      "<td>" + esc(r.t.team) + "</td>" +
+      "<td>" + esc(r.t.univ) + "</td>" +
+      "<td>" + r.t.cats.join(" + ") + "</td>" +
+      "<td class=\"num\">" + (r.videoScore === null ? "–" : r.videoScore.toFixed(1)) + "</td>" +
+      "<td class=\"num\">" + (r.posterScore === null ? "–" : r.posterScore.toFixed(1)) + "</td>" +
+      "<td class=\"num\"><b>" + (r.finalScore === null ? "–" : r.finalScore.toFixed(1)) + "</b></td>" +
+      "<td class=\"jcount\">" + r.jurorCount + " juri</td>" +
+    "</tr>";
+  }).join("");
+}
+</script>
+</body>
+</html>

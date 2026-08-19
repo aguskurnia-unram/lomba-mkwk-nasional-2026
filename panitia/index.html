@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
 <title>Dasbor Juri MKWK 2026</title>
 <meta name="description" content="Rekap visual seluruh peserta terdaftar Lomba Project MKWK Nasional 2026 untuk memudahkan verifikasi berkas dan penilaian lanjutan oleh dewan juri.">
-<meta name="robots" content="noindex, nofollow, noarchive">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -71,6 +71,13 @@ a{color:inherit}
   color:#c9dcec; display:flex; align-items:center; gap:8px;
 }
 .eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.page-tabs{display:flex; gap:4px; margin-top:16px}
+.page-tabs a{
+  font-size:13px; font-weight:700; padding:8px 14px; border-radius:8px 8px 0 0;
+  text-decoration:none; color:#c9dcec; background:rgba(255,255,255,.06);
+}
+.page-tabs a.active{background:var(--paper); color:var(--navy)}
+.page-tabs a:not(.active):hover{background:rgba(255,255,255,.14); color:#fff}
 h1{
   font-family:var(--font-display); font-weight:700; text-wrap:balance;
   font-size:clamp(28px,4.2vw,42px); margin:10px 0 8px; letter-spacing:-.01em;
@@ -226,6 +233,8 @@ h1{
 .write-line{border-bottom:1px solid var(--line); height:16px; margin-top:6px}
 
 .card-foot{font-size:11px; color:var(--ink-faint); margin-top:2px}
+.foot-link{color:var(--navy); font-weight:700; text-decoration:none}
+.foot-link:hover{text-decoration:underline}
 
 /* ---------- Footer ---------- */
 footer.site{border-top:1px solid var(--line); padding:26px 0 40px; font-size:12.5px; color:var(--ink-faint)}
@@ -303,6 +312,10 @@ footer.site strong{color:var(--ink-dim)}
 <header class="masthead">
   <div class="wrap">
     <div class="eyebrow"><span class="dot"></span>Pusat MKWK&ndash;MKWU, LPMPP &middot; Universitas Mataram &middot; Dokumen kerja internal</div>
+    <nav class="page-tabs">
+      <a href="./" class="active">Verifikasi Peserta</a>
+      <a href="nilai/">Penilaian Juri</a>
+    </nav>
     <h1>Dasbor Juri MKWK 2026</h1>
     <p class="lede">Rekap visual seluruh peserta terdaftar Lomba Project MKWK Nasional 2026, disusun dari jawaban Formulir Pendaftaran per 19 Agustus 2026, untuk mempercepat verifikasi berkas dan penilaian lanjutan oleh dewan juri.</p>
     <div class="flag"><span>&#9888;&#65039;</span><span><b>Bukan pengumuman resmi.</b> Status &ldquo;Lengkap&rdquo;/&ldquo;Perlu tindak lanjut&rdquo; di sini hanya menandai kelengkapan berkas administratif, bukan keputusan lolos-final. Hasil seleksi finalis diumumkan terpisah oleh panitia pada 20 Agustus 2026.</span></div>
@@ -408,7 +421,7 @@ footer.site strong{color:var(--ink-dim)}
 
   <div class="roster" id="roster">
     
-      <article class="card" data-cat="video" data-status="ok" data-search="nusa data team politeknik al islam bandung tertib administrasi kependudukan: studi kasus di kelurahan babakan sari abdul fattah al mubdi">
+      <article class="card" id="team-nusa-data-team" data-cat="video" data-status="ok" data-search="nusa data team politeknik al islam bandung tertib administrasi kependudukan: studi kasus di kelurahan babakan sari abdul fattah al mubdi">
         <div class="card-top">
           <div class="pills"><span class="pill pill-cat pill-video"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video</span></div>
           <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
@@ -442,9 +455,9 @@ footer.site strong{color:var(--ink-dim)}
           <div class="write-line"></div>
           <div class="write-line"></div>
         </div>
-        <footer class="card-foot">Didaftarkan 02 Aug 2026, 18:50 WITA</footer>
+        <footer class="card-foot">Didaftarkan 02 Aug 2026, 18:50 WITA &middot; <a class="foot-link" href="nilai/#team-nusa-data-team">Beri nilai tim ini &rarr;</a></footer>
       </article>
-      <article class="card" data-cat="poster" data-status="ok" data-search="garudaaksi universitas muhammadiyah riau garuda (gerakan edukasi bela negara untuk anak indonesia)  membangun generasi berkarakter menuju indonesia emas 2045 zahwa rahmadani">
+      <article class="card" id="team-garudaaksi" data-cat="poster" data-status="ok" data-search="garudaaksi universitas muhammadiyah riau garuda (gerakan edukasi bela negara untuk anak indonesia)  membangun generasi berkarakter menuju indonesia emas 2045 zahwa rahmadani">
         <div class="card-top">
           <div class="pills"><span class="pill pill-cat pill-poster"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster</span></div>
           <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
@@ -484,9 +497,9 @@ Pengembangan Mahasiswa: Meningkatkan soft skills tim mahasiswa dalam hal komunik
           <div class="write-line"></div>
           <div class="write-line"></div>
         </div>
-        <footer class="card-foot">Didaftarkan 02 Aug 2026, 19:32 WITA</footer>
+        <footer class="card-foot">Didaftarkan 02 Aug 2026, 19:32 WITA &middot; <a class="foot-link" href="nilai/#team-garudaaksi">Beri nilai tim ini &rarr;</a></footer>
       </article>
-      <article class="card" data-cat="video" data-status="ok" data-search="nawasena sekolah tinggi agama hindu dharma nusantara jakarta mini work shop pendidikan karakter berbasis nilai satya sebagai upaya pencegahan prilaku koruptif tria murti">
+      <article class="card" id="team-nawasena" data-cat="video" data-status="ok" data-search="nawasena sekolah tinggi agama hindu dharma nusantara jakarta mini work shop pendidikan karakter berbasis nilai satya sebagai upaya pencegahan prilaku koruptif tria murti">
         <div class="card-top">
           <div class="pills"><span class="pill pill-cat pill-video"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video</span></div>
           <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
@@ -524,9 +537,9 @@ Melalui project ini, peserta didik memperoleh pemahaman dan pengalaman langsung 
           <div class="write-line"></div>
           <div class="write-line"></div>
         </div>
-        <footer class="card-foot">Didaftarkan 03 Aug 2026, 16:08 WITA</footer>
+        <footer class="card-foot">Didaftarkan 03 Aug 2026, 16:08 WITA &middot; <a class="foot-link" href="nilai/#team-nawasena">Beri nilai tim ini &rarr;</a></footer>
       </article>
-      <article class="card" data-cat="video poster" data-status="ok" data-search="tim karsa nusantara umri universitas muhammadiyah riau penguatan karakter bela negara melalui edukasi partisipatif dan media edukasi berkelanjutan pada anak panti asuhan wina adilia">
+      <article class="card" id="team-tim-karsa-nusantara-umri" data-cat="video poster" data-status="ok" data-search="tim karsa nusantara umri universitas muhammadiyah riau penguatan karakter bela negara melalui edukasi partisipatif dan media edukasi berkelanjutan pada anak panti asuhan wina adilia">
         <div class="card-top">
           <div class="pills"><span class="pill pill-cat pill-video"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video</span><span class="pill pill-cat pill-poster"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster</span></div>
           <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
@@ -572,9 +585,9 @@ c. Dampak karakter jangka panjang (klaim kualitatif)
           <div class="write-line"></div>
           <div class="write-line"></div>
         </div>
-        <footer class="card-foot">Didaftarkan 03 Aug 2026, 18:54 WITA</footer>
+        <footer class="card-foot">Didaftarkan 03 Aug 2026, 18:54 WITA &middot; <a class="foot-link" href="nilai/#team-tim-karsa-nusantara-umri">Beri nilai tim ini &rarr;</a></footer>
       </article>
-      <article class="card" data-cat="video" data-status="ok" data-search="grow with nature universitas mataram pembuatan pupuk kompos dari daun kering untuk mendukung pertanian berkelanjutan di dusun mulejati desa sekotong tengah. rizki yudatama">
+      <article class="card" id="team-grow-with-nature" data-cat="video" data-status="ok" data-search="grow with nature universitas mataram pembuatan pupuk kompos dari daun kering untuk mendukung pertanian berkelanjutan di dusun mulejati desa sekotong tengah. rizki yudatama">
         <div class="card-top">
           <div class="pills"><span class="pill pill-cat pill-video"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video</span></div>
           <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
@@ -630,9 +643,9 @@ D. Penerima Manfaat:
           <div class="write-line"></div>
           <div class="write-line"></div>
         </div>
-        <footer class="card-foot">Didaftarkan 03 Aug 2026, 19:37 WITA</footer>
+        <footer class="card-foot">Didaftarkan 03 Aug 2026, 19:37 WITA &middot; <a class="foot-link" href="nilai/#team-grow-with-nature">Beri nilai tim ini &rarr;</a></footer>
       </article>
-      <article class="card" data-cat="poster" data-status="ok" data-search="panca inspirasi universitas borneo tarakan belimpung taka tagas perbedaan bukan batas reski ramadani">
+      <article class="card" id="team-panca-inspirasi" data-cat="poster" data-status="ok" data-search="panca inspirasi universitas borneo tarakan belimpung taka tagas perbedaan bukan batas reski ramadani">
         <div class="card-top">
           <div class="pills"><span class="pill pill-cat pill-poster"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster</span></div>
           <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
@@ -680,9 +693,9 @@ Dengan data sebagi berikut:
           <div class="write-line"></div>
           <div class="write-line"></div>
         </div>
-        <footer class="card-foot">Didaftarkan 03 Aug 2026, 22:35 WITA</footer>
+        <footer class="card-foot">Didaftarkan 03 Aug 2026, 22:35 WITA &middot; <a class="foot-link" href="nilai/#team-panca-inspirasi">Beri nilai tim ini &rarr;</a></footer>
       </article>
-      <article class="card" data-cat="video" data-status="warn" data-search="teamkwu universitas pasir pengaraian pelestarian budaya melayu dalam pembuataan lukah sebagai mata pencarian masyarakat kepenuhan timur muhamad arif">
+      <article class="card" id="team-teamkwu" data-cat="video" data-status="warn" data-search="teamkwu universitas pasir pengaraian pelestarian budaya melayu dalam pembuataan lukah sebagai mata pencarian masyarakat kepenuhan timur muhamad arif">
         <div class="card-top">
           <div class="pills"><span class="pill pill-cat pill-video"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video</span></div>
           <span class="pill pill-status pill-warn"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 9.6v4.4M12 16.8h.01"/></svg>Perlu tindak lanjut</span>
@@ -719,9 +732,9 @@ Dengan data sebagi berikut:
           <div class="write-line"></div>
           <div class="write-line"></div>
         </div>
-        <footer class="card-foot">Didaftarkan 03 Aug 2026, 22:53 WITA</footer>
+        <footer class="card-foot">Didaftarkan 03 Aug 2026, 22:53 WITA &middot; <a class="foot-link" href="nilai/#team-teamkwu">Beri nilai tim ini &rarr;</a></footer>
       </article>
-      <article class="card" data-cat="poster" data-status="ok" data-search="bahagia grup universitas negeri surabaya semarak kemerdekaan rangga adhitya pangestu">
+      <article class="card" id="team-bahagia-grup" data-cat="poster" data-status="ok" data-search="bahagia grup universitas negeri surabaya semarak kemerdekaan rangga adhitya pangestu">
         <div class="card-top">
           <div class="pills"><span class="pill pill-cat pill-poster"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster</span></div>
           <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
@@ -755,9 +768,9 @@ Dengan data sebagi berikut:
           <div class="write-line"></div>
           <div class="write-line"></div>
         </div>
-        <footer class="card-foot">Didaftarkan 04 Aug 2026, 00:52 WITA</footer>
+        <footer class="card-foot">Didaftarkan 04 Aug 2026, 00:52 WITA &middot; <a class="foot-link" href="nilai/#team-bahagia-grup">Beri nilai tim ini &rarr;</a></footer>
       </article>
-      <article class="card" data-cat="poster" data-status="ok" data-search="ecorizz universitas mataram peningkatan pengetahuan siswa siswi sdn bile penanggak terhadap bahaya sampah plastik sulit terurai ni komang tri apsari">
+      <article class="card" id="team-ecorizz" data-cat="poster" data-status="ok" data-search="ecorizz universitas mataram peningkatan pengetahuan siswa siswi sdn bile penanggak terhadap bahaya sampah plastik sulit terurai ni komang tri apsari">
         <div class="card-top">
           <div class="pills"><span class="pill pill-cat pill-poster"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster</span></div>
           <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
@@ -817,9 +830,9 @@ Dampak konkret: Terdapat papan informasi tentang lama terurainya sampah plastik.
           <div class="write-line"></div>
           <div class="write-line"></div>
         </div>
-        <footer class="card-foot">Didaftarkan 10 Aug 2026, 21:55 WITA</footer>
+        <footer class="card-foot">Didaftarkan 10 Aug 2026, 21:55 WITA &middot; <a class="foot-link" href="nilai/#team-ecorizz">Beri nilai tim ini &rarr;</a></footer>
       </article>
-      <article class="card" data-cat="video" data-status="ok" data-search="sortnova.team universitas mataram ecosort nova: smart sorting system berbasis teknologi dengan integrasi  edukasi digital sebagai solusi pengelolaan sampah berkelanjutan muhammad rifky alfarizi">
+      <article class="card" id="team-sortnova-team" data-cat="video" data-status="ok" data-search="sortnova.team universitas mataram ecosort nova: smart sorting system berbasis teknologi dengan integrasi  edukasi digital sebagai solusi pengelolaan sampah berkelanjutan muhammad rifky alfarizi">
         <div class="card-top">
           <div class="pills"><span class="pill pill-cat pill-video"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video</span></div>
           <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
@@ -863,9 +876,9 @@ Selain kegiatan lapangan, video proses EcoSort Nova telah dipublikasikan melalui
           <div class="write-line"></div>
           <div class="write-line"></div>
         </div>
-        <footer class="card-foot">Didaftarkan 10 Aug 2026, 23:34 WITA</footer>
+        <footer class="card-foot">Didaftarkan 10 Aug 2026, 23:34 WITA &middot; <a class="foot-link" href="nilai/#team-sortnova-team">Beri nilai tim ini &rarr;</a></footer>
       </article>
-      <article class="card" data-cat="poster" data-status="ok" data-search="tim hore universitas mataram inovasi pemanfaatan limbah cangkang telur program mbg sebagai pupuk organik dan sumber kalsium pakan ternak yuni hidayati">
+      <article class="card" id="team-tim-hore" data-cat="poster" data-status="ok" data-search="tim hore universitas mataram inovasi pemanfaatan limbah cangkang telur program mbg sebagai pupuk organik dan sumber kalsium pakan ternak yuni hidayati">
         <div class="card-top">
           <div class="pills"><span class="pill pill-cat pill-poster"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster</span></div>
           <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
@@ -908,9 +921,9 @@ Selain itu, kegiatan ini juga jadi sarana edukasi buat ibu-ibu rumah tangga di s
           <div class="write-line"></div>
           <div class="write-line"></div>
         </div>
-        <footer class="card-foot">Didaftarkan 16 Aug 2026, 17:15 WITA</footer>
+        <footer class="card-foot">Didaftarkan 16 Aug 2026, 17:15 WITA &middot; <a class="foot-link" href="nilai/#team-tim-hore">Beri nilai tim ini &rarr;</a></footer>
       </article>
-      <article class="card" data-cat="video" data-status="warn" data-search="the last trace team universitas mataram digital graveyard; jejak digital tak pernah mati fatima azzahra">
+      <article class="card" id="team-the-last-trace-team" data-cat="video" data-status="warn" data-search="the last trace team universitas mataram digital graveyard; jejak digital tak pernah mati fatima azzahra">
         <div class="card-top">
           <div class="pills"><span class="pill pill-cat pill-video"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video</span></div>
           <span class="pill pill-status pill-warn"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 9.6v4.4M12 16.8h.01"/></svg>Perlu tindak lanjut</span>
@@ -944,7 +957,7 @@ Selain itu, kegiatan ini juga jadi sarana edukasi buat ibu-ibu rumah tangga di s
           <div class="write-line"></div>
           <div class="write-line"></div>
         </div>
-        <footer class="card-foot">Didaftarkan 18 Aug 2026, 22:22 WITA</footer>
+        <footer class="card-foot">Didaftarkan 18 Aug 2026, 22:22 WITA &middot; <a class="foot-link" href="nilai/#team-the-last-trace-team">Beri nilai tim ini &rarr;</a></footer>
       </article>
   </div>
 </div>
