@@ -200,7 +200,7 @@ footer.site{border-top:1px solid var(--line); padding:26px 0 40px; font-size:12.
       <a href="./" class="active">Penilaian Juri</a>
     </nav>
     <h1>Penilaian Juri</h1>
-    <p class="lede">Input skor mengikuti rubrik resmi Bab VII Juknis untuk dua tahap: Pra-Event (Video &amp; Poster, 19 Agustus) dan Presentasi Finalis (hari-H, 22 Agustus). Nilai tersimpan langsung ke server sehingga rekap peringkat di bawah selalu menggabungkan skor semua juri secara real-time.</p>
+    <p class="lede">Skor Pra-Event kini utamanya diisi langsung di halaman <a href="../" style="color:#fff; text-decoration:underline">Verifikasi Peserta</a> sambil memeriksa berkas tiap tim. Halaman ini untuk <b>mengecek ulang</b> skor yang sudah masuk (sama-sama tersimpan real-time, jadi selalu sinkron), melihat Rekap &amp; Peringkat, dan mengisi <b>Presentasi Finalis</b> pada hari-H (22 Agustus) yang belum ada di halaman verifikasi.</p>
     <div class="flag"><span>&#9888;&#65039;</span><span><b>Bukan pengumuman resmi.</b> Rekap &amp; peringkat di sini adalah alat bantu kerja dewan juri untuk mengusulkan finalis dan pemenang &mdash; keputusan final tetap melalui rapat dewan juri (Bab VII.C Juknis: &ldquo;keputusan dewan juri bersifat final&rdquo;). Pengumuman resmi disampaikan panitia terpisah.</span></div>
     <div class="weight-strip">
       <span class="weight-chip"><b>Video 30%</b> &mdash; Konten 15% + Produksi 10% + Integrasi MKWK 5%</span>
@@ -323,6 +323,21 @@ const STAGE_NOTE = {
 };
 
 /* ---------------- Lock screen ---------------- */
+function relock(message){
+  // Dipanggil juga dari loadScores() saat server menolak token yang tersimpan
+  // (mis. token lama/salah yang sempat ke-cache saat server belum siap) —
+  // ini membuat halaman "menyembuhkan diri sendiri" alih-alih terjebak 401
+  // selamanya tanpa pernah menanyakan sandi lagi.
+  try { sessionStorage.removeItem(PASSWORD_KEY); } catch (e) {}
+  TOKEN = "";
+  document.getElementById("app").style.display = "none";
+  document.getElementById("lockScreen").style.display = "";
+  const err = document.getElementById("lockError");
+  if (err) err.textContent = message || "";
+  const pass = document.getElementById("lockPass");
+  if (pass) { pass.value = ""; pass.focus(); }
+}
+
 (function initLock(){
   const lockScreen = document.getElementById("lockScreen");
   const app = document.getElementById("app");
@@ -345,8 +360,11 @@ const STAGE_NOTE = {
   lockForm.addEventListener("submit", function(ev){
     ev.preventDefault();
     const val = lockPass.value;
-    // We don't know the password client-side beyond what the server accepts;
-    // try it against the API and only unlock the UI on a real 200/401 signal.
+    // Hanya sandi yang benar-benar terkonfirmasi (HTTP 200) yang di-cache.
+    // Status lain (503 database belum siap, error jaringan, dst.) tetap
+    // membuka UI agar panitia bisa melihat tampilan, TAPI tidak disimpan
+    // sebagai "terverifikasi" — supaya sandi yang salah tidak nyangkut
+    // permanen di browser.
     fetch("/api/scores", { headers: { Authorization: "Bearer " + val } })
       .then(function(res){
         if (res.status === 401) {
@@ -354,13 +372,15 @@ const STAGE_NOTE = {
           lockPass.value = ""; lockPass.focus();
           return;
         }
-        try { sessionStorage.setItem(PASSWORD_KEY, val); } catch (e) {}
+        if (res.ok) {
+          try { sessionStorage.setItem(PASSWORD_KEY, val); } catch (e) {}
+        }
         unlock(val);
       })
       .catch(function(){
-        // API unreachable (server belum di-deploy) — tetap buka UI lokal
-        // agar panitia bisa melihat tampilan, tapi tandai token belum teruji.
-        try { sessionStorage.setItem(PASSWORD_KEY, val); } catch (e) {}
+        // Gagal terhubung sama sekali (bukan server menolak) — tetap buka UI
+        // lokal, tapi jangan cache; boot() akan mencoba lagi dan menampilkan
+        // banner status koneksi yang sesuai.
         unlock(val);
       });
   });
@@ -417,7 +437,11 @@ function loadScores(){
   fetch("/api/scores", { headers: { Authorization: "Bearer " + TOKEN } })
     .then(function(res){
       if (res.status === 401) {
-        setConn("bad", "Sandi ditolak server", "&#9888;&#65039; Sandi yang Anda masukkan tidak dikenali server (HTTP 401). Coba muat ulang halaman dan masukkan sandi lagi — kalau tetap gagal, sandi mungkin sudah diganti panitia.");
+        // Token yang tersimpan ternyata ditolak server (mis. sempat ke-cache
+        // salah saat server belum siap sebelumnya) — hapus cache & tanya
+        // sandi lagi, alih-alih terjebak di halaman yang tidak pernah
+        // tersambung.
+        relock("Sesi berakhir atau sandi tersimpan tidak valid lagi — masukkan sandi sekali lagi.");
         throw new Error("unauthorized");
       }
       if (res.status === 503) {

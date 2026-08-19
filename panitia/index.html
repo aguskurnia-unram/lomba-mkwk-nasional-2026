@@ -228,13 +228,46 @@ h1{
 .chip-missing{background:transparent; color:var(--ink-faint); border:1px dashed var(--line-strong)}
 .chip-x{font-weight:400; font-style:italic; opacity:.85}
 
-.jury-note{border-top:1px dashed var(--line); padding-top:10px; margin-top:2px}
+.jury-note{display:none; border-top:1px dashed var(--line); padding-top:10px; margin-top:2px}
 .jury-note-label{font-size:11px; text-transform:uppercase; letter-spacing:.4px; color:var(--ink-faint); font-weight:700}
 .write-line{border-bottom:1px solid var(--line); height:16px; margin-top:6px}
+
+/* Skor Pra-Event langsung di kartu verifikasi */
+.pv-score{border-top:1px dashed var(--line); padding-top:10px; margin-top:2px; display:flex; flex-direction:column; gap:9px}
+.pv-score-head{display:flex; justify-content:space-between; align-items:center; gap:8px; font-size:11px; text-transform:uppercase; letter-spacing:.4px; color:var(--ink-faint); font-weight:700}
+.save-status{font-size:10.5px; text-transform:none; letter-spacing:0; color:var(--ink-faint); font-weight:600}
+.save-status.ok{color:var(--ok)}
+.crit-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px}
+.crit{background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:8px 9px}
+.crit label{display:block; font-size:11px; font-weight:700; color:var(--ink)}
+.crit .hint{font-size:10px; color:var(--ink-faint); margin:2px 0 6px; line-height:1.35; min-height:22px}
+.crit .inrow{display:flex; align-items:center; gap:7px}
+.crit input[type="number"]{width:58px; font:inherit; font-size:13.5px; font-variant-numeric:tabular-nums; padding:5px 6px; border-radius:6px; border:1.5px solid var(--line-strong); background:var(--paper-raised); color:var(--ink)}
+.crit input[type="number"]:focus{outline:none; border-color:var(--navy)}
+.crit .band{font-size:10px; font-weight:700; color:var(--ink-faint)}
+.crit .band.b-top{color:var(--ok)} .crit .band.b-hi{color:var(--navy)} .crit .band.b-mid{color:var(--gold)} .crit .band.b-low{color:var(--warn)}
+.btn-save{align-self:flex-start; font:inherit; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:7px; border:none; background:var(--navy); color:#fff; cursor:pointer}
+.btn-save:hover{background:#0e2c47}
+.btn-save:disabled{background:var(--line-strong); cursor:not-allowed}
+.card.pv-saved{border-left-color:var(--ok)}
 
 .card-foot{font-size:11px; color:var(--ink-faint); margin-top:2px}
 .foot-link{color:var(--navy); font-weight:700; text-decoration:none}
 .foot-link:hover{text-decoration:underline}
+
+/* Bar juri (nama + status koneksi) di dalam controls */
+.juror-field{display:flex; align-items:center; gap:8px}
+.juror-field label{font-size:12.5px; font-weight:700; color:var(--ink-dim); white-space:nowrap}
+.juror-field input[type="text"]{font:inherit; font-size:13.5px; padding:8px 11px; border-radius:8px; border:1.5px solid var(--line); background:var(--paper-raised); color:var(--ink); min-width:190px}
+.juror-field input[type="text"]:focus{outline:none; border-color:var(--navy)}
+.conn-status{font-size:11.5px; padding:4px 10px; border-radius:999px; font-weight:700; white-space:nowrap}
+.conn-ok{background:var(--ok-soft); color:var(--ok)}
+.conn-bad{background:var(--warn-soft); color:var(--warn)}
+.conn-wait{background:var(--gold-soft); color:var(--gold)}
+.banner{margin:14px 0 0; padding:11px 15px; border-radius:10px; font-size:13px; display:flex; gap:9px; align-items:flex-start}
+.banner-danger{background:var(--warn-soft); color:var(--warn)}
+.banner code{background:rgba(0,0,0,.08); padding:1px 5px; border-radius:4px}
+.banner a{color:inherit; text-decoration:underline}
 
 /* ---------- Footer ---------- */
 footer.site{border-top:1px solid var(--line); padding:26px 0 40px; font-size:12.5px; color:var(--ink-faint)}
@@ -254,6 +287,8 @@ footer.site strong{color:var(--ink-dim)}
   .controls, .tl-tip{display:none !important}
   .roster{grid-template-columns:1fr 1fr; gap:10px}
   .card{break-inside:avoid; box-shadow:none}
+  .pv-score{display:none !important}
+  .jury-note{display:block !important}
 }
 @media (prefers-reduced-motion: reduce){
   *{transition:none !important}
@@ -317,7 +352,7 @@ footer.site strong{color:var(--ink-dim)}
       <a href="nilai/">Penilaian Juri</a>
     </nav>
     <h1>Dasbor Juri MKWK 2026</h1>
-    <p class="lede">Rekap visual seluruh peserta terdaftar Lomba Project MKWK Nasional 2026, disusun dari jawaban Formulir Pendaftaran per 19 Agustus 2026, untuk mempercepat verifikasi berkas dan penilaian lanjutan oleh dewan juri.</p>
+    <p class="lede">Rekap visual seluruh peserta terdaftar Lomba Project MKWK Nasional 2026, disusun dari jawaban Formulir Pendaftaran per 19 Agustus 2026. Isi nama Anda di kolom &ldquo;Nama juri&rdquo; lalu beri skor Pra-Event langsung di tiap kartu sambil memverifikasi berkas &mdash; satu langkah untuk keduanya. Halaman <a href="nilai/" style="color:#fff; text-decoration:underline">Penilaian Juri</a> tetap tersedia untuk cek ulang skor, rekap peringkat, dan input Presentasi Finalis di hari-H.</p>
     <div class="flag"><span>&#9888;&#65039;</span><span><b>Bukan pengumuman resmi.</b> Status &ldquo;Lengkap&rdquo;/&ldquo;Perlu tindak lanjut&rdquo; di sini hanya menandai kelengkapan berkas administratif, bukan keputusan lolos-final. Hasil seleksi finalis diumumkan terpisah oleh panitia pada 20 Agustus 2026.</span></div>
   </div>
 </header>
@@ -410,6 +445,12 @@ footer.site strong{color:var(--ink-dim)}
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg>
       <input type="text" id="q" placeholder="Cari tim, kampus, atau judul project&hellip;" autocomplete="off">
     </div>
+    <div class="juror-field">
+      <label for="jurorName">Nama juri:</label>
+      <input type="text" id="jurorName" placeholder="Nama Anda" list="jurorList">
+      <datalist id="jurorList"></datalist>
+      <span id="connStatus" class="conn-status conn-wait">Menghubungkan&hellip;</span>
+    </div>
     <div class="seg" id="catSeg">
       <button data-cat="all" class="active">Semua</button>
       <button data-cat="video">Video</button>
@@ -418,6 +459,7 @@ footer.site strong{color:var(--ink-dim)}
     <label class="toggle"><input type="checkbox" id="onlyWarn"> Perlu tindak lanjut saja</label>
     <span class="result-count" id="resultCount">12 tim ditampilkan</span>
   </div>
+  <div id="connBanner"></div>
 
   <div class="roster" id="roster">
     
@@ -450,7 +492,40 @@ footer.site strong{color:var(--ink-dim)}
         
         
         <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1ICkLLzcPLcYnQ5MUJGNSpOgizjIqx7Kc" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><a class="chip chip-live" href="https://youtu.be/TY02yQiTVZ8?si=0cz7EMY18X_RLv9y" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/file/d/1IVXDmwM44u2cgbG3C5saG6Qs9pyljYi6/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/file/d/12ebUfHyAWE61yypFZtf4roc9Y5ZaNyog/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/file/d/1DwfzuH2nQc1eoBBb2JLBycpX87qrB25K/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1u1HGCB3LiIM0yLukraepW2odc2S8-NgJ" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=12kKv_vcfoPMTxbb_vAOeAgd1ZQsX04Zj" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
-        <div class="jury-note">
+        
+        <div class="pv-score" data-slug="nusa-data-team">
+          <div class="pv-score-head">
+            <span>Skor Pra-Event Anda</span>
+            <span class="save-status" data-status-for="nusa-data-team">Belum dinilai oleh Anda</span>
+          </div>
+          <div class="crit-grid">
+        <div class="crit">
+          <label>A1 &middot; Konten &amp; Pesan (15%)</label>
+          <div class="hint">Isu relevan, data akurat, pesan jelas, storytelling kuat</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="nusa-data-team" data-crit="a1" value="">
+            <span class="band" data-band-for="nusa-data-team-a1"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>A2 &middot; Produksi (10%)</label>
+          <div class="hint">Resolusi HD, suara jernih, editing rapi, transisi halus</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="nusa-data-team" data-crit="a2" value="">
+            <span class="band" data-band-for="nusa-data-team-a2"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>A3 &middot; Integrasi MKWK (5%)</label>
+          <div class="hint">Nilai MKWK eksplisit &amp; terdokumentasi kuat dalam video</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="nusa-data-team" data-crit="a3" value="">
+            <span class="band" data-band-for="nusa-data-team-a3"></span>
+          </div>
+        </div></div>
+          <button class="btn-save" data-save-for="nusa-data-team">Simpan Skor</button>
+        </div>
+        <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
           <div class="write-line"></div>
           <div class="write-line"></div>
@@ -492,7 +567,32 @@ Pengembangan Mahasiswa: Meningkatkan soft skills tim mahasiswa dalam hal komunik
         
         
         <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/14_T97tB4AT3O8Wh0lgEDu4BoloEyND18" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/drive/folders/1Mb1KxuqTtBD5dcSRbGLOpj2vtjWdZUsC" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)</a><a class="chip chip-live" href="https://drive.google.com/file/d/1DRsuHy5m24oIRR53743ZrKYOgfB_M6T5/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/file/d/1WiDv50A9v4D7qhdYrQBi3uwVRGd2mr-Q/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/file/d/1d9YdMA2OzAk-XMAr0kqEsi1bMydOMy0V/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/file/d/1ZQyiymn8nx6i2sqX1DH31_2COdQ6X-aQ/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=1_0pQqXYlnpaDH_vPV0SNi47XmyQDlyck" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
-        <div class="jury-note">
+        
+        <div class="pv-score" data-slug="garudaaksi">
+          <div class="pv-score-head">
+            <span>Skor Pra-Event Anda</span>
+            <span class="save-status" data-status-for="garudaaksi">Belum dinilai oleh Anda</span>
+          </div>
+          <div class="crit-grid">
+        <div class="crit">
+          <label>B1 &middot; Isi Ilmiah (10%)</label>
+          <div class="hint">Masalah jelas, metode tepat, dampak terukur &amp; berbasis data</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="garudaaksi" data-crit="b1" value="">
+            <span class="band" data-band-for="garudaaksi-b1"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>B2 &middot; Estetika (10%)</label>
+          <div class="hint">Desain menarik, hierarki tipografi jelas, terbaca di layar</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="garudaaksi" data-crit="b2" value="">
+            <span class="band" data-band-for="garudaaksi-b2"></span>
+          </div>
+        </div></div>
+          <button class="btn-save" data-save-for="garudaaksi">Simpan Skor</button>
+        </div>
+        <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
           <div class="write-line"></div>
           <div class="write-line"></div>
@@ -532,7 +632,40 @@ Melalui project ini, peserta didik memperoleh pemahaman dan pengalaman langsung 
         <div class="note-box"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 9.6v4.4M12 16.8h.01"/></svg><ul><li>Beberapa tautan berkas mengarah ke folder umum yang sama, bukan file spesifik — perlu dicek manual oleh panitia.</li></ul></div>
         
         <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1_jNT1gOtZE725wCwnykEloBVmYRg1F5N" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><a class="chip chip-live" href="https://youtu.be/1RYH-Yl0BeY" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/drive/folders/1_jNT1gOtZE725wCwnykEloBVmYRg1F5N" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1_jNT1gOtZE725wCwnykEloBVmYRg1F5N" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1_jNT1gOtZE725wCwnykEloBVmYRg1F5N" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1_jNT1gOtZE725wCwnykEloBVmYRg1F5N" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=1TZMbCGfGb4UfKP9bj3YPnNuATj4XoIKV" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
-        <div class="jury-note">
+        
+        <div class="pv-score" data-slug="nawasena">
+          <div class="pv-score-head">
+            <span>Skor Pra-Event Anda</span>
+            <span class="save-status" data-status-for="nawasena">Belum dinilai oleh Anda</span>
+          </div>
+          <div class="crit-grid">
+        <div class="crit">
+          <label>A1 &middot; Konten &amp; Pesan (15%)</label>
+          <div class="hint">Isu relevan, data akurat, pesan jelas, storytelling kuat</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="nawasena" data-crit="a1" value="">
+            <span class="band" data-band-for="nawasena-a1"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>A2 &middot; Produksi (10%)</label>
+          <div class="hint">Resolusi HD, suara jernih, editing rapi, transisi halus</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="nawasena" data-crit="a2" value="">
+            <span class="band" data-band-for="nawasena-a2"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>A3 &middot; Integrasi MKWK (5%)</label>
+          <div class="hint">Nilai MKWK eksplisit &amp; terdokumentasi kuat dalam video</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="nawasena" data-crit="a3" value="">
+            <span class="band" data-band-for="nawasena-a3"></span>
+          </div>
+        </div></div>
+          <button class="btn-save" data-save-for="nawasena">Simpan Skor</button>
+        </div>
+        <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
           <div class="write-line"></div>
           <div class="write-line"></div>
@@ -580,7 +713,56 @@ c. Dampak karakter jangka panjang (klaim kualitatif)
         <div class="note-box"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 9.6v4.4M12 16.8h.01"/></svg><ul><li>Mendaftar 2 kategori sekaligus — pastikan bukti pembayaran mencakup Rp100.000 (bukan Rp50.000).</li></ul></div>
         
         <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1Lo-ObywCQkYfyiZPdXP_ph5RahdMTn3P" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><a class="chip chip-live" href="https://youtu.be/dVXS-FqiEdw" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/14Kzk8-PrdmCC9pKWT5vB5K9LjzZ0e5Zn" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1D9Fdg6ciIT0-jsPOQn_uGPItrPV9LZOn" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1Pg7_2JgDy-75ekeQlJOcEJ97y3kOJuOb" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1rJeJrBvd_5aE2UEbQzX74dUqs6Coo7NX" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1QTKZ83fzBub5fmNxSTbJ2BvEf5X1_yTT" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=1Awfl1bKy_U_8_qYzkprk4T-Gr8nsbzWU" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
-        <div class="jury-note">
+        
+        <div class="pv-score" data-slug="tim-karsa-nusantara-umri">
+          <div class="pv-score-head">
+            <span>Skor Pra-Event Anda</span>
+            <span class="save-status" data-status-for="tim-karsa-nusantara-umri">Belum dinilai oleh Anda</span>
+          </div>
+          <div class="crit-grid">
+        <div class="crit">
+          <label>A1 &middot; Konten &amp; Pesan (15%)</label>
+          <div class="hint">Isu relevan, data akurat, pesan jelas, storytelling kuat</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="tim-karsa-nusantara-umri" data-crit="a1" value="">
+            <span class="band" data-band-for="tim-karsa-nusantara-umri-a1"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>A2 &middot; Produksi (10%)</label>
+          <div class="hint">Resolusi HD, suara jernih, editing rapi, transisi halus</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="tim-karsa-nusantara-umri" data-crit="a2" value="">
+            <span class="band" data-band-for="tim-karsa-nusantara-umri-a2"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>A3 &middot; Integrasi MKWK (5%)</label>
+          <div class="hint">Nilai MKWK eksplisit &amp; terdokumentasi kuat dalam video</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="tim-karsa-nusantara-umri" data-crit="a3" value="">
+            <span class="band" data-band-for="tim-karsa-nusantara-umri-a3"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>B1 &middot; Isi Ilmiah (10%)</label>
+          <div class="hint">Masalah jelas, metode tepat, dampak terukur &amp; berbasis data</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="tim-karsa-nusantara-umri" data-crit="b1" value="">
+            <span class="band" data-band-for="tim-karsa-nusantara-umri-b1"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>B2 &middot; Estetika (10%)</label>
+          <div class="hint">Desain menarik, hierarki tipografi jelas, terbaca di layar</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="tim-karsa-nusantara-umri" data-crit="b2" value="">
+            <span class="band" data-band-for="tim-karsa-nusantara-umri-b2"></span>
+          </div>
+        </div></div>
+          <button class="btn-save" data-save-for="tim-karsa-nusantara-umri">Simpan Skor</button>
+        </div>
+        <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
           <div class="write-line"></div>
           <div class="write-line"></div>
@@ -638,7 +820,40 @@ D. Penerima Manfaat:
         
         
         <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1d2qLHHjiEPhCSeSZCemiVGrIClxj2_Tc" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><a class="chip chip-live" href="https://youtu.be/XLR57w7WKrw?feature=shared" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/file/d/1qYc0cUHVoMXKeClFTt6VnUhDLtNHKtYG/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/file/d/1E7Q9oXx0tRkudJg7kGPgCImVYSaAVb_K/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/file/d/1TWPm9IMXfjaVxyUK0_V5_Eg9E7f8TB7q/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/file/d/15XDm248lpXFgU3UGwndaDSWKxTwI0ANr/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=1pqmhF5Uz9FzHPCvFIp5qHZDdGH0iwFUq" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
-        <div class="jury-note">
+        
+        <div class="pv-score" data-slug="grow-with-nature">
+          <div class="pv-score-head">
+            <span>Skor Pra-Event Anda</span>
+            <span class="save-status" data-status-for="grow-with-nature">Belum dinilai oleh Anda</span>
+          </div>
+          <div class="crit-grid">
+        <div class="crit">
+          <label>A1 &middot; Konten &amp; Pesan (15%)</label>
+          <div class="hint">Isu relevan, data akurat, pesan jelas, storytelling kuat</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="grow-with-nature" data-crit="a1" value="">
+            <span class="band" data-band-for="grow-with-nature-a1"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>A2 &middot; Produksi (10%)</label>
+          <div class="hint">Resolusi HD, suara jernih, editing rapi, transisi halus</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="grow-with-nature" data-crit="a2" value="">
+            <span class="band" data-band-for="grow-with-nature-a2"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>A3 &middot; Integrasi MKWK (5%)</label>
+          <div class="hint">Nilai MKWK eksplisit &amp; terdokumentasi kuat dalam video</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="grow-with-nature" data-crit="a3" value="">
+            <span class="band" data-band-for="grow-with-nature-a3"></span>
+          </div>
+        </div></div>
+          <button class="btn-save" data-save-for="grow-with-nature">Simpan Skor</button>
+        </div>
+        <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
           <div class="write-line"></div>
           <div class="write-line"></div>
@@ -688,7 +903,32 @@ Dengan data sebagi berikut:
         
         
         <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1l16-oEONJ9_Mg6XZKd1WFhGUgliXx51i" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/drive/folders/1e9g_0Fc2Iwpv6onHeDfdoGB-GyoXbS_8" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1SOcqYmKYYTw1g6e8lYw_7HbOSGphl2Ug" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/16Z-3nTWCbMi_tB7DVpK3-uUX7lUX85Y0" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1nX8rx7TQ-_ieyeqgFMu5EUDqxDjLjdyY" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1oVP_WJzmTws_qrKUsgoR0XCUJdngWWHX" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=1Ec2cvW8kPf9ULkUsLezw_IiVmgwfJxDb" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
-        <div class="jury-note">
+        
+        <div class="pv-score" data-slug="panca-inspirasi">
+          <div class="pv-score-head">
+            <span>Skor Pra-Event Anda</span>
+            <span class="save-status" data-status-for="panca-inspirasi">Belum dinilai oleh Anda</span>
+          </div>
+          <div class="crit-grid">
+        <div class="crit">
+          <label>B1 &middot; Isi Ilmiah (10%)</label>
+          <div class="hint">Masalah jelas, metode tepat, dampak terukur &amp; berbasis data</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="panca-inspirasi" data-crit="b1" value="">
+            <span class="band" data-band-for="panca-inspirasi-b1"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>B2 &middot; Estetika (10%)</label>
+          <div class="hint">Desain menarik, hierarki tipografi jelas, terbaca di layar</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="panca-inspirasi" data-crit="b2" value="">
+            <span class="band" data-band-for="panca-inspirasi-b2"></span>
+          </div>
+        </div></div>
+          <button class="btn-save" data-save-for="panca-inspirasi">Simpan Skor</button>
+        </div>
+        <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
           <div class="write-line"></div>
           <div class="write-line"></div>
@@ -727,7 +967,40 @@ Dengan data sebagi berikut:
         
         <div class="missing-box"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 9.6v4.4M12 16.8h.01"/></svg><span><strong>Belum lengkap:</strong> Naskah deskripsi project, Surat pernyataan orisinalitas</span></div>
         <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1KAUAtKl60bJj_vFc7ITpoSbhZ1Ok1JKc" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><a class="chip chip-live" href="https://youtu.be/kEjNw9XNOGA?si=9yHhKSWnT0S8AfZo" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)<span class="chip-x">tidak ada</span></span><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi<span class="chip-x">tidak ada</span></span><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/file/d/1dJ9O9L8WQrxtpka5NQUcQrXxdWguEtT2/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/open?id=1CYHXcIFd1XwJ2sADrgAUyEkf2wRa6I6X" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
-        <div class="jury-note">
+        
+        <div class="pv-score" data-slug="teamkwu">
+          <div class="pv-score-head">
+            <span>Skor Pra-Event Anda</span>
+            <span class="save-status" data-status-for="teamkwu">Belum dinilai oleh Anda</span>
+          </div>
+          <div class="crit-grid">
+        <div class="crit">
+          <label>A1 &middot; Konten &amp; Pesan (15%)</label>
+          <div class="hint">Isu relevan, data akurat, pesan jelas, storytelling kuat</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="teamkwu" data-crit="a1" value="">
+            <span class="band" data-band-for="teamkwu-a1"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>A2 &middot; Produksi (10%)</label>
+          <div class="hint">Resolusi HD, suara jernih, editing rapi, transisi halus</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="teamkwu" data-crit="a2" value="">
+            <span class="band" data-band-for="teamkwu-a2"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>A3 &middot; Integrasi MKWK (5%)</label>
+          <div class="hint">Nilai MKWK eksplisit &amp; terdokumentasi kuat dalam video</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="teamkwu" data-crit="a3" value="">
+            <span class="band" data-band-for="teamkwu-a3"></span>
+          </div>
+        </div></div>
+          <button class="btn-save" data-save-for="teamkwu">Simpan Skor</button>
+        </div>
+        <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
           <div class="write-line"></div>
           <div class="write-line"></div>
@@ -763,7 +1036,32 @@ Dengan data sebagi berikut:
         
         
         <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1EgdKJMy8pHBBr3lE0heTmilW1z0QLX6o" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/file/d/1NAR3Z6-fQZKpMU7pxRwD3YfuSYOz09qz/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)</a><a class="chip chip-live" href="https://drive.google.com/file/d/1mComF-CUIeRJcloYM3is84k16rk56wb9/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/file/d/1MB5JZUmNFdnlwzwV1hCXmRdRBHwLkoKd/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1EgdKJMy8pHBBr3lE0heTmilW1z0QLX6o" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/file/d/1c3mwFOuLhZNQLMpq3f-imgeqP43159SX/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=1PwXBo7WWn-gc3YTYVaTuNi6yAGtW95dW" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
-        <div class="jury-note">
+        
+        <div class="pv-score" data-slug="bahagia-grup">
+          <div class="pv-score-head">
+            <span>Skor Pra-Event Anda</span>
+            <span class="save-status" data-status-for="bahagia-grup">Belum dinilai oleh Anda</span>
+          </div>
+          <div class="crit-grid">
+        <div class="crit">
+          <label>B1 &middot; Isi Ilmiah (10%)</label>
+          <div class="hint">Masalah jelas, metode tepat, dampak terukur &amp; berbasis data</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="bahagia-grup" data-crit="b1" value="">
+            <span class="band" data-band-for="bahagia-grup-b1"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>B2 &middot; Estetika (10%)</label>
+          <div class="hint">Desain menarik, hierarki tipografi jelas, terbaca di layar</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="bahagia-grup" data-crit="b2" value="">
+            <span class="band" data-band-for="bahagia-grup-b2"></span>
+          </div>
+        </div></div>
+          <button class="btn-save" data-save-for="bahagia-grup">Simpan Skor</button>
+        </div>
+        <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
           <div class="write-line"></div>
           <div class="write-line"></div>
@@ -825,7 +1123,32 @@ Dampak konkret: Terdapat papan informasi tentang lama terurainya sampah plastik.
         
         
         <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1nqYEVJZutgknEQ13U0LYpfCOJKWqxKtx" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/file/d/1YZSsEKGDPItkkpom8qZ_jzs-dcMEgy3F/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)</a><a class="chip chip-live" href="https://drive.google.com/file/d/1a_D7yVDogIKuKv3fKID-Zlai4T9PiRJ-/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/file/d/1I1_6FFWc3U321HDUBXNJ3tSPWifp4_-t/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/file/d/1BV9beRGxyOg-dKy30cfGnY525dY-Y41z/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/file/d/1sctDcqoO-ZorwSUGjur_EZo6rEgjUqdu/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=14z7HDL-a1CganKkcTh4bu65Y0o2THz2M" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
-        <div class="jury-note">
+        
+        <div class="pv-score" data-slug="ecorizz">
+          <div class="pv-score-head">
+            <span>Skor Pra-Event Anda</span>
+            <span class="save-status" data-status-for="ecorizz">Belum dinilai oleh Anda</span>
+          </div>
+          <div class="crit-grid">
+        <div class="crit">
+          <label>B1 &middot; Isi Ilmiah (10%)</label>
+          <div class="hint">Masalah jelas, metode tepat, dampak terukur &amp; berbasis data</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="ecorizz" data-crit="b1" value="">
+            <span class="band" data-band-for="ecorizz-b1"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>B2 &middot; Estetika (10%)</label>
+          <div class="hint">Desain menarik, hierarki tipografi jelas, terbaca di layar</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="ecorizz" data-crit="b2" value="">
+            <span class="band" data-band-for="ecorizz-b2"></span>
+          </div>
+        </div></div>
+          <button class="btn-save" data-save-for="ecorizz">Simpan Skor</button>
+        </div>
+        <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
           <div class="write-line"></div>
           <div class="write-line"></div>
@@ -871,7 +1194,40 @@ Selain kegiatan lapangan, video proses EcoSort Nova telah dipublikasikan melalui
         <div class="note-box"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 9.6v4.4M12 16.8h.01"/></svg><ul><li>Tautan “Folder Utama” mengarah ke satu file, bukan folder Drive — perlu diverifikasi kelengkapan isinya.</li></ul></div>
         
         <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/file/d/1tWFtPWNBSwYBuc_7Hl_RYaKXXDwDIaID/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><a class="chip chip-live" href="https://youtu.be/N3QLg4q7h9k?si=F702bEZIexTVTybs" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/file/d/1cOxuVwxLwT6kFHmyx33fnOkYQExzrcm6/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/file/d/1LFkbO5nJm7L6eWZfulAzHi2iSLJ1BthY/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/file/d/1NPC7s_ZRrO8oAo-2EYbUfc3I_C1FWj03/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/file/d/1gIFf6p-nM1H4G_-15Yx5VeL8x0FiiqUj/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=1R3AeFuY0i6q9WCpxKsfJ1cLN_oo9IxF1" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
-        <div class="jury-note">
+        
+        <div class="pv-score" data-slug="sortnova-team">
+          <div class="pv-score-head">
+            <span>Skor Pra-Event Anda</span>
+            <span class="save-status" data-status-for="sortnova-team">Belum dinilai oleh Anda</span>
+          </div>
+          <div class="crit-grid">
+        <div class="crit">
+          <label>A1 &middot; Konten &amp; Pesan (15%)</label>
+          <div class="hint">Isu relevan, data akurat, pesan jelas, storytelling kuat</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="sortnova-team" data-crit="a1" value="">
+            <span class="band" data-band-for="sortnova-team-a1"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>A2 &middot; Produksi (10%)</label>
+          <div class="hint">Resolusi HD, suara jernih, editing rapi, transisi halus</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="sortnova-team" data-crit="a2" value="">
+            <span class="band" data-band-for="sortnova-team-a2"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>A3 &middot; Integrasi MKWK (5%)</label>
+          <div class="hint">Nilai MKWK eksplisit &amp; terdokumentasi kuat dalam video</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="sortnova-team" data-crit="a3" value="">
+            <span class="band" data-band-for="sortnova-team-a3"></span>
+          </div>
+        </div></div>
+          <button class="btn-save" data-save-for="sortnova-team">Simpan Skor</button>
+        </div>
+        <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
           <div class="write-line"></div>
           <div class="write-line"></div>
@@ -916,7 +1272,32 @@ Selain itu, kegiatan ini juga jadi sarana edukasi buat ibu-ibu rumah tangga di s
         
         
         <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/15DU4HUL54Hrz08A0cS-Sijx2srpdwvOW" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/file/d/10AwjTh9F2_hQZDP2LNnxO8PMBom5TPbD/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)</a><a class="chip chip-live" href="https://drive.google.com/file/d/1CaaCLxabcs4fVwHqimyzdfGDTkG-n3nR/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/file/d/1_mU-6z1uuowRKkAcf6PfARULW0uQWteR/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/file/d/11PotVRHtG8JZV_wtAe6lYyzJpaMWUCbj/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/file/d/1Y9yQrjksueFttkSwDBBbBza-WdXU0hJ6/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=1ddz8JdMzkgOFaNpzPs1i6qQRwIG2TwB3" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
-        <div class="jury-note">
+        
+        <div class="pv-score" data-slug="tim-hore">
+          <div class="pv-score-head">
+            <span>Skor Pra-Event Anda</span>
+            <span class="save-status" data-status-for="tim-hore">Belum dinilai oleh Anda</span>
+          </div>
+          <div class="crit-grid">
+        <div class="crit">
+          <label>B1 &middot; Isi Ilmiah (10%)</label>
+          <div class="hint">Masalah jelas, metode tepat, dampak terukur &amp; berbasis data</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="tim-hore" data-crit="b1" value="">
+            <span class="band" data-band-for="tim-hore-b1"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>B2 &middot; Estetika (10%)</label>
+          <div class="hint">Desain menarik, hierarki tipografi jelas, terbaca di layar</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="tim-hore" data-crit="b2" value="">
+            <span class="band" data-band-for="tim-hore-b2"></span>
+          </div>
+        </div></div>
+          <button class="btn-save" data-save-for="tim-hore">Simpan Skor</button>
+        </div>
+        <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
           <div class="write-line"></div>
           <div class="write-line"></div>
@@ -952,7 +1333,40 @@ Selain itu, kegiatan ini juga jadi sarana edukasi buat ibu-ibu rumah tangga di s
         
         <div class="missing-box"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 9.6v4.4M12 16.8h.01"/></svg><span><strong>Belum lengkap:</strong> Naskah deskripsi project, Surat pernyataan orisinalitas</span></div>
         <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1fQZuztrp8D3v3gYuFfVn-rXe0CPsLxsZ?usp=sharing" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><a class="chip chip-live" href="https://youtu.be/Q0Q0smXKS2c?si=i2VYQdqKC4t7nOZh" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)<span class="chip-x">tidak ada</span></span><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi<span class="chip-x">tidak ada</span></span><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/drive/folders/1fQZuztrp8D3v3gYuFfVn-rXe0CPsLxsZ?usp=sharing" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/open?id=1_UgTDePjouE89vWc6AjB2OU7VmFdQ_Xw" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
-        <div class="jury-note">
+        
+        <div class="pv-score" data-slug="the-last-trace-team">
+          <div class="pv-score-head">
+            <span>Skor Pra-Event Anda</span>
+            <span class="save-status" data-status-for="the-last-trace-team">Belum dinilai oleh Anda</span>
+          </div>
+          <div class="crit-grid">
+        <div class="crit">
+          <label>A1 &middot; Konten &amp; Pesan (15%)</label>
+          <div class="hint">Isu relevan, data akurat, pesan jelas, storytelling kuat</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="the-last-trace-team" data-crit="a1" value="">
+            <span class="band" data-band-for="the-last-trace-team-a1"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>A2 &middot; Produksi (10%)</label>
+          <div class="hint">Resolusi HD, suara jernih, editing rapi, transisi halus</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="the-last-trace-team" data-crit="a2" value="">
+            <span class="band" data-band-for="the-last-trace-team-a2"></span>
+          </div>
+        </div>
+        <div class="crit">
+          <label>A3 &middot; Integrasi MKWK (5%)</label>
+          <div class="hint">Nilai MKWK eksplisit &amp; terdokumentasi kuat dalam video</div>
+          <div class="inrow">
+            <input type="number" min="0" max="100" step="1" data-slug="the-last-trace-team" data-crit="a3" value="">
+            <span class="band" data-band-for="the-last-trace-team-a3"></span>
+          </div>
+        </div></div>
+          <button class="btn-save" data-save-for="the-last-trace-team">Simpan Skor</button>
+        </div>
+        <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
           <div class="write-line"></div>
           <div class="write-line"></div>
@@ -970,41 +1384,70 @@ Selain itu, kegiatan ini juga jadi sarana edukasi buat ibu-ibu rumah tangga di s
 </div>
 
 <script>
-(function(){
-  var PASSWORD = 'LombaMKWK';
-  var SESSION_KEY = 'mkwk2026-jury-access';
+var TOKEN = "";
+var PASSWORD_KEY = "mkwk2026-jury-access";
+var JUROR_KEY = "mkwk2026-juror-name";
+var JURORS = [
+  "Dr. Epin Saepudin, M.Pd. (ITB)",
+  "Dr. Heri Santoso, S.S., M.Hum. (UGM)",
+  "Ir. H. Riadi Budiman, S.T., M.T., M.Pd., IPM., ASEAN Eng. (Untan)",
+  "Aurelius Rofinus Lolong Teluma, S.S., M.A. (Unram)",
+  "Ida Ayu Sutarini, S.Sn., M.Ds. (Unram)",
+];
+var ALL_SCORES = [];
+
+function relock(message){
+  try { sessionStorage.removeItem(PASSWORD_KEY); } catch (e) {}
+  TOKEN = "";
+  document.getElementById("app").style.display = "none";
+  document.getElementById("lockScreen").style.display = "";
+  var err = document.getElementById("lockError");
+  if (err) err.textContent = message || "";
+  var pass = document.getElementById("lockPass");
+  if (pass) { pass.value = ""; pass.focus(); }
+}
+
+(function initLock(){
   var lockScreen = document.getElementById('lockScreen');
   var app = document.getElementById('app');
   var lockForm = document.getElementById('lockForm');
   var lockPass = document.getElementById('lockPass');
   var lockError = document.getElementById('lockError');
 
-  function unlock(){
+  function unlock(token){
+    TOKEN = token;
     lockScreen.style.display = 'none';
     app.style.display = '';
+    bootScoring();
   }
 
   try {
-    if (sessionStorage.getItem(SESSION_KEY) === '1'){
-      unlock();
-    }
-  } catch (e) { /* sessionStorage unavailable, fall through to password prompt */ }
+    var saved = sessionStorage.getItem(PASSWORD_KEY);
+    if (saved) { unlock(saved); return; }
+  } catch (e) {}
 
   lockForm.addEventListener('submit', function(ev){
     ev.preventDefault();
-    if (lockPass.value === PASSWORD){
-      try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
-      lockError.textContent = '';
-      unlock();
-    } else {
-      lockError.textContent = 'Sandi salah. Hubungi koordinator panitia jika lupa.';
-      lockPass.value = '';
-      lockPass.focus();
-    }
+    var val = lockPass.value;
+    // Hanya sandi yang benar-benar terkonfirmasi server (HTTP 200) yang
+    // di-cache — status lain (503/error jaringan) tetap membuka UI tapi
+    // tidak disimpan sebagai "terverifikasi", supaya sandi yang salah tidak
+    // nyangkut permanen di browser (lihat perbaikan bug di halaman Penilaian Juri).
+    fetch("/api/scores", { headers: { Authorization: "Bearer " + val } })
+      .then(function(res){
+        if (res.status === 401) {
+          lockError.textContent = 'Sandi salah. Hubungi koordinator panitia jika lupa.';
+          lockPass.value = ''; lockPass.focus();
+          return;
+        }
+        if (res.ok) { try { sessionStorage.setItem(PASSWORD_KEY, val); } catch (e) {} }
+        unlock(val);
+      })
+      .catch(function(){ unlock(val); });
   });
 })();
-</script>
-<script>
+
+/* ---------------- Filter/search (existing) ---------------- */
 (function(){
   var q = document.getElementById('q');
   var seg = document.getElementById('catSeg');
@@ -1037,6 +1480,185 @@ Selain itu, kegiatan ini juga jadi sarana edukasi buat ibu-ibu rumah tangga di s
   q.addEventListener('input', apply);
   onlyWarn.addEventListener('change', apply);
 })();
+
+/* ---------------- Skor Pra-Event langsung di kartu ---------------- */
+function esc(s){
+  var d = document.createElement("div");
+  d.textContent = s == null ? "" : s;
+  return d.innerHTML;
+}
+
+function setConn(state, text, bannerHtml){
+  var el = document.getElementById("connStatus");
+  el.className = "conn-status " + (state === "ok" ? "conn-ok" : state === "bad" ? "conn-bad" : "conn-wait");
+  el.textContent = text;
+  var banner = document.getElementById("connBanner");
+  banner.innerHTML = (state === "bad" && bannerHtml) ? '<div class="wrap"><div class="banner banner-danger">' + bannerHtml + '</div></div>' : "";
+}
+
+function bandFor(score){
+  if (score === "" || score === null || isNaN(score)) return { cls: "", text: "" };
+  var n = Number(score);
+  if (n >= 86) return { cls: "b-top", text: "Sangat baik" };
+  if (n >= 71) return { cls: "b-hi", text: "Baik" };
+  if (n >= 56) return { cls: "b-mid", text: "Cukup" };
+  return { cls: "b-low", text: "Kurang" };
+}
+
+function scoreFor(slug, juror, criterion){
+  var j = (juror || "").trim().toLowerCase();
+  var row = ALL_SCORES.find(function(s){ return s.team_slug === slug && s.criterion === criterion && (s.juror_name || "").trim().toLowerCase() === j; });
+  return row ? row.score : "";
+}
+
+function bootScoring(){
+  var jurorInput = document.getElementById("jurorName");
+  document.getElementById("jurorList").innerHTML = JURORS.map(function(n){ return '<option value="' + esc(n) + '">'; }).join("");
+  try { jurorInput.value = localStorage.getItem(JUROR_KEY) || ""; } catch (e) {}
+  jurorInput.addEventListener("input", function(){
+    try { localStorage.setItem(JUROR_KEY, jurorInput.value.trim()); } catch (e) {}
+    renderScores();
+  });
+
+  document.querySelectorAll(".btn-save[data-save-for]").forEach(function(btn){
+    btn.addEventListener("click", function(){ saveTeam(btn.dataset.saveFor); });
+  });
+  document.querySelectorAll('.crit input[type="number"]').forEach(function(inp){
+    inp.addEventListener("input", function(){
+      var key = inp.dataset.slug + "-" + inp.dataset.crit;
+      var band = bandFor(inp.value);
+      var el = document.querySelector('[data-band-for="' + key + '"]');
+      if (el) { el.className = "band " + band.cls; el.textContent = band.text; }
+    });
+  });
+
+  renderScores();
+  loadScores();
+}
+
+function renderScores(){
+  var juror = document.getElementById("jurorName").value.trim();
+  document.querySelectorAll(".pv-score").forEach(function(panel){
+    var slug = panel.dataset.slug;
+    var card = panel.closest(".card");
+    var statusEl = panel.querySelector("[data-status-for='" + slug + "']");
+    var savedRows = ALL_SCORES.filter(function(s){ return s.team_slug === slug && (s.juror_name || "").trim().toLowerCase() === juror.toLowerCase(); });
+    panel.querySelectorAll('input[type="number"]').forEach(function(inp){
+      var val = scoreFor(slug, juror, inp.dataset.crit);
+      inp.value = val;
+      var band = bandFor(val);
+      var el = panel.querySelector('[data-band-for="' + slug + '-' + inp.dataset.crit + '"]');
+      if (el) { el.className = "band " + band.cls; el.textContent = band.text; }
+    });
+    if (savedRows.length) {
+      card.classList.add("pv-saved");
+      statusEl.className = "save-status ok";
+      var last = savedRows.reduce(function(a, b){ return a.updated_at > b.updated_at ? a : b; }).updated_at;
+      statusEl.textContent = "Tersimpan · " + fmtTime(last);
+    } else {
+      card.classList.remove("pv-saved");
+      statusEl.className = "save-status";
+      statusEl.textContent = "Belum dinilai oleh Anda";
+    }
+  });
+}
+
+function fmtTime(iso){
+  if (!iso) return "";
+  var d = new Date(iso.replace(" ", "T") + "Z");
+  if (isNaN(d)) return iso;
+  return d.toLocaleString("id-ID", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }) + " WITA";
+}
+
+function loadScores(){
+  setConn("wait", "Menghubungkan…");
+  fetch("/api/scores", { headers: { Authorization: "Bearer " + TOKEN } })
+    .then(function(res){
+      if (res.status === 401) {
+        relock("Sesi berakhir atau sandi tersimpan tidak valid lagi — masukkan sandi sekali lagi.");
+        throw new Error("unauthorized");
+      }
+      if (res.status === 503) {
+        setConn("bad", "Database belum siap (503)", "&#9888;&#65039; Database penilaian belum terhubung di sisi Cloudflare (HTTP 503) — murni masalah setup panitia. Skor yang Anda isi <b>tidak akan tersimpan</b>; pakai jalur cadangan di halaman <a href=\"nilai/\">Penilaian Juri</a> sementara waktu.");
+        throw new Error("db not configured");
+      }
+      if (!res.ok) {
+        setConn("bad", "Server error (" + res.status + ")", "&#9888;&#65039; Server merespons dengan error HTTP " + res.status + " — hubungi PJ Lomba dan sebutkan kode ini.");
+        throw new Error("http " + res.status);
+      }
+      return res.json();
+    })
+    .then(function(data){
+      ALL_SCORES = data.scores || [];
+      setConn("ok", "Terhubung · " + ALL_SCORES.length + " skor tersimpan");
+      renderScores();
+    })
+    .catch(function(err){
+      if (err.message === "unauthorized" || err.message === "db not configured" || /^http \d/.test(err.message)) return;
+      setConn("bad", "Tidak terhubung", "&#9888;&#65039; Tidak bisa menjangkau server (periksa internet Anda). Skor yang Anda isi <b>tidak akan tersimpan</b> sampai koneksi normal kembali.");
+    });
+}
+
+function saveTeam(slug){
+  var jurorInput = document.getElementById("jurorName");
+  var juror = jurorInput.value.trim();
+  var panel = document.querySelector('.pv-score[data-slug="' + slug + '"]');
+  var statusEl = panel.querySelector("[data-status-for='" + slug + "']");
+  var btn = panel.querySelector("[data-save-for='" + slug + "']");
+
+  if (!juror) {
+    statusEl.className = "save-status";
+    statusEl.textContent = "Isi nama juri terlebih dahulu ↑";
+    jurorInput.focus();
+    return;
+  }
+
+  var entries = [];
+  panel.querySelectorAll('input[type="number"]').forEach(function(inp){
+    if (inp.value === "") return;
+    var n = Number(inp.value);
+    if (!isFinite(n) || n < 0 || n > 100) return;
+    entries.push({ criterion: inp.dataset.crit, score: n });
+  });
+  if (!entries.length) {
+    statusEl.className = "save-status";
+    statusEl.textContent = "Isi minimal satu nilai sebelum menyimpan";
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "Menyimpan…";
+  fetch("/api/scores", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: "Bearer " + TOKEN },
+    body: JSON.stringify({ team_slug: slug, juror_name: juror, entries: entries }),
+  })
+    .then(function(res){
+      if (res.status === 401) { relock("Sesi berakhir — masukkan sandi sekali lagi lalu coba simpan ulang."); throw new Error("unauthorized"); }
+      if (!res.ok) throw new Error("http " + res.status);
+      return res.json();
+    })
+    .then(function(){
+      var now = new Date().toISOString().replace("T", " ").slice(0, 19);
+      entries.forEach(function(en){
+        var idx = ALL_SCORES.findIndex(function(s){ return s.team_slug === slug && s.criterion === en.criterion && (s.juror_name || "").trim().toLowerCase() === juror.toLowerCase(); });
+        var row = { team_slug: slug, juror_name: juror, criterion: en.criterion, score: en.score, note: null, updated_at: now };
+        if (idx === -1) ALL_SCORES.push(row); else ALL_SCORES[idx] = row;
+      });
+      panel.closest(".card").classList.add("pv-saved");
+      statusEl.className = "save-status ok";
+      statusEl.textContent = "Tersimpan · " + fmtTime(now);
+    })
+    .catch(function(err){
+      if (err.message === "unauthorized") return;
+      statusEl.className = "save-status";
+      statusEl.textContent = "Gagal menyimpan — coba lagi";
+    })
+    .finally(function(){
+      btn.disabled = false;
+      btn.textContent = "Simpan Skor";
+    });
+}
 </script>
 
 </body>
