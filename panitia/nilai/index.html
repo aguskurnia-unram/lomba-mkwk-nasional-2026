@@ -151,6 +151,9 @@ h1{font-family:var(--font-display); font-weight:700; text-wrap:balance; font-siz
 .btn-save{font:inherit; font-weight:700; font-size:13.5px; padding:9px 16px; border-radius:8px; border:none; background:var(--navy); color:#fff; cursor:pointer}
 .btn-save:hover{background:#0e2c47}
 .btn-save:disabled{background:var(--line-strong); cursor:not-allowed}
+.btn-delete{font:inherit; font-weight:700; font-size:13.5px; padding:9px 16px; border-radius:8px; border:1px solid var(--warn); background:transparent; color:var(--warn); cursor:pointer}
+.btn-delete:hover{background:var(--warn); color:#fff}
+.btn-delete:disabled{opacity:.5; cursor:not-allowed}
 
 /* Rekap table */
 .rekap-wrap{margin:20px 0 44px; overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius); background:var(--paper-raised)}
@@ -521,6 +524,7 @@ function renderRoster(){
           (savedRows.length ? ("Tersimpan oleh Anda · " + fmtTime(lastSaved)) : "Belum dinilai oleh Anda") +
         '</span>' +
         '<button class="btn-save" data-save-for="' + t.slug + '">Simpan Nilai</button>' +
+        '<button class="btn-delete" type="button" data-delete-for="' + t.slug + '">Hapus Nilai Saya</button>' +
       '</div>' +
     '</article>';
   }).join("");
@@ -535,6 +539,9 @@ function renderRoster(){
   });
   roster.querySelectorAll("[data-save-for]").forEach(function(btn){
     btn.addEventListener("click", function(){ saveTeam(btn.dataset.saveFor); });
+  });
+  roster.querySelectorAll("[data-delete-for]").forEach(function(btn){
+    btn.addEventListener("click", function(){ deleteTeam(btn.dataset.deleteFor); });
   });
 }
 
@@ -609,6 +616,60 @@ function saveTeam(slug){
     .finally(function(){
       btn.disabled = false;
       btn.textContent = "Simpan Nilai";
+    });
+}
+
+function deleteTeam(slug){
+  const jurorInput = document.getElementById("jurorName");
+  const juror = jurorInput.value.trim();
+  const card = document.querySelector('.score-card[data-slug="' + slug + '"]');
+  const statusEl = card.querySelector("[data-status-for='" + slug + "']");
+  const btn = card.querySelector("[data-delete-for='" + slug + "']");
+
+  if (!juror) {
+    statusEl.textContent = "Isi nama juri terlebih dahulu ↑";
+    statusEl.className = "save-status";
+    jurorInput.focus();
+    return;
+  }
+
+  // Hanya kriteria tahap yang sedang aktif (kartu ini) yang dihapus — nilai
+  // tahap lain (mis. Pra-Event saat sedang melihat Presentasi Finalis) tidak
+  // ikut terhapus.
+  const crits = Array.prototype.map.call(card.querySelectorAll('input[type="number"]'), inp => inp.dataset.crit);
+  const stageLabel = STAGE === "presentasi" ? "Presentasi Finalis" : "Pra-Event";
+  const existing = ALL_SCORES.some(s => s.team_slug === slug && crits.indexOf(s.criterion) !== -1 && (s.juror_name || "").trim().toLowerCase() === juror.toLowerCase());
+  if (!existing) {
+    statusEl.className = "save-status";
+    statusEl.textContent = "Belum ada skor " + stageLabel + " tersimpan dari " + juror + " untuk tim ini";
+    return;
+  }
+  if (!confirm("Hapus semua skor " + stageLabel + " dari juri \"" + juror + "\" untuk tim ini? Tindakan ini tidak bisa dibatalkan.")) return;
+
+  btn.disabled = true;
+  btn.textContent = "Menghapus…";
+  fetch("/api/scores?team_slug=" + encodeURIComponent(slug) + "&juror_name=" + encodeURIComponent(juror) + "&criteria=" + encodeURIComponent(crits.join(",")), {
+    method: "DELETE",
+    headers: { Authorization: "Bearer " + TOKEN },
+  })
+    .then(function(res){
+      if (res.status === 401) { relock("Sesi berakhir — masukkan sandi sekali lagi lalu coba lagi."); throw new Error("unauthorized"); }
+      if (!res.ok) throw new Error("http " + res.status);
+      return res.json();
+    })
+    .then(function(){
+      ALL_SCORES = ALL_SCORES.filter(s => !(s.team_slug === slug && crits.indexOf(s.criterion) !== -1 && (s.juror_name || "").trim().toLowerCase() === juror.toLowerCase()));
+      renderRoster();
+      if (document.getElementById("viewRekap").style.display !== "none") renderRekap();
+    })
+    .catch(function(err){
+      if (err.message === "unauthorized") return;
+      statusEl.className = "save-status";
+      statusEl.textContent = "Gagal menghapus — coba lagi";
+    })
+    .finally(function(){
+      btn.disabled = false;
+      btn.textContent = "Hapus Nilai Saya";
     });
 }
 

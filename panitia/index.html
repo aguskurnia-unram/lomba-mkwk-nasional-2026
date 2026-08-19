@@ -246,9 +246,13 @@ h1{
 .crit input[type="number"]:focus{outline:none; border-color:var(--navy)}
 .crit .band{font-size:10px; font-weight:700; color:var(--ink-faint)}
 .crit .band.b-top{color:var(--ok)} .crit .band.b-hi{color:var(--navy)} .crit .band.b-mid{color:var(--gold)} .crit .band.b-low{color:var(--warn)}
+.pv-actions{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
 .btn-save{align-self:flex-start; font:inherit; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:7px; border:none; background:var(--navy); color:#fff; cursor:pointer}
 .btn-save:hover{background:#0e2c47}
 .btn-save:disabled{background:var(--line-strong); cursor:not-allowed}
+.btn-delete{align-self:flex-start; font:inherit; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:7px; border:1px solid var(--warn); background:transparent; color:var(--warn); cursor:pointer}
+.btn-delete:hover{background:var(--warn); color:#fff}
+.btn-delete:disabled{opacity:.5; cursor:not-allowed}
 .card.pv-saved{border-left-color:var(--ok)}
 
 .card-foot{font-size:11px; color:var(--ink-faint); margin-top:2px}
@@ -523,7 +527,10 @@ footer.site strong{color:var(--ink-dim)}
             <span class="band" data-band-for="nusa-data-team-a3"></span>
           </div>
         </div></div>
-          <button class="btn-save" data-save-for="nusa-data-team">Simpan Skor</button>
+          <div class="pv-actions">
+            <button class="btn-save" data-save-for="nusa-data-team">Simpan Skor</button>
+            <button class="btn-delete" type="button" data-delete-for="nusa-data-team">Hapus Nilai Saya</button>
+          </div>
         </div>
         <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
@@ -590,7 +597,10 @@ Pengembangan Mahasiswa: Meningkatkan soft skills tim mahasiswa dalam hal komunik
             <span class="band" data-band-for="garudaaksi-b2"></span>
           </div>
         </div></div>
-          <button class="btn-save" data-save-for="garudaaksi">Simpan Skor</button>
+          <div class="pv-actions">
+            <button class="btn-save" data-save-for="garudaaksi">Simpan Skor</button>
+            <button class="btn-delete" type="button" data-delete-for="garudaaksi">Hapus Nilai Saya</button>
+          </div>
         </div>
         <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
@@ -663,7 +673,10 @@ Melalui project ini, peserta didik memperoleh pemahaman dan pengalaman langsung 
             <span class="band" data-band-for="nawasena-a3"></span>
           </div>
         </div></div>
-          <button class="btn-save" data-save-for="nawasena">Simpan Skor</button>
+          <div class="pv-actions">
+            <button class="btn-save" data-save-for="nawasena">Simpan Skor</button>
+            <button class="btn-delete" type="button" data-delete-for="nawasena">Hapus Nilai Saya</button>
+          </div>
         </div>
         <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
@@ -760,7 +773,10 @@ c. Dampak karakter jangka panjang (klaim kualitatif)
             <span class="band" data-band-for="tim-karsa-nusantara-umri-b2"></span>
           </div>
         </div></div>
-          <button class="btn-save" data-save-for="tim-karsa-nusantara-umri">Simpan Skor</button>
+          <div class="pv-actions">
+            <button class="btn-save" data-save-for="tim-karsa-nusantara-umri">Simpan Skor</button>
+            <button class="btn-delete" type="button" data-delete-for="tim-karsa-nusantara-umri">Hapus Nilai Saya</button>
+          </div>
         </div>
         <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
@@ -851,7 +867,10 @@ D. Penerima Manfaat:
             <span class="band" data-band-for="grow-with-nature-a3"></span>
           </div>
         </div></div>
-          <button class="btn-save" data-save-for="grow-with-nature">Simpan Skor</button>
+          <div class="pv-actions">
+            <button class="btn-save" data-save-for="grow-with-nature">Simpan Skor</button>
+            <button class="btn-delete" type="button" data-delete-for="grow-with-nature">Hapus Nilai Saya</button>
+          </div>
         </div>
         <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
@@ -926,7 +945,10 @@ Dengan data sebagi berikut:
             <span class="band" data-band-for="panca-inspirasi-b2"></span>
           </div>
         </div></div>
-          <button class="btn-save" data-save-for="panca-inspirasi">Simpan Skor</button>
+          <div class="pv-actions">
+            <button class="btn-save" data-save-for="panca-inspirasi">Simpan Skor</button>
+            <button class="btn-delete" type="button" data-delete-for="panca-inspirasi">Hapus Nilai Saya</button>
+          </div>
         </div>
         <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
@@ -998,7 +1020,10 @@ Dengan data sebagi berikut:
             <span class="band" data-band-for="teamkwu-a3"></span>
           </div>
         </div></div>
-          <button class="btn-save" data-save-for="teamkwu">Simpan Skor</button>
+          <div class="pv-actions">
+            <button class="btn-save" data-save-for="teamkwu">Simpan Skor</button>
+            <button class="btn-delete" type="button" data-delete-for="teamkwu">Hapus Nilai Saya</button>
+          </div>
         </div>
         <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
@@ -1059,7 +1084,10 @@ Dengan data sebagi berikut:
             <span class="band" data-band-for="bahagia-grup-b2"></span>
           </div>
         </div></div>
-          <button class="btn-save" data-save-for="bahagia-grup">Simpan Skor</button>
+          <div class="pv-actions">
+            <button class="btn-save" data-save-for="bahagia-grup">Simpan Skor</button>
+            <button class="btn-delete" type="button" data-delete-for="bahagia-grup">Hapus Nilai Saya</button>
+          </div>
         </div>
         <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
@@ -1146,7 +1174,10 @@ Dampak konkret: Terdapat papan informasi tentang lama terurainya sampah plastik.
             <span class="band" data-band-for="ecorizz-b2"></span>
           </div>
         </div></div>
-          <button class="btn-save" data-save-for="ecorizz">Simpan Skor</button>
+          <div class="pv-actions">
+            <button class="btn-save" data-save-for="ecorizz">Simpan Skor</button>
+            <button class="btn-delete" type="button" data-delete-for="ecorizz">Hapus Nilai Saya</button>
+          </div>
         </div>
         <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
@@ -1225,7 +1256,10 @@ Selain kegiatan lapangan, video proses EcoSort Nova telah dipublikasikan melalui
             <span class="band" data-band-for="sortnova-team-a3"></span>
           </div>
         </div></div>
-          <button class="btn-save" data-save-for="sortnova-team">Simpan Skor</button>
+          <div class="pv-actions">
+            <button class="btn-save" data-save-for="sortnova-team">Simpan Skor</button>
+            <button class="btn-delete" type="button" data-delete-for="sortnova-team">Hapus Nilai Saya</button>
+          </div>
         </div>
         <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
@@ -1295,7 +1329,10 @@ Selain itu, kegiatan ini juga jadi sarana edukasi buat ibu-ibu rumah tangga di s
             <span class="band" data-band-for="tim-hore-b2"></span>
           </div>
         </div></div>
-          <button class="btn-save" data-save-for="tim-hore">Simpan Skor</button>
+          <div class="pv-actions">
+            <button class="btn-save" data-save-for="tim-hore">Simpan Skor</button>
+            <button class="btn-delete" type="button" data-delete-for="tim-hore">Hapus Nilai Saya</button>
+          </div>
         </div>
         <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
@@ -1364,7 +1401,10 @@ Selain itu, kegiatan ini juga jadi sarana edukasi buat ibu-ibu rumah tangga di s
             <span class="band" data-band-for="the-last-trace-team-a3"></span>
           </div>
         </div></div>
-          <button class="btn-save" data-save-for="the-last-trace-team">Simpan Skor</button>
+          <div class="pv-actions">
+            <button class="btn-save" data-save-for="the-last-trace-team">Simpan Skor</button>
+            <button class="btn-delete" type="button" data-delete-for="the-last-trace-team">Hapus Nilai Saya</button>
+          </div>
         </div>
         <div class="jury-note print-only">
           <span class="jury-note-label">Catatan juri</span>
@@ -1523,6 +1563,9 @@ function bootScoring(){
   document.querySelectorAll(".btn-save[data-save-for]").forEach(function(btn){
     btn.addEventListener("click", function(){ saveTeam(btn.dataset.saveFor); });
   });
+  document.querySelectorAll(".btn-delete[data-delete-for]").forEach(function(btn){
+    btn.addEventListener("click", function(){ deleteTeam(btn.dataset.deleteFor); });
+  });
   document.querySelectorAll('.crit input[type="number"]').forEach(function(inp){
     inp.addEventListener("input", function(){
       var key = inp.dataset.slug + "-" + inp.dataset.crit;
@@ -1657,6 +1700,59 @@ function saveTeam(slug){
     .finally(function(){
       btn.disabled = false;
       btn.textContent = "Simpan Skor";
+    });
+}
+
+function deleteTeam(slug){
+  var jurorInput = document.getElementById("jurorName");
+  var juror = jurorInput.value.trim();
+  var panel = document.querySelector('.pv-score[data-slug="' + slug + '"]');
+  var statusEl = panel.querySelector("[data-status-for='" + slug + "']");
+  var btn = panel.querySelector("[data-delete-for='" + slug + "']");
+
+  if (!juror) {
+    statusEl.className = "save-status";
+    statusEl.textContent = "Isi nama juri terlebih dahulu ↑";
+    jurorInput.focus();
+    return;
+  }
+  var existing = ALL_SCORES.some(function(s){ return s.team_slug === slug && (s.juror_name || "").trim().toLowerCase() === juror.toLowerCase(); });
+  if (!existing) {
+    statusEl.className = "save-status";
+    statusEl.textContent = "Belum ada skor tersimpan dari " + juror + " untuk tim ini";
+    return;
+  }
+  if (!confirm("Hapus semua skor Pra-Event dari juri \"" + juror + "\" untuk tim ini? Tindakan ini tidak bisa dibatalkan.")) return;
+
+  var crits = Array.prototype.map.call(panel.querySelectorAll('input[type="number"]'), function(inp){ return inp.dataset.crit; });
+
+  btn.disabled = true;
+  btn.textContent = "Menghapus…";
+  fetch("/api/scores?team_slug=" + encodeURIComponent(slug) + "&juror_name=" + encodeURIComponent(juror) + "&criteria=" + encodeURIComponent(crits.join(",")), {
+    method: "DELETE",
+    headers: { Authorization: "Bearer " + TOKEN },
+  })
+    .then(function(res){
+      if (res.status === 401) { relock("Sesi berakhir — masukkan sandi sekali lagi lalu coba lagi."); throw new Error("unauthorized"); }
+      if (!res.ok) throw new Error("http " + res.status);
+      return res.json();
+    })
+    .then(function(){
+      ALL_SCORES = ALL_SCORES.filter(function(s){ return !(s.team_slug === slug && (s.juror_name || "").trim().toLowerCase() === juror.toLowerCase()); });
+      panel.querySelectorAll('input[type="number"]').forEach(function(inp){ inp.value = ""; });
+      panel.closest(".card").classList.remove("pv-saved");
+      renderScores();
+      statusEl.className = "save-status";
+      statusEl.textContent = "Skor dari " + juror + " sudah dihapus";
+    })
+    .catch(function(err){
+      if (err.message === "unauthorized") return;
+      statusEl.className = "save-status";
+      statusEl.textContent = "Gagal menghapus — coba lagi";
+    })
+    .finally(function(){
+      btn.disabled = false;
+      btn.textContent = "Hapus Nilai Saya";
     });
 }
 </script>

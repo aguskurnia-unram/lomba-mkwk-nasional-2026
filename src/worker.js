@@ -107,6 +107,23 @@ async function handleDeleteScore(request, env) {
   const jurorName = url.searchParams.get("juror_name");
   if (!teamSlug || !jurorName) return json({ error: "invalid_payload" }, 400);
 
+  // `criteria` (opsional, dipisah koma) membatasi penghapusan hanya ke
+  // kriteria tahap tertentu (mis. hanya Pra-Event) supaya juri yang mereset
+  // nilai di satu tahap tidak ikut menghapus nilai tahap lain yang sudah
+  // terverifikasi. Tanpa parameter ini, semua kriteria tim+juri dihapus
+  // (dipakai halaman Verifikasi Peserta, yang memang cuma pernah menulis
+  // kriteria Pra-Event).
+  const criteriaParam = url.searchParams.get("criteria");
+  if (criteriaParam) {
+    const criteria = criteriaParam.split(",").map(c => c.trim()).filter(c => CRITERIA.has(c));
+    if (!criteria.length) return json({ error: "invalid_payload" }, 400);
+    const placeholders = criteria.map((_, i) => `?${i + 3}`).join(",");
+    await env.DB.prepare(`DELETE FROM scores WHERE team_slug = ?1 AND juror_name = ?2 AND criterion IN (${placeholders})`)
+      .bind(teamSlug, jurorName, ...criteria)
+      .run();
+    return json({ ok: true });
+  }
+
   await env.DB.prepare("DELETE FROM scores WHERE team_slug = ?1 AND juror_name = ?2")
     .bind(teamSlug, jurorName)
     .run();
