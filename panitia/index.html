@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dasbor Juri MKWK 2026</title>
+<meta name="description" content="Rekap visual seluruh peserta terdaftar Lomba Project MKWK Nasional 2026 untuk memudahkan verifikasi berkas dan penilaian lanjutan oleh dewan juri.">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f7f4ec; --paper-raised:#ffffff; --paper-sunk:#efe9d9;
+  --ink:#1c1f24; --ink-dim:#615c4e; --ink-faint:#8b8574;
+  --line:#e2dbc7; --line-strong:#cfc6ab;
+  --navy:#173e60; --navy-soft:#e2eaf1;
+  --gold:#a97a1f; --gold-soft:#f2e4bf;
+  --ok:#2c7a56; --ok-soft:#dcefe2;
+  --warn:#a85a17; --warn-soft:#f6e2c9;
+  --shadow:0 1px 2px rgba(23,42,58,.06), 0 8px 24px -12px rgba(23,42,58,.18);
+  --radius:12px;
+  --font-display:'Fraunces',ui-serif,Georgia,'Times New Roman',serif;
+  --font-body:'Public Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#12151b; --paper-raised:#1a1e26; --paper-sunk:#0d0f14;
+    --ink:#eae6da; --ink-dim:#aba695; --ink-faint:#7b7768;
+    --line:#2b2f38; --line-strong:#3a3f4a;
+    --navy:#8fb8dd; --navy-soft:#1c2c3c;
+    --gold:#e0b45f; --gold-soft:#332a13;
+    --ok:#68c79a; --ok-soft:#173226;
+    --warn:#e2954a; --warn-soft:#392712;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12151b; --paper-raised:#1a1e26; --paper-sunk:#0d0f14;
+  --ink:#eae6da; --ink-dim:#aba695; --ink-faint:#7b7768;
+  --line:#2b2f38; --line-strong:#3a3f4a;
+  --navy:#8fb8dd; --navy-soft:#1c2c3c;
+  --gold:#e0b45f; --gold-soft:#332a13;
+  --ok:#68c79a; --ok-soft:#173226;
+  --warn:#e2954a; --warn-soft:#392712;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-body); line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block; max-width:100%}
+a{color:inherit}
+.ic{width:16px;height:16px;flex:0 0 auto}
+.ic-sm{width:14px;height:14px}
+
+.wrap{max-width:1180px; margin:0 auto; padding:0 22px}
+
+/* ---------- Header ---------- */
+.masthead{
+  background:linear-gradient(160deg,var(--navy) 0%, #0e2c47 100%);
+  color:#f3f0e6;
+}
+.masthead .wrap{padding:30px 22px 26px}
+.eyebrow{
+  font-size:12px; letter-spacing:1.3px; text-transform:uppercase; font-weight:600;
+  color:#c9dcec; display:flex; align-items:center; gap:8px;
+}
+.eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+h1{
+  font-family:var(--font-display); font-weight:700; text-wrap:balance;
+  font-size:clamp(28px,4.2vw,42px); margin:10px 0 8px; letter-spacing:-.01em;
+}
+.masthead .lede{
+  max-width:640px; color:#d8e2ea; font-size:15px; margin:0 0 4px;
+}
+.masthead .flag{
+  margin-top:16px; display:inline-flex; gap:10px; align-items:flex-start;
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18);
+  border-radius:10px; padding:10px 14px; font-size:13px; color:#eef1e9; max-width:640px;
+}
+.flag b{color:#fff}
+
+/* ---------- Stat strip ---------- */
+.stats{
+  display:grid; grid-template-columns:repeat(6,1fr); gap:1px;
+  background:var(--line); border:1px solid var(--line); border-radius:var(--radius);
+  overflow:hidden; margin-top:-38px; position:relative; z-index:2; box-shadow:var(--shadow);
+}
+.stat{background:var(--paper-raised); padding:16px 14px; text-align:left}
+.stat .n{font-family:var(--font-display); font-size:28px; font-weight:600; font-variant-numeric:tabular-nums; line-height:1}
+.stat .n.ok{color:var(--ok)} .stat .n.warn{color:var(--warn)}
+.stat .l{font-size:11.5px; color:var(--ink-dim); margin-top:5px; letter-spacing:.2px}
+
+/* ---------- Insight panels ---------- */
+.insights{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:26px}
+.panel{
+  background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius);
+  padding:18px 20px;
+}
+.panel h2{
+  font-family:var(--font-body); font-size:12.5px; text-transform:uppercase; letter-spacing:.6px;
+  color:var(--ink-dim); font-weight:700; margin:0 0 14px;
+}
+.bar-row{display:grid; grid-template-columns:1fr; gap:4px; margin-bottom:10px}
+.bar-row:last-child{margin-bottom:0}
+.bar-label{font-size:13px; color:var(--ink); display:flex; justify-content:space-between}
+.bar-track{height:8px; background:var(--paper-sunk); border-radius:5px; overflow:hidden; position:relative}
+.bar-fill{height:100%; border-radius:5px}
+.bar-fill-navy{background:var(--navy)}
+.bar-fill-gold{background:var(--gold)}
+.bar-count{display:none}
+.bar-label .bar-count-inline{color:var(--ink-faint); font-variant-numeric:tabular-nums; font-size:12px}
+
+.timeline-panel{grid-column:1 / -1}
+.tl{position:relative; height:56px; margin:8px 4px 0}
+.tl-axis{position:absolute; left:0; right:0; top:28px; height:2px; background:var(--line-strong)}
+.tl-deadline{position:absolute; top:6px; bottom:6px; width:2px; background:var(--warn); opacity:.55}
+.tl-deadline-label{position:absolute; top:-2px; font-size:10.5px; color:var(--warn); font-weight:700; white-space:nowrap; transform:translateX(-100%); padding-right:6px}
+.tl-dot{
+  position:absolute; top:22px; width:14px; height:14px; margin-left:-7px;
+  border-radius:50%; background:var(--navy); border:2px solid var(--paper-raised);
+  cursor:default; outline-offset:3px;
+}
+.tl-dot:hover, .tl-dot:focus{background:var(--gold)}
+.tl-tip{
+  position:absolute; bottom:22px; left:50%; transform:translateX(-50%);
+  background:var(--ink); color:var(--paper); font-size:11.5px; padding:6px 9px; border-radius:7px;
+  white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .12s; line-height:1.4;
+}
+.tl-dot:hover .tl-tip, .tl-dot:focus .tl-tip{opacity:1}
+.tl-labels{display:flex; justify-content:space-between; font-size:11px; color:var(--ink-faint); margin-top:26px}
+
+/* ---------- Controls ---------- */
+.controls{
+  display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:28px 0 16px;
+  position:sticky; top:0; z-index:5; background:var(--paper); padding:12px 0;
+  border-bottom:1px solid var(--line);
+}
+.search{
+  display:flex; align-items:center; gap:8px; background:var(--paper-raised); border:1px solid var(--line);
+  border-radius:9px; padding:8px 12px; flex:1 1 220px; min-width:180px;
+}
+.search .ic{color:var(--ink-faint)}
+.search input{
+  border:none; outline:none; background:transparent; font:inherit; color:var(--ink); width:100%; font-size:14px;
+}
+.seg{display:inline-flex; background:var(--paper-raised); border:1px solid var(--line); border-radius:9px; padding:3px; gap:2px}
+.seg button{
+  border:none; background:transparent; font:inherit; font-size:13px; padding:7px 13px; border-radius:6px;
+  color:var(--ink-dim); cursor:pointer; font-weight:600;
+}
+.seg button.active{background:var(--navy); color:#fff}
+.toggle{
+  display:inline-flex; align-items:center; gap:7px; font-size:13px; color:var(--ink-dim); cursor:pointer;
+  background:var(--paper-raised); border:1px solid var(--line); border-radius:9px; padding:8px 13px; font-weight:600;
+}
+.toggle input{accent-color:var(--warn); width:15px; height:15px}
+.result-count{font-size:12.5px; color:var(--ink-faint); margin-left:auto}
+
+/* ---------- Cards ---------- */
+.roster{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(340px,1fr)); gap:16px; margin:6px 0 40px;
+}
+.card{
+  background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius);
+  padding:18px 19px 16px; display:flex; flex-direction:column; gap:10px;
+  border-left:4px solid var(--line-strong); box-shadow:var(--shadow);
+}
+.card[data-status="ok"]{border-left-color:var(--ok)}
+.card[data-status="warn"]{border-left-color:var(--warn)}
+.card.is-hidden{display:none}
+
+.card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:8px}
+.pills{display:flex; gap:6px; flex-wrap:wrap}
+.pill{
+  display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:700; letter-spacing:.2px;
+  padding:4px 9px; border-radius:999px; white-space:nowrap;
+}
+.pill-video{background:var(--navy-soft); color:var(--navy)}
+.pill-poster{background:var(--gold-soft); color:var(--gold)}
+.pill-status.pill-ok{background:var(--ok-soft); color:var(--ok)}
+.pill-status.pill-warn{background:var(--warn-soft); color:var(--warn)}
+
+.team-name{font-family:var(--font-display); font-size:20px; font-weight:700; margin:0; line-height:1.2}
+.univ{margin:0; font-size:12.5px; color:var(--ink-dim); font-weight:600}
+.proj-title{margin:2px 0 0; font-size:14.5px; font-weight:600; color:var(--ink); line-height:1.4}
+.summary{margin:0; font-size:13.5px; color:var(--ink-dim); line-height:1.55}
+
+.detail{font-size:13px; border-top:1px dashed var(--line); padding-top:8px}
+.detail summary{cursor:pointer; font-weight:700; color:var(--navy); font-size:12.5px; list-style:none}
+.detail summary::before{content:"+ "; color:var(--gold)}
+.detail[open] summary::before{content:"– "}
+.detail dl{margin:10px 0 0}
+.detail dt{font-weight:700; font-size:11.5px; text-transform:uppercase; letter-spacing:.3px; color:var(--ink-faint); margin-top:10px}
+.detail dt:first-child{margin-top:0}
+.detail dd{margin:3px 0 0; color:var(--ink-dim); white-space:pre-line}
+
+.meta-row{display:flex; flex-direction:column; gap:3px; font-size:12.5px; color:var(--ink-dim); border-top:1px solid var(--line); padding-top:10px}
+
+.note-box, .missing-box{
+  display:flex; gap:8px; align-items:flex-start; font-size:12.5px; border-radius:8px; padding:9px 11px;
+}
+.note-box{background:var(--navy-soft); color:var(--navy)}
+.note-box .ic{color:var(--navy); margin-top:2px}
+.note-box ul{margin:0; padding-left:16px}
+.missing-box{background:var(--warn-soft); color:var(--warn)}
+.missing-box .ic{margin-top:2px; flex:0 0 auto}
+
+.links-row{display:flex; flex-wrap:wrap; gap:6px}
+.chip{
+  display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:600; padding:6px 10px;
+  border-radius:7px; text-decoration:none; border:1px solid transparent;
+}
+.chip-live{background:var(--navy-soft); color:var(--navy); border-color:transparent}
+.chip-live:hover{background:var(--navy); color:#fff}
+.chip-missing{background:transparent; color:var(--ink-faint); border:1px dashed var(--line-strong)}
+.chip-x{font-weight:400; font-style:italic; opacity:.85}
+
+.jury-note{border-top:1px dashed var(--line); padding-top:10px; margin-top:2px}
+.jury-note-label{font-size:11px; text-transform:uppercase; letter-spacing:.4px; color:var(--ink-faint); font-weight:700}
+.write-line{border-bottom:1px solid var(--line); height:16px; margin-top:6px}
+
+.card-foot{font-size:11px; color:var(--ink-faint); margin-top:2px}
+
+/* ---------- Footer ---------- */
+footer.site{border-top:1px solid var(--line); padding:26px 0 40px; font-size:12.5px; color:var(--ink-faint)}
+footer.site strong{color:var(--ink-dim)}
+
+@media (max-width:880px){
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .insights{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .masthead .wrap{padding-bottom:44px}
+}
+
+@media print{
+  .masthead{background:none; color:var(--ink)}
+  .controls, .tl-tip{display:none !important}
+  .roster{grid-template-columns:1fr 1fr; gap:10px}
+  .card{break-inside:avoid; box-shadow:none}
+}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important}
+}
+
+/* ---------- Lock screen ---------- */
+.lock-screen{
+  position:fixed; inset:0; z-index:999; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(160deg,var(--navy) 0%, #0e2c47 100%); padding:24px;
+}
+.lock-card{
+  width:100%; max-width:360px; background:var(--paper-raised); border-radius:16px;
+  padding:30px 28px 26px; box-shadow:0 20px 60px -18px rgba(0,0,0,.5); text-align:left;
+}
+.lock-card .lock-icon{
+  width:42px; height:42px; border-radius:11px; background:var(--gold-soft); color:var(--gold);
+  display:flex; align-items:center; justify-content:center; margin-bottom:14px;
+}
+.lock-card .lock-icon svg{width:22px; height:22px}
+.lock-card h2{
+  font-family:var(--font-display); font-size:21px; font-weight:700; margin:0 0 6px; color:var(--ink);
+}
+.lock-card p{font-size:13px; color:var(--ink-dim); margin:0 0 18px; line-height:1.5}
+.lock-form{display:flex; flex-direction:column; gap:10px}
+.lock-form input{
+  font:inherit; font-size:15px; padding:11px 13px; border-radius:9px; border:1.5px solid var(--line);
+  background:var(--paper); color:var(--ink); outline:none; letter-spacing:.4px;
+}
+.lock-form input:focus{border-color:var(--navy)}
+.lock-form button{
+  font:inherit; font-weight:700; font-size:14px; padding:11px 13px; border-radius:9px; border:none;
+  background:var(--navy); color:#fff; cursor:pointer;
+}
+.lock-form button:hover{background:#0e2c47}
+.lock-error{font-size:12.5px; color:var(--warn); min-height:16px; margin:0}
+</style>
+</head>
+<body>
+
+<div class="lock-screen" id="lockScreen">
+  <div class="lock-card">
+    <div class="lock-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
+    </div>
+    <h2>Akses Panitia</h2>
+    <p>Dasbor ini khusus panitia dan dewan juri Lomba Project MKWK Nasional 2026. Masukkan sandi akses untuk melanjutkan.</p>
+    <form class="lock-form" id="lockForm" autocomplete="off">
+      <input type="password" id="lockPass" placeholder="Sandi akses" autocomplete="off" autofocus>
+      <p class="lock-error" id="lockError"></p>
+      <button type="submit">Buka Dasbor</button>
+    </form>
+  </div>
+</div>
+
+<div id="app" style="display:none">
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Pusat MKWK&ndash;MKWU, LPMPP &middot; Universitas Mataram &middot; Dokumen kerja internal</div>
+    <h1>Dasbor Juri MKWK 2026</h1>
+    <p class="lede">Rekap visual seluruh peserta terdaftar Lomba Project MKWK Nasional 2026, disusun dari jawaban Formulir Pendaftaran per 19 Agustus 2026, untuk mempercepat verifikasi berkas dan penilaian lanjutan oleh dewan juri.</p>
+    <div class="flag"><span>&#9888;&#65039;</span><span><b>Bukan pengumuman resmi.</b> Status &ldquo;Lengkap&rdquo;/&ldquo;Perlu tindak lanjut&rdquo; di sini hanya menandai kelengkapan berkas administratif, bukan keputusan lolos-final. Hasil seleksi finalis diumumkan terpisah oleh panitia pada 20 Agustus 2026.</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><div class="n">12</div><div class="l">Tim terdaftar</div></div>
+    <div class="stat"><div class="n">7</div><div class="l">Perguruan tinggi</div></div>
+    <div class="stat"><div class="n">7</div><div class="l">Entri kategori Video</div></div>
+    <div class="stat"><div class="n">6</div><div class="l">Entri kategori Poster</div></div>
+    <div class="stat"><div class="n ok">10</div><div class="l">Berkas lengkap</div></div>
+    <div class="stat"><div class="n warn">2</div><div class="l">Perlu tindak lanjut</div></div>
+  </div>
+
+  <div class="insights">
+    <div class="panel">
+      <h2>Sebaran per Perguruan Tinggi</h2>
+      
+        <div class="bar-row">
+          <span class="bar-label">Universitas Mataram<span class="bar-count-inline">5 tim</span></span>
+          <div class="bar-track"><div class="bar-fill bar-fill-navy" style="width:100%"></div></div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Universitas Muhammadiyah Riau<span class="bar-count-inline">2 tim</span></span>
+          <div class="bar-track"><div class="bar-fill bar-fill-navy" style="width:40%"></div></div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Politeknik Al Islam Bandung<span class="bar-count-inline">1 tim</span></span>
+          <div class="bar-track"><div class="bar-fill bar-fill-navy" style="width:20%"></div></div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Sekolah Tinggi Agama Hindu Dharma Nusantara Jakarta<span class="bar-count-inline">1 tim</span></span>
+          <div class="bar-track"><div class="bar-fill bar-fill-navy" style="width:20%"></div></div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Universitas Borneo Tarakan<span class="bar-count-inline">1 tim</span></span>
+          <div class="bar-track"><div class="bar-fill bar-fill-navy" style="width:20%"></div></div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Universitas Negeri Surabaya<span class="bar-count-inline">1 tim</span></span>
+          <div class="bar-track"><div class="bar-fill bar-fill-navy" style="width:20%"></div></div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Universitas Pasir Pengaraian<span class="bar-count-inline">1 tim</span></span>
+          <div class="bar-track"><div class="bar-fill bar-fill-navy" style="width:20%"></div></div>
+        </div>
+    </div>
+    <div class="panel">
+      <h2>Sebaran Sub-Tema Project</h2>
+      
+        <div class="bar-row">
+          <span class="bar-label">1. Kebangsaan dan Bela Negara<span class="bar-count-inline">4 tim</span></span>
+          <div class="bar-track"><div class="bar-fill bar-fill-gold" style="width:100%"></div></div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">4. Pemberdayaan Masyarakat<span class="bar-count-inline">4 tim</span></span>
+          <div class="bar-track"><div class="bar-fill bar-fill-gold" style="width:100%"></div></div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">3. Literasi dan Budaya<span class="bar-count-inline">1 tim</span></span>
+          <div class="bar-track"><div class="bar-fill bar-fill-gold" style="width:25%"></div></div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">5. Lingkungan dan Ketahanan Pangan<span class="bar-count-inline">1 tim</span></span>
+          <div class="bar-track"><div class="bar-fill bar-fill-gold" style="width:25%"></div></div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">6. Pendidikan Karakter dan Anti-Korupsi<span class="bar-count-inline">1 tim</span></span>
+          <div class="bar-track"><div class="bar-fill bar-fill-gold" style="width:25%"></div></div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Literasi digital<span class="bar-count-inline">1 tim</span></span>
+          <div class="bar-track"><div class="bar-fill bar-fill-gold" style="width:25%"></div></div>
+        </div>
+    </div>
+    <div class="panel timeline-panel">
+      <h2>Linimasa Pengisian Formulir &mdash; 1&ndash;18 Agustus 2026</h2>
+      <div class="tl">
+        <div class="tl-axis"></div>
+        <div class="tl-deadline" style="left:94.4%"></div>
+        <div class="tl-deadline-label" style="left:94.4%">Penutupan 18 Ags 23.59&nbsp;&rarr;</div>
+        <div class="tl-dot" style="left:9.7%" tabindex="0"><span class="tl-tip">Nusa Data Team<br>02 Aug 2026, 18:50 WITA</span></div><div class="tl-dot" style="left:10.0%" tabindex="0"><span class="tl-tip">GarudaAksi<br>02 Aug 2026, 19:32 WITA</span></div><div class="tl-dot" style="left:14.8%" tabindex="0"><span class="tl-tip">Nawasena<br>03 Aug 2026, 16:08 WITA</span></div><div class="tl-dot" style="left:15.3%" tabindex="0"><span class="tl-tip">Tim Karsa Nusantara UMRI<br>03 Aug 2026, 18:54 WITA</span></div><div class="tl-dot" style="left:15.5%" tabindex="0"><span class="tl-tip">Grow With Nature<br>03 Aug 2026, 19:37 WITA</span></div><div class="tl-dot" style="left:16.2%" tabindex="0"><span class="tl-tip">PANCA INSPIRASI<br>03 Aug 2026, 22:35 WITA</span></div><div class="tl-dot" style="left:16.2%" tabindex="0"><span class="tl-tip">TeamKWU<br>03 Aug 2026, 22:53 WITA</span></div><div class="tl-dot" style="left:16.7%" tabindex="0"><span class="tl-tip">bahagia grup<br>04 Aug 2026, 00:52 WITA</span></div><div class="tl-dot" style="left:54.9%" tabindex="0"><span class="tl-tip">EcoRizz<br>10 Aug 2026, 21:55 WITA</span></div><div class="tl-dot" style="left:55.3%" tabindex="0"><span class="tl-tip">SortNova.team<br>10 Aug 2026, 23:34 WITA</span></div><div class="tl-dot" style="left:87.3%" tabindex="0"><span class="tl-tip">tim hore<br>16 Aug 2026, 17:15 WITA</span></div><div class="tl-dot" style="left:99.5%" tabindex="0"><span class="tl-tip">The last trace team<br>18 Aug 2026, 22:22 WITA</span></div>
+      </div>
+      <div class="tl-labels"><span>1 Agustus</span><span>9 Agustus</span><span>18 Agustus</span></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="search">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg>
+      <input type="text" id="q" placeholder="Cari tim, kampus, atau judul project&hellip;" autocomplete="off">
+    </div>
+    <div class="seg" id="catSeg">
+      <button data-cat="all" class="active">Semua</button>
+      <button data-cat="video">Video</button>
+      <button data-cat="poster">Poster</button>
+    </div>
+    <label class="toggle"><input type="checkbox" id="onlyWarn"> Perlu tindak lanjut saja</label>
+    <span class="result-count" id="resultCount">12 tim ditampilkan</span>
+  </div>
+
+  <div class="roster" id="roster">
+    
+      <article class="card" data-cat="video" data-status="ok" data-search="nusa data team politeknik al islam bandung tertib administrasi kependudukan: studi kasus di kelurahan babakan sari abdul fattah al mubdi">
+        <div class="card-top">
+          <div class="pills"><span class="pill pill-cat pill-video"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video</span></div>
+          <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
+        </div>
+        <h3 class="team-name">Nusa Data Team</h3>
+        <p class="univ">Politeknik Al Islam Bandung &middot; 4. Pemberdayaan Masyarakat</p>
+        <h4 class="proj-title">Tertib Administrasi Kependudukan: Studi Kasus di Kelurahan Babakan Sari</h4>
+        <p class="summary">Berdasarkan observasi, wawancara, dan survei terhadap 30 responden di Kelurahan Babakan Sari, ditemukan masalah utama berupa rendahnya kesadaran warga dalam memperbarui data kependudukan (33,3% mengurus hanya saat mendesak dan 23,…</p>
+        <details class="detail">
+          <summary>Ringkasan &amp; dampak lengkap</summary>
+          <dl>
+            <dt>Ringkasan project</dt>
+            <dd>Berdasarkan observasi, wawancara, dan survei terhadap 30 responden di Kelurahan Babakan Sari, ditemukan masalah utama berupa rendahnya kesadaran warga dalam memperbarui data kependudukan (33,3% mengurus hanya saat mendesak dan 23,3% tidak tahu prosedur). Solusi yang dikembangkan adalah pembuatan media edukasi digital berupa video informatif yang diunggah ke platform YouTube. Implementasi dilakukan melalui 5 tahapan: observasi, wawancara pihak kelurahan, survei kuesioner warga, analisis masalah, hingga produksi dan publikasi video edukasi. Dampaknya, masyarakat mendapatkan akses informasi yang lebih mudah untuk meningkatkan kesadaran, kemandirian, dan ketertiban administrasi kependudukan.</dd>
+            <dt>Dampak yang telah dicapai</dt>
+            <dd>Project telah menghasilkan produk media edukasi digital berbasis video yang dipublikasikan di YouTube. Dampak konkretnya adalah tersedianya sarana informasi yang dapat diakses secara fleksibel oleh warga Kelurahan Babakan Sari untuk memahami pentingnya dan prosedur pembaruan dokumen kependudukan. Hal ini membantu meningkatkan kesadaran serta kemandirian warga agar tidak menunda pengurusan data diri, sekaligus mendukung efektivitas pelayanan publik di kantor kelurahan.</dd>
+            <dt>Lokasi &amp; periode pelaksanaan</dt>
+            <dd>Kelurahan Babakan Sari, Kecamatan Kiaracondong, Kota Bandung &middot; 27-30 Juni 2026</dd>
+            <dt>Nilai MKWK yang diintegrasikan</dt>
+            <dd>Pendidikan Kewarganegaraan (PKn)</dd>
+          </dl>
+        </details>
+        <div class="meta-row">
+          <span>Ketua tim: <strong>Abdul Fattah Al Mubdi</strong> (Terapi Wicara) &middot; 4 anggota</span>
+          <span>Dosen pendamping: <strong>Dr. Silmi Kapatan Inda Robby, S.Pd., M.Pd.</strong></span>
+        </div>
+        
+        
+        <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1ICkLLzcPLcYnQ5MUJGNSpOgizjIqx7Kc" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><a class="chip chip-live" href="https://youtu.be/TY02yQiTVZ8?si=0cz7EMY18X_RLv9y" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/file/d/1IVXDmwM44u2cgbG3C5saG6Qs9pyljYi6/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/file/d/12ebUfHyAWE61yypFZtf4roc9Y5ZaNyog/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/file/d/1DwfzuH2nQc1eoBBb2JLBycpX87qrB25K/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1u1HGCB3LiIM0yLukraepW2odc2S8-NgJ" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=12kKv_vcfoPMTxbb_vAOeAgd1ZQsX04Zj" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
+        <div class="jury-note">
+          <span class="jury-note-label">Catatan juri</span>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+        <footer class="card-foot">Didaftarkan 02 Aug 2026, 18:50 WITA</footer>
+      </article>
+      <article class="card" data-cat="poster" data-status="ok" data-search="garudaaksi universitas muhammadiyah riau garuda (gerakan edukasi bela negara untuk anak indonesia)  membangun generasi berkarakter menuju indonesia emas 2045 zahwa rahmadani">
+        <div class="card-top">
+          <div class="pills"><span class="pill pill-cat pill-poster"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster</span></div>
+          <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
+        </div>
+        <h3 class="team-name">GarudaAksi</h3>
+        <p class="univ">Universitas Muhammadiyah Riau &middot; 1. Kebangsaan dan Bela Negara</p>
+        <h4 class="proj-title">GARUDA (Gerakan Edukasi Bela Negara Untuk Anak Indonesia)  Membangun Generasi Berkarakter Menuju Indonesia Emas 2045</h4>
+        <p class="summary">Project GARUDA (Gerakan Edukasi Bela Negara untuk Anak Indonesia) diinisiasi oleh mahasiswa Universitas Muhammadiyah Riau sebagai wujud pengabdian masyarakat berbasis Mata Kuliah Wajib Kurikulum (MKWK). Project ini diangkat untuk …</p>
+        <details class="detail">
+          <summary>Ringkasan &amp; dampak lengkap</summary>
+          <dl>
+            <dt>Ringkasan project</dt>
+            <dd>Project GARUDA (Gerakan Edukasi Bela Negara untuk Anak Indonesia) diinisiasi oleh mahasiswa Universitas Muhammadiyah Riau sebagai wujud pengabdian masyarakat berbasis Mata Kuliah Wajib Kurikulum (MKWK). Project ini diangkat untuk mengatasi minimnya perhatian terhadap nilai-nilai nasionalisme, kedisiplinan, tanggung jawab, dan rasa cinta tanah air pada anak usia dini di era pesatnya kemajuan teknologi, yang mana nilai-nilai tersebut sangat krusial sebagai fondasi menuju Indonesia Emas 2045. Solusi yang ditawarkan adalah edukasi bela negara menggunakan pendekatan PAIKEM (Pembelajaran Aktif, Inovatif, Kreatif, dan Menyenangkan) yang komunikatif dan sesuai dengan tahap perkembangan anak.
+Implementasi kegiatan dilaksanakan pada Jumat, 5 Juni 2026, yang melibatkan 29 siswa kelas 5 SD Negeri 95 Pekanbaru. Rangkaian acara meliputi penyampaian materi interaktif mengenai arti bela negara, rasa cinta tanah air, gotong royong, serta contoh perilakunya seperti mematuhi aturan sekolah dan menghormati guru. Selain itu, dilakukan sesi diskusi, kuis edukatif, pemberian apresiasi (*reward*), dan pengisian kuesioner evaluasi.
+Dampak dari project ini sangat positif, di mana 96,5% siswa menyatakan setuju hingga sangat setuju terkait nilai-nilai bela negara, bahkan indikator kebanggaan sebagai anak Indonesia, pemahaman Pancasila, dan kebiasaan menjaga kebersihan mencapai 100%. Bagi mahasiswa, kegiatan ini turut mengasah keterampilan komunikasi, kerja sama tim, kepemimpinan, dan kepedulian sosial.</dd>
+            <dt>Dampak yang telah dicapai</dt>
+            <dd>Peningkatan Pemahaman Siswa: Berdasarkan hasil kuesioner evaluasi terhadap 29 siswa kelas 5 SD Negeri 95 Pekanbaru, sebanyak 96,5% siswa menyatakan setuju hingga sangat setuju terhadap nilai-nilai bela negara.
+  
+Capaian Maksimal (100%): Indikator kebanggaan menjadi anak Indonesia, pemahaman tentang Pancasila, pengetahuan tugas TNI, serta kebiasaan menjaga kebersihan sekolah mencapai tingkat persetujuan 100%.
+  
+Pengembangan Mahasiswa: Meningkatkan soft skills tim mahasiswa dalam hal komunikasi publik, kerja sama tim, kepemimpinan, dan kepedulian sosial melalui pengabdian masyarakat langsung.</dd>
+            <dt>Lokasi &amp; periode pelaksanaan</dt>
+            <dd>SD Negeri 95 Pekanbaru &middot; 5 Juni 2026</dd>
+            <dt>Nilai MKWK yang diintegrasikan</dt>
+            <dd>Pendidikan Agama, Pancasila, Pendidikan Kewarganegaraan (PKn), Bahasa Indonesia</dd>
+          </dl>
+        </details>
+        <div class="meta-row">
+          <span>Ketua tim: <strong>Zahwa Rahmadani</strong> (Ekonomi Pembangunan) &middot; 5 anggota</span>
+          <span>Dosen pendamping: <strong>Ade Verawati, M.Pd</strong></span>
+        </div>
+        
+        
+        <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/14_T97tB4AT3O8Wh0lgEDu4BoloEyND18" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/drive/folders/1Mb1KxuqTtBD5dcSRbGLOpj2vtjWdZUsC" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)</a><a class="chip chip-live" href="https://drive.google.com/file/d/1DRsuHy5m24oIRR53743ZrKYOgfB_M6T5/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/file/d/1WiDv50A9v4D7qhdYrQBi3uwVRGd2mr-Q/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/file/d/1d9YdMA2OzAk-XMAr0kqEsi1bMydOMy0V/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/file/d/1ZQyiymn8nx6i2sqX1DH31_2COdQ6X-aQ/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=1_0pQqXYlnpaDH_vPV0SNi47XmyQDlyck" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
+        <div class="jury-note">
+          <span class="jury-note-label">Catatan juri</span>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+        <footer class="card-foot">Didaftarkan 02 Aug 2026, 19:32 WITA</footer>
+      </article>
+      <article class="card" data-cat="video" data-status="ok" data-search="nawasena sekolah tinggi agama hindu dharma nusantara jakarta mini work shop pendidikan karakter berbasis nilai satya sebagai upaya pencegahan prilaku koruptif tria murti">
+        <div class="card-top">
+          <div class="pills"><span class="pill pill-cat pill-video"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video</span></div>
+          <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
+        </div>
+        <h3 class="team-name">Nawasena</h3>
+        <p class="univ">Sekolah Tinggi Agama Hindu Dharma Nusantara Jakarta &middot; 6. Pendidikan Karakter dan Anti-Korupsi</p>
+        <h4 class="proj-title">Mini Work Shop pendidikan karakter Berbasis nilai Satya Sebagai Upaya Pencegahan Prilaku Koruptif</h4>
+        <p class="summary">Project ini dilatarbelakangi oleh belum adanya pembahasan secara khusus mengenai pendidikan antikorupsi di Sekolah Pertiwi Abhilasa. Oleh karena itu, tim menghadirkan &quot;Mini Workshop Pendidikan Karakter Berbasis Nilai Satya sebagai…</p>
+        <details class="detail">
+          <summary>Ringkasan &amp; dampak lengkap</summary>
+          <dl>
+            <dt>Ringkasan project</dt>
+            <dd>Project ini dilatarbelakangi oleh belum adanya pembahasan secara khusus mengenai pendidikan antikorupsi di Sekolah Pertiwi Abhilasa. Oleh karena itu, tim menghadirkan &quot;Mini Workshop Pendidikan Karakter Berbasis Nilai Satya sebagai Upaya Pencegahan Perilaku Koruptif&quot; untuk memberikan pemahaman kepada peserta didik mengenai pentingnya kejujuran, integritas, dan tanggung jawab sebagai dasar membangun budaya antikorupsi sejak usia dini. 
+
+Solusi yang diberikan berupa kegiatan workshop dengan menghadirkan narasumber yang kompeten di bidang pendidikan karakter. Kegiatan dilaksanakan secara interaktif melalui penyampaian materi tentang pendidikan karakter dan bahaya korupsi, pengenalan nilai Satya, tanya jawab, ice breaking, pembuatan poster bertema kejujuran, presentasi, serta penyusunan komitmen dan rencana aksi sederhana yang dapat diterapkan di sekolah. 
+
+Melalui project ini, peserta didik memperoleh pemahaman dan pengalaman langsung dalam menerapkan nilai kejujuran, integritas, dan tanggung jawab. Peserta juga menjadi lebih berani menyampaikan pendapat secara jujur, mampu menuangkan pemahamannya melalui poster, serta membuat komitmen untuk menerapkan perilaku jujur dalam kehidupan sehari-hari di sekolah, keluarga, dan masyarakat.</dd>
+            <dt>Dampak yang telah dicapai</dt>
+            <dd>Dampak konkret yang dicapai yaitu para siswa mampu memahami makna kejujuran, tanggung jawab, dan disiplin. Selain itu, siswa dapat membedakan perilaku yang benar dan yang tidak benar dalam kehidupan sehari-hari. Mereka juga berani berkata jujur ketika melakukan kesalahan, menunjukkan komitmen untuk menerapkan perilaku jujur baik di sekolah maupun di rumah, serta menjadi lebih aktif berdiskusi mengenai nilai-nilai karakter.</dd>
+            <dt>Lokasi &amp; periode pelaksanaan</dt>
+            <dd>SD Pertiwi Abhilasa &middot; Juli 2026</dd>
+            <dt>Nilai MKWK yang diintegrasikan</dt>
+            <dd>Pendidikan Agama, Pancasila</dd>
+          </dl>
+        </details>
+        <div class="meta-row">
+          <span>Ketua tim: <strong>Tria Murti</strong> (Pendidikan Agama Hindu) &middot; 5 anggota</span>
+          <span>Dosen pendamping: <strong>Ni Nyoman Sugi Widiastithi,S. Pd. H., M. Si.</strong></span>
+        </div>
+        <div class="note-box"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 9.6v4.4M12 16.8h.01"/></svg><ul><li>Beberapa tautan berkas mengarah ke folder umum yang sama, bukan file spesifik — perlu dicek manual oleh panitia.</li></ul></div>
+        
+        <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1_jNT1gOtZE725wCwnykEloBVmYRg1F5N" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><a class="chip chip-live" href="https://youtu.be/1RYH-Yl0BeY" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/drive/folders/1_jNT1gOtZE725wCwnykEloBVmYRg1F5N" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1_jNT1gOtZE725wCwnykEloBVmYRg1F5N" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1_jNT1gOtZE725wCwnykEloBVmYRg1F5N" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1_jNT1gOtZE725wCwnykEloBVmYRg1F5N" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=1TZMbCGfGb4UfKP9bj3YPnNuATj4XoIKV" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
+        <div class="jury-note">
+          <span class="jury-note-label">Catatan juri</span>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+        <footer class="card-foot">Didaftarkan 03 Aug 2026, 16:08 WITA</footer>
+      </article>
+      <article class="card" data-cat="video poster" data-status="ok" data-search="tim karsa nusantara umri universitas muhammadiyah riau penguatan karakter bela negara melalui edukasi partisipatif dan media edukasi berkelanjutan pada anak panti asuhan wina adilia">
+        <div class="card-top">
+          <div class="pills"><span class="pill pill-cat pill-video"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video</span><span class="pill pill-cat pill-poster"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster</span></div>
+          <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
+        </div>
+        <h3 class="team-name">Tim Karsa Nusantara UMRI</h3>
+        <p class="univ">Universitas Muhammadiyah Riau &middot; 1. Kebangsaan dan Bela Negara</p>
+        <h4 class="proj-title">Penguatan Karakter Bela Negara melalui Edukasi Partisipatif dan Media Edukasi Berkelanjutan Pada Anak Panti Asuhan</h4>
+        <p class="summary">Project ini dilaksanakan sebagai upaya mengatasi rendahnya pemahaman nilai-nilai bela negara pada anak panti asuhan serta meningkatkan kesadaran akan pentingnya menjaga kesehatan sebagai bentuk bela negara nonfisik. Solusi yang di…</p>
+        <details class="detail">
+          <summary>Ringkasan &amp; dampak lengkap</summary>
+          <dl>
+            <dt>Ringkasan project</dt>
+            <dd>Project ini dilaksanakan sebagai upaya mengatasi rendahnya pemahaman nilai-nilai bela negara pada anak panti asuhan serta meningkatkan kesadaran akan pentingnya menjaga kesehatan sebagai bentuk bela negara nonfisik. Solusi yang ditawarkan adalah edukasi bela negara menggunakan metode Teams Games Tournament (TGT) yang dipadukan dengan edukasi kesehatan dan pemanfaatan spray anti nyamuk alami berbahan serai. Implementasi project dilakukan melalui penyampaian materi interaktif, permainan edukatif, diskusi kelompok, demonstrasi penggunaan spray anti nyamuk alami, serta pembagian produk kepada peserta di Panti Asuhan Bhakti Mufarridhun Pekanbaru. Hasil kegiatan menunjukkan peserta aktif berpartisipasi, lebih memahami nilai-nilai bela negara, meningkatkan kepedulian terhadap kebersihan dan kesehatan lingkungan, serta memperoleh pengetahuan praktis mengenai pemanfaatan bahan alami sebagai upaya pencegahan penyakit. Program ini memberikan dampak positif dalam membentuk karakter, meningkatkan kerja sama, komunikasi, dan rasa tanggung jawab peserta sebagai generasi muda Indonesia.</dd>
+            <dt>Dampak yang telah dicapai</dt>
+            <dd>Dampak Konkret  
+a. Ranah kebangsaan/bela negara
+- Peserta mampu menjelaskan nama daerah, makanan khas, dan budaya yang mereka ketahui saat sesi sosialisasi, menunjukkan pengetahuan awal yang terkonfirmasi/diperkuat.
+- Pada games &quot;Lempar Bola Pertanyaan&quot;, peserta yang mendapat giliran mampu menjawab pertanyaan terkait materi dengan baik menurut pengamatan fasilitator.
+- Peningkatan keberanian public speaking: peserta yang awalnya pasif mulai aktif menjawab dan berpendapat di depan teman-temannya.
+- Pada games &quot;Cocokkan Kartu Pancasila&quot;, terjadi interaksi kelompok positif (diskusi bersama menentukan jawaban), melatih kerja sama tim.
+
+b. Ranah kesehatan (bela negara nonfisik)
+- Peserta menunjukkan ketertarikan tinggi, ditandai banyaknya pertanyaan spontan soal cara mencegah gigitan nyamuk dan menjaga kebersihan lingkungan.
+- Seluruh 15 peserta menerima dan didemonstrasikan cara memakai spray anti nyamuk berbahan serai sebagai tindak lanjut praktis dari edukasi.
+
+c. Dampak karakter jangka panjang (klaim kualitatif)
+- Penulis mengklaim penanaman nilai tanggung jawab, sportivitas, kerja sama tim, toleransi, dan kepedulian sosial,  namun ini merupakan interpretasi observasional, bukan hasil pengukuran instrumen.</dd>
+            <dt>Lokasi &amp; periode pelaksanaan</dt>
+            <dd>Panti Asuhan Bhakti Mufarridhun, Jl. Jend. Sudirman, Tanah Pekanbaru Kota, Kota Pekanbaru, Riau 28156 &middot; 16 Mei 2026</dd>
+            <dt>Nilai MKWK yang diintegrasikan</dt>
+            <dd>Pendidikan Kewarganegaraan (PKn)</dd>
+          </dl>
+        </details>
+        <div class="meta-row">
+          <span>Ketua tim: <strong>Wina Adilia</strong> (Pendidikan Informatika) &middot; 5 anggota</span>
+          <span>Dosen pendamping: <strong>Ilham Hudi, S.Pd., M.Pd</strong></span>
+        </div>
+        <div class="note-box"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 9.6v4.4M12 16.8h.01"/></svg><ul><li>Mendaftar 2 kategori sekaligus — pastikan bukti pembayaran mencakup Rp100.000 (bukan Rp50.000).</li></ul></div>
+        
+        <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1Lo-ObywCQkYfyiZPdXP_ph5RahdMTn3P" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><a class="chip chip-live" href="https://youtu.be/dVXS-FqiEdw" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/14Kzk8-PrdmCC9pKWT5vB5K9LjzZ0e5Zn" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1D9Fdg6ciIT0-jsPOQn_uGPItrPV9LZOn" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1Pg7_2JgDy-75ekeQlJOcEJ97y3kOJuOb" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1rJeJrBvd_5aE2UEbQzX74dUqs6Coo7NX" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1QTKZ83fzBub5fmNxSTbJ2BvEf5X1_yTT" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=1Awfl1bKy_U_8_qYzkprk4T-Gr8nsbzWU" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
+        <div class="jury-note">
+          <span class="jury-note-label">Catatan juri</span>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+        <footer class="card-foot">Didaftarkan 03 Aug 2026, 18:54 WITA</footer>
+      </article>
+      <article class="card" data-cat="video" data-status="ok" data-search="grow with nature universitas mataram pembuatan pupuk kompos dari daun kering untuk mendukung pertanian berkelanjutan di dusun mulejati desa sekotong tengah. rizki yudatama">
+        <div class="card-top">
+          <div class="pills"><span class="pill pill-cat pill-video"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video</span></div>
+          <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
+        </div>
+        <h3 class="team-name">Grow With Nature</h3>
+        <p class="univ">Universitas Mataram &middot; 4. Pemberdayaan Masyarakat</p>
+        <h4 class="proj-title">Pembuatan pupuk kompos dari daun kering untuk mendukung pertanian berkelanjutan di Dusun Mulejati Desa Sekotong Tengah.</h4>
+        <p class="summary">.
+Masalah yang Diangkat : Sampah daun kering di Dusun Mulejati belum dimanfaatkan secara optimal dan mayoritas dibakar oleh sekitar 60% warga. Kebiasaan membakar sampah ini menimbulkan polusi udara, gangguan kesehatan pernapasan, …</p>
+        <details class="detail">
+          <summary>Ringkasan &amp; dampak lengkap</summary>
+          <dl>
+            <dt>Ringkasan project</dt>
+            <dd>.
+Masalah yang Diangkat : Sampah daun kering di Dusun Mulejati belum dimanfaatkan secara optimal dan mayoritas dibakar oleh sekitar 60% warga. Kebiasaan membakar sampah ini menimbulkan polusi udara, gangguan kesehatan pernapasan, serta risiko kebakaran. Di sisi lain, para petani setempat mengalami ketergantungan yang tinggi pada pupuk kimia subsidi yang ketersediaannya terbatas, sementara pemahaman warga dan generasi muda terkait pemanfaatan serta pembuatan pupuk organik masih tergolong sangat rendah. 
+
+Solusi : Solusi yang ditawarkan adalah projek pengolahan sampah daun kering menjadi pupuk kompos berkualitas tinggi. Langkah ini dibuat untuk mengalihkan kebiasaan buruk pembakaran sampah menjadi aktivitas yang produktif, sekaligus menyediakan alternatif pupuk organik bagi petani untuk menghemat biaya pemupukan, menjaga kesuburan tanah, dan mendukung sistem pertanian yang berkelanjutan. 
+
+Implementasi : Tahapan implementasi diawali dengan pengumpulan 10 kg bahan baku daun kering, dilanjutkan dengan pencacahan dan pemrosesan awal menggunakan pencampuran bioaktivator EM4 pada tanggal 9 Mei 2026. Proses pemantauan, pembalikan, dan fermentasi di dalam tong komposter berlangsung hingga 31 Mei 2026. Projek diakhiri dengan kegiatan sosialisasi pembuatan pupuk organik serta penyaluran langsung pupuk kompos yang telah matang ke lahan pertanian warga. 
+
+Dampak : Projek ini berhasil mengolah 10 kg sampah daun kering sehingga mereduksi polusi asap pembakaran di lingkungan. Sebanyak 7 kg pupuk kompos matang terdistribusi langsung ke tanaman petani untuk membantu menghemat biaya operasional pemupukan. Selain itu, kegiatan sosialisasi mampu meningkatkan pemahaman dan keterampilan petani serta warga dalam mengolah limbah organik secara mandiri.</dd>
+            <dt>Dampak yang telah dicapai</dt>
+            <dd>Dampak Project yang Telah Dicapai
+
+A. Dampak Lingkungan
+1. Pengurangan Sampah Organik: Berhasil mengolah 10 kg sampah daun kering yang sebelumnya hanya ditumpuk dan dibakar harian oleh sekitar 60% warga. 
+2. Penurunan Polusi Air &amp; Udara: Penghentian pembakaran sampah daun kering di area projek berhasil mengurangi polusi asap, risiko kebakaran, dan gangguan kesehatan pernapasan bagi warga sekitar.
+ 
+B. Dampak Ekonomi Petani
+1. Penyediaan Pupuk Organik : Berhasil memproduksi dan mendistribusikan 7 kg pupuk kompos matang secara langsung ke tanaman petani. 
+
+C. Dampak Sosial &amp; Edukasi
+1. Peningkatan Pemahaman Warga: Kegiatan sosialisasi berhasil mengedukasi 4 orang petani dan 5 orang warga setempat hingga memahami teknik pengomposan dan manfaat pupuk organik. 
+
+D. Penerima Manfaat:
+1. Langsung: (9 orang) 4 petani penerima pupuk &amp; 5 warga yang mendapat edukasi. 
+2. Tidak Langsung: (Sekitar 30) anggota keluarga petani dan warga sekitar yang merasakan berkurangnya polusi asap pembakaran.</dd>
+            <dt>Lokasi &amp; periode pelaksanaan</dt>
+            <dd>Dusun Mulejati, Desa Sekotong Tengah, Kecamatan Sekotong, Kabupaten Lombok Barat, Nusa Tenggara Barat &middot; 9 - 31 Mei 2026</dd>
+            <dt>Nilai MKWK yang diintegrasikan</dt>
+            <dd>Pendidikan Agama, Pancasila, Pendidikan Kewarganegaraan (PKn), Bahasa Indonesia</dd>
+          </dl>
+        </details>
+        <div class="meta-row">
+          <span>Ketua tim: <strong>Rizki Yudatama</strong> (S1 Peternakan) &middot; 4 anggota</span>
+          <span>Dosen pendamping: <strong>Agusman, M.Pd</strong></span>
+        </div>
+        
+        
+        <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1d2qLHHjiEPhCSeSZCemiVGrIClxj2_Tc" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><a class="chip chip-live" href="https://youtu.be/XLR57w7WKrw?feature=shared" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/file/d/1qYc0cUHVoMXKeClFTt6VnUhDLtNHKtYG/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/file/d/1E7Q9oXx0tRkudJg7kGPgCImVYSaAVb_K/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/file/d/1TWPm9IMXfjaVxyUK0_V5_Eg9E7f8TB7q/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/file/d/15XDm248lpXFgU3UGwndaDSWKxTwI0ANr/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=1pqmhF5Uz9FzHPCvFIp5qHZDdGH0iwFUq" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
+        <div class="jury-note">
+          <span class="jury-note-label">Catatan juri</span>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+        <footer class="card-foot">Didaftarkan 03 Aug 2026, 19:37 WITA</footer>
+      </article>
+      <article class="card" data-cat="poster" data-status="ok" data-search="panca inspirasi universitas borneo tarakan belimpung taka tagas perbedaan bukan batas reski ramadani">
+        <div class="card-top">
+          <div class="pills"><span class="pill pill-cat pill-poster"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster</span></div>
+          <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
+        </div>
+        <h3 class="team-name">PANCA INSPIRASI</h3>
+        <p class="univ">Universitas Borneo Tarakan &middot; 1. Kebangsaan dan Bela Negara</p>
+        <h4 class="proj-title">BELIMPUNG TAKA TAGAS PERBEDAAN BUKAN BATAS</h4>
+        <p class="summary">BELIMPUNG TAKA TAGAS PERBEDAAN BUKAN BATAS bertujuan menanamkan nilai integritas, persatuan, dan cinta tanah air kepada siswa sekolah dasar melalui media pelajaran yaitu EduPlay TV yang interaktif
+
+1.Keberagaman suku, agama, buday…</p>
+        <details class="detail">
+          <summary>Ringkasan &amp; dampak lengkap</summary>
+          <dl>
+            <dt>Ringkasan project</dt>
+            <dd>BELIMPUNG TAKA TAGAS PERBEDAAN BUKAN BATAS bertujuan menanamkan nilai integritas, persatuan, dan cinta tanah air kepada siswa sekolah dasar melalui media pelajaran yaitu EduPlay TV yang interaktif
+
+1.Keberagaman suku, agama, budaya di Indonesia seharusnya menjadi kekuatan namun masi sering memicu konflik akibat kurangnya pemahaman tentang nilai persatuan dan integritas. Kondisi ini menunjukkan pentingnya pendidikan karakter sejak dini agar siswa mampu menghargai perbedaan dan hidup rukun. 
+
+2. Tim kami mengembangkan media pembelajaran EduPlay TV yaitu, media edukatif berbentuk permainan interaktif yang memuat meteri tentang integrasi, persatuan, dan nilai dan juga meningkatkan keterlibatan siswa 
+
+3.Media kami di terapkan kepada siswa SDN 012 Tarakan melalui kegiatan pembelajaran yang memadukan penyampaian materi, permainan edukatif, diskusi dan proyek lapangan. Selama kegiatan siswa aktif belajar bekerja sama serta mempraktikkan nilai persatuan dalam aktivitas yang menyenangkan. 
+
+4.Dampak hasil evaluasi menunjukkan bahwa 87% siswa memahami materi integrasi dengan baik setelah mengunakan media EduPlay TV. Kemudian kami telah berhasil menyelesaikan proyek lapangan sesui tujuan pembelajaran dengan capayan 90%.asil ini menunjukkan bahwa media EduPlay TV efektif meningkatkan pemahaman siswa mengenai pentingnya persatuan, menghargai keberagaman, serta menumbuhkan sikap cinta tanah air dan semangat kebangsaan sejak usia dini.</dd>
+            <dt>Dampak yang telah dicapai</dt>
+            <dd>Perubahan Terukur Yang Dihasilkan
+Sebelum kami menjelaskan tentang pentingnya integrasi di sekolah dasar, seluruh siswa belum mengetahui apa itu integrasi dan setelah kami mengajarkan dan menjelaskan  integrasi melalui media pembelajaran siswa mulai memahami pentingnya sebuah integrasi di sekolah.
+
+Dengan data sebagi berikut:
+87% siswa memahami materi integrasi dengan baik setelah mengunakan media EduPlay TV. Kemudian kami telah berhasil menyelesaikan proyek lapangan sesui tujuan pembelajaran dengan capayan 90%.</dd>
+            <dt>Lokasi &amp; periode pelaksanaan</dt>
+            <dd>SDN 012 Tarakan &middot; Juli – Agustus 2026</dd>
+            <dt>Nilai MKWK yang diintegrasikan</dt>
+            <dd>Pancasila, Pendidikan Kewarganegaraan (PKn)</dd>
+          </dl>
+        </details>
+        <div class="meta-row">
+          <span>Ketua tim: <strong>Reski Ramadani</strong> (Pendidikan Guru Sekolah Dasar) &middot; 5 anggota</span>
+          <span>Dosen pendamping: <strong>Muhammad Husin Ali, S.H., M.H.</strong></span>
+        </div>
+        
+        
+        <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1l16-oEONJ9_Mg6XZKd1WFhGUgliXx51i" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/drive/folders/1e9g_0Fc2Iwpv6onHeDfdoGB-GyoXbS_8" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1SOcqYmKYYTw1g6e8lYw_7HbOSGphl2Ug" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/16Z-3nTWCbMi_tB7DVpK3-uUX7lUX85Y0" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1nX8rx7TQ-_ieyeqgFMu5EUDqxDjLjdyY" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1oVP_WJzmTws_qrKUsgoR0XCUJdngWWHX" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=1Ec2cvW8kPf9ULkUsLezw_IiVmgwfJxDb" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
+        <div class="jury-note">
+          <span class="jury-note-label">Catatan juri</span>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+        <footer class="card-foot">Didaftarkan 03 Aug 2026, 22:35 WITA</footer>
+      </article>
+      <article class="card" data-cat="video" data-status="warn" data-search="teamkwu universitas pasir pengaraian pelestarian budaya melayu dalam pembuataan lukah sebagai mata pencarian masyarakat kepenuhan timur muhamad arif">
+        <div class="card-top">
+          <div class="pills"><span class="pill pill-cat pill-video"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video</span></div>
+          <span class="pill pill-status pill-warn"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 9.6v4.4M12 16.8h.01"/></svg>Perlu tindak lanjut</span>
+        </div>
+        <h3 class="team-name">TeamKWU</h3>
+        <p class="univ">Universitas Pasir Pengaraian &middot; 3. Literasi dan Budaya</p>
+        <h4 class="proj-title">Pelestarian Budaya Melayu Dalam Pembuataan Lukah Sebagai Mata Pencarian Masyarakat Kepenuhan Timur</h4>
+        <p class="summary">(1) Desa Kepenuhan Timur merupakan desa yang berada di kawasan pesisir sungai, sehingga kehidupan masyarakat sangat bergantung pada potensi perairan. Perubahan kondisi ekonomi dan terbatasnya lapangan pekerjaan menjadi tantangan y…</p>
+        <details class="detail">
+          <summary>Ringkasan &amp; dampak lengkap</summary>
+          <dl>
+            <dt>Ringkasan project</dt>
+            <dd>(1) Desa Kepenuhan Timur merupakan desa yang berada di kawasan pesisir sungai, sehingga kehidupan masyarakat sangat bergantung pada potensi perairan. Perubahan kondisi ekonomi dan terbatasnya lapangan pekerjaan menjadi tantangan yang dihadapi masyarakat dalam memenuhi kebutuhan hidup serta biaya pendidikan keluarga. Untuk mengatasi hal tersebut, masyarakat bersepakat mengembangkan pembuatan lukah sebagai mata pencaharian yang tetap mempertahankan budaya Melayu.
+(2) Melalui project ini, ditampilkan proses pembuatan lukah sebagai warisan budaya yang diwariskan secara turun-temurun. Video mendokumentasikan tahapan pembuatan, mulai dari pemilihan bahan, proses anyaman, hingga pemanfaatan lukah sebagai alat penangkap ikan yang bernilai ekonomi.
+(3) Implementasi dilakukan dengan melakukan observasi, wawancara bersama pengrajin dan tokoh masyarakat, serta pendokumentasian aktivitas pembuatan lukah di Desa Kepenuhan Timur. Video dikemas secara edukatif untuk memperkenalkan nilai budaya Melayu sekaligus menunjukkan bahwa tradisi dapat menjadi sumber penghasilan masyarakat.
+(4) Dampak yang diharapkan adalah meningkatnya kesadaran generasi muda akan pentingnya melestarikan budaya Melayu, semakin dikenalnya lukah sebagai identitas budaya lokal, serta terbukanya peluang pemasaran produk kerajinan lukah yang dapat membantu meningkatkan pendapatan masyarakat. Dengan demikian, pelestarian budaya tidak hanya menjaga warisan leluhur, tetapi juga berkontribusi terhadap pemenuhan kebutuhan ekonomi dan pendidikan keluarga di Desa Kepenuhan Timur.</dd>
+            <dt>Dampak yang telah dicapai</dt>
+            <dd>Project berhasil mendokumentasikan dan memperkenalkan proses pembuatan lukah sebagai warisan budaya Melayu di Desa Kepenuhan Timur. Masyarakat, khususnya generasi muda, memperoleh pemahaman tentang pentingnya melestarikan budaya lokal yang memiliki nilai ekonomi. Video yang dihasilkan menjadi media edukasi dan promosi budaya sehingga meningkatkan kesadaran masyarakat terhadap potensi lukah sebagai mata pencaharian. Selain itu, project ini membantu memperkenalkan Desa Kepenuhan Timur kepada masyarakat luas serta mendorong pelestarian budaya yang dapat mendukung peningkatan ekonomi dan keberlanjutan pendidikan keluarga.</dd>
+            <dt>Lokasi &amp; periode pelaksanaan</dt>
+            <dd>Desa Kepenuhan Timur, Kecamatan Kepenuhan, Kabupaten Rokan Hulu, Provinsi Riau &middot; Juli - Juni 2026</dd>
+            <dt>Nilai MKWK yang diintegrasikan</dt>
+            <dd>Pancasila, Bahasa Indonesia</dd>
+          </dl>
+        </details>
+        <div class="meta-row">
+          <span>Ketua tim: <strong>Muhamad Arif</strong> (Kewirausahaan) &middot; 5 anggota</span>
+          <span>Dosen pendamping: <strong>Andi Lesmana, M.M.</strong></span>
+        </div>
+        
+        <div class="missing-box"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 9.6v4.4M12 16.8h.01"/></svg><span><strong>Belum lengkap:</strong> Naskah deskripsi project, Surat pernyataan orisinalitas</span></div>
+        <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1KAUAtKl60bJj_vFc7ITpoSbhZ1Ok1JKc" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><a class="chip chip-live" href="https://youtu.be/kEjNw9XNOGA?si=9yHhKSWnT0S8AfZo" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)<span class="chip-x">tidak ada</span></span><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi<span class="chip-x">tidak ada</span></span><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/file/d/1dJ9O9L8WQrxtpka5NQUcQrXxdWguEtT2/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/open?id=1CYHXcIFd1XwJ2sADrgAUyEkf2wRa6I6X" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
+        <div class="jury-note">
+          <span class="jury-note-label">Catatan juri</span>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+        <footer class="card-foot">Didaftarkan 03 Aug 2026, 22:53 WITA</footer>
+      </article>
+      <article class="card" data-cat="poster" data-status="ok" data-search="bahagia grup universitas negeri surabaya semarak kemerdekaan rangga adhitya pangestu">
+        <div class="card-top">
+          <div class="pills"><span class="pill pill-cat pill-poster"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster</span></div>
+          <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
+        </div>
+        <h3 class="team-name">bahagia grup</h3>
+        <p class="univ">Universitas Negeri Surabaya &middot; 1. Kebangsaan dan Bela Negara</p>
+        <h4 class="proj-title">semarak kemerdekaan</h4>
+        <p class="summary">Kami membuat poster ini sebagai bentuk ajakan kepada masyarakat untuk meningkatkan kepedulian terhadap pemasangan Bendera Merah Putih selama bulan Agustus. Hal ini penting karena kita masih menemukan beberapa warga yang belum mema…</p>
+        <details class="detail">
+          <summary>Ringkasan &amp; dampak lengkap</summary>
+          <dl>
+            <dt>Ringkasan project</dt>
+            <dd>Kami membuat poster ini sebagai bentuk ajakan kepada masyarakat untuk meningkatkan kepedulian terhadap pemasangan Bendera Merah Putih selama bulan Agustus. Hal ini penting karena kita masih menemukan beberapa warga yang belum memasang bendera di halaman rumah mereka. Melalui media poster yang terpasang di lingkungan warga dan tersebar di media sosial, kami menumbuhkan kembali semangat nasionalisme serta kecintaan terhadap tanah air. Langkah ini diharapkan mampu memicu kesadaran bersama bahwa memasang bendera merupakan wujud sederhana dalam menghormati jasa pahlawan serta mengamalkan nilai-nilai Pancasila.</dd>
+            <dt>Dampak yang telah dicapai</dt>
+            <dd>Masyarakat menjadi lebih sadar bahwa memasang Bendera Merah Putih bukan hanya tradisi, tetapi juga bentuk penghormatan kepada pahlawan dan wujud cinta tanah air. Poster berhasil menjadi media edukasi sederhana yang mudah dipahami sehingga mampu mengingatkan masyarakat untuk lebih tertib memasang bendera selama bulan Agustus.</dd>
+            <dt>Lokasi &amp; periode pelaksanaan</dt>
+            <dd>Magetan lingkungan sekitar rumah salah satu anggota tim &middot; juli - agustus 2026</dd>
+            <dt>Nilai MKWK yang diintegrasikan</dt>
+            <dd>Pendidikan Kewarganegaraan (PKn)</dd>
+          </dl>
+        </details>
+        <div class="meta-row">
+          <span>Ketua tim: <strong>rangga adhitya pangestu</strong> (ilmu hukum) &middot; 3 anggota</span>
+          <span>Dosen pendamping: <strong>Muhammad Danu Winata, S.Sos, M.A., M.Si (Han).</strong></span>
+        </div>
+        
+        
+        <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1EgdKJMy8pHBBr3lE0heTmilW1z0QLX6o" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/file/d/1NAR3Z6-fQZKpMU7pxRwD3YfuSYOz09qz/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)</a><a class="chip chip-live" href="https://drive.google.com/file/d/1mComF-CUIeRJcloYM3is84k16rk56wb9/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/file/d/1MB5JZUmNFdnlwzwV1hCXmRdRBHwLkoKd/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/drive/folders/1EgdKJMy8pHBBr3lE0heTmilW1z0QLX6o" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/file/d/1c3mwFOuLhZNQLMpq3f-imgeqP43159SX/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=1PwXBo7WWn-gc3YTYVaTuNi6yAGtW95dW" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
+        <div class="jury-note">
+          <span class="jury-note-label">Catatan juri</span>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+        <footer class="card-foot">Didaftarkan 04 Aug 2026, 00:52 WITA</footer>
+      </article>
+      <article class="card" data-cat="poster" data-status="ok" data-search="ecorizz universitas mataram peningkatan pengetahuan siswa siswi sdn bile penanggak terhadap bahaya sampah plastik sulit terurai ni komang tri apsari">
+        <div class="card-top">
+          <div class="pills"><span class="pill pill-cat pill-poster"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster</span></div>
+          <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
+        </div>
+        <h3 class="team-name">EcoRizz</h3>
+        <p class="univ">Universitas Mataram &middot; 4. Pemberdayaan Masyarakat</p>
+        <h4 class="proj-title">PENINGKATAN PENGETAHUAN SISWA SISWI SDN BILE PENANGGAK TERHADAP BAHAYA SAMPAH PLASTIK SULIT TERURAI</h4>
+        <p class="summary">1. Masalah yang Diangkat:
+Sampah plastik menjadi permasalahan lingkungan yang perlu ditangani karena sulit terurai dan dapat mencemari lingkungan.
+
+2. Solusi:
+Menerapkan konsep 4R1E (Refuse, Reduce, Reuse, Recycle, dan Educate). R…</p>
+        <details class="detail">
+          <summary>Ringkasan &amp; dampak lengkap</summary>
+          <dl>
+            <dt>Ringkasan project</dt>
+            <dd>1. Masalah yang Diangkat:
+Sampah plastik menjadi permasalahan lingkungan yang perlu ditangani karena sulit terurai dan dapat mencemari lingkungan.
+
+2. Solusi:
+Menerapkan konsep 4R1E (Refuse, Reduce, Reuse, Recycle, dan Educate). Refuse dengan mengurangi atau menolak penggunaan plastik sekali pakai yang tidak diperlukan. Reduce dengan mengurangi penggunaan plastik dalam kehidupan sehari-hari. Reuse dengan menggunakan kembali barang yang masih layak pakai. Recycle dengan memilah dan mengolah sampah plastik agar dapat dimanfaatkan kembali. Educate dilakukan melalui edukasi dan praktik interaktif untuk meningkatkan pengetahuan siswa tentang bahaya sampah plastik, lama terurainya, serta pentingnya menjaga lingkungan.
+
+3. Implementasi dalam Mata Kuliah Pendidikan Pancasila:
+Edukasi sampah plastik menjadi langkah nyata menanamkan nilai kepedulian, gotong royong, tanggung jawab, dan kesadaran menjaga lingkungan sejak dini.
+
+Implementasi dalam Pendidikan Agama:
+Melalui edukasi sampah plastik, anak-anak diajak membangun kepedulian, tanggung jawab, dan kebiasaan hidup bersih sebagai bagian dari nilai kebaikan.
+
+4. Dampak:
+Kegiatan edukasi dan praktik interaktif tentang sampah plastik berdampak pada peningkatan pengetahuan dan kepedulian siswa terhadap lingkungan, ditunjukkan melalui pemahaman tentang lama terurainya sampah plastik, antusiasme dalam berdiskusi, serta sudah tersedianya media edukasi permanen di sekolah.</dd>
+            <dt>Dampak yang telah dicapai</dt>
+            <dd>1. Siswa memahami lama terurainya sampah plastik melalui praktik interaktif.
+Dampak konkret: Siswa mampu mengenali dan menjelaskan lama penguraian sampah plastik.
+2. Meningkatnya pengetahuan tentang dampak sampah plastik.
+Dampak konkret: Siswa mampu menjelaskan bahaya sampah plastik terhadap lingkungan.
+3. Antusias berdiskusi selama kegiatan edukasi.
+Dampak konkret: Siswa aktif bertanya, menjawab, dan mengikuti praktik interaktif.
+4. Rasa peduli terhadap kebersihan lingkungan meningkat.
+Dampak konkret: Siswa memahami pentingnya membuang dan memilah sampah dengan benar.
+5. Tersedianya media edukasi permanen di sekolah 
+Dampak konkret: Terdapat papan informasi tentang lama terurainya sampah plastik.</dd>
+            <dt>Lokasi &amp; periode pelaksanaan</dt>
+            <dd>SDN Bile Penanggak, Kec. Janapria, Kab. Lombok Tengah &middot; Maret 2026</dd>
+            <dt>Nilai MKWK yang diintegrasikan</dt>
+            <dd>Pendidikan Agama, Pancasila</dd>
+          </dl>
+        </details>
+        <div class="meta-row">
+          <span>Ketua tim: <strong>Ni Komang Tri Apsari</strong> (Pendidikan Pancasila dan Kewarganegaraan) &middot; 5 anggota</span>
+          <span>Dosen pendamping: <strong>M. Samsul Hadi, S.Pd., M.Pd. dan Hummamurrizqi, S.Ag., M.Ag.</strong></span>
+        </div>
+        
+        
+        <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1nqYEVJZutgknEQ13U0LYpfCOJKWqxKtx" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/file/d/1YZSsEKGDPItkkpom8qZ_jzs-dcMEgy3F/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)</a><a class="chip chip-live" href="https://drive.google.com/file/d/1a_D7yVDogIKuKv3fKID-Zlai4T9PiRJ-/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/file/d/1I1_6FFWc3U321HDUBXNJ3tSPWifp4_-t/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/file/d/1BV9beRGxyOg-dKy30cfGnY525dY-Y41z/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/file/d/1sctDcqoO-ZorwSUGjur_EZo6rEgjUqdu/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=14z7HDL-a1CganKkcTh4bu65Y0o2THz2M" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
+        <div class="jury-note">
+          <span class="jury-note-label">Catatan juri</span>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+        <footer class="card-foot">Didaftarkan 10 Aug 2026, 21:55 WITA</footer>
+      </article>
+      <article class="card" data-cat="video" data-status="ok" data-search="sortnova.team universitas mataram ecosort nova: smart sorting system berbasis teknologi dengan integrasi  edukasi digital sebagai solusi pengelolaan sampah berkelanjutan muhammad rifky alfarizi">
+        <div class="card-top">
+          <div class="pills"><span class="pill pill-cat pill-video"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video</span></div>
+          <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
+        </div>
+        <h3 class="team-name">SortNova.team</h3>
+        <p class="univ">Universitas Mataram &middot; 5. Lingkungan dan Ketahanan Pangan</p>
+        <h4 class="proj-title">EcoSort Nova: Smart Sorting System Berbasis Teknologi dengan Integrasi  Edukasi Digital sebagai Solusi Pengelolaan Sampah Berkelanjutan</h4>
+        <p class="summary">Permasalahan sampah di Indonesia masih menjadi tantangan serius akibat rendahnya kesadaran masyarakat dalam memilah sampah sejak dari sumber. Kondisi ini menyebabkan meningkatnya volume sampah yang berakhir di tempat pembuangan ak…</p>
+        <details class="detail">
+          <summary>Ringkasan &amp; dampak lengkap</summary>
+          <dl>
+            <dt>Ringkasan project</dt>
+            <dd>Permasalahan sampah di Indonesia masih menjadi tantangan serius akibat rendahnya kesadaran masyarakat dalam memilah sampah sejak dari sumber. Kondisi ini menyebabkan meningkatnya volume sampah yang berakhir di tempat pembuangan akhir, menghambat proses daur ulang, serta menimbulkan berbagai dampak negatif terhadap lingkungan. Di sisi lain, edukasi mengenai pengelolaan sampah yang berkelanjutan masih perlu ditingkatkan, khususnya bagi generasi muda sebagai agen perubahan.
+
+Sebagai bentuk aktualisasi Mata Kuliah Wajib Kurikulum (MKWK), tim mengembangkan EcoSort Nova, sebuah sistem pemilahan sampah terpadu yang mengintegrasikan tempat sampah terpilah, alat pres hasil modifikasi sebagai pendukung pengurangan volume sampah anorganik, fasilitas pengolahan sampah organik menjadi pupuk, serta website edukasi digital yang menyediakan informasi, permainan interaktif, dan referensi pemanfaatan limbah. Selain mengutamakan fungsi, EcoSort Nova dirancang dengan tampilan yang menarik dan ramah pengguna untuk menciptakan pengalaman yang menyenangkan, sehingga mendorong masyarakat menjadikan kegiatan memilah sampah sebagai kebiasaan positif.
+
+Implementasi proyek dilakukan melalui observasi lapangan, perancangan produk, pengembangan media edukasi digital, serta sosialisasi dan demonstrasi penggunaan EcoSort Nova di lingkungan Universitas Mataram dan SDN 3 Bajur. Pendekatan ini mengedepankan pembelajaran berbasis pengalaman (experiential learning), di mana peserta tidak hanya memperoleh pengetahuan mengenai pengelolaan sampah, tetapi juga terlibat secara langsung dalam praktik pemilahan dan pengolahan sampah. Dengan demikian, EcoSort Nova diharapkan mampu menumbuhkan kesadaran lingkungan, membentuk perilaku ramah lingkungan secara berkelanjutan, serta mendorong terciptanya budaya pengelolaan sampah yang lebih bertanggung jawab.
+
+Implementasi EcoSort Nova memberikan dampak dalam meningkatkan kesadaran masyarakat, khususnya pelajar, untuk membiasakan pemilahan sampah sejak dari sumber. Penerapan sistem pemilahan yang dipadukan dengan media edukasi digital membantu masyarakat memahami pentingnya pengelolaan sampah secara berkelanjutan serta mendorong terbentuknya kebiasaan memilah sampah dalam kehidupan sehari-hari. Selain itu, EcoSort Nova berkontribusi dalam mengurangi volume sampah yang berakhir di tempat pembuangan akhir, meningkatkan potensi pemanfaatan kembali limbah menjadi produk yang bernilai guna, serta mendukung terciptanya lingkungan yang lebih bersih, sehat, dan berkelanjutan. Inovasi ini memiliki potensi untuk diterapkan di sekolah, perguruan tinggi, maupun lingkungan masyarakat sebagai upaya membangun budaya peduli lingkungan yang berkelanjutan sekaligus mendukung pencapaian Sustainable Development Goals (SDGs) poin 12, yaitu Responsible Consumption and Production.</dd>
+            <dt>Dampak yang telah dicapai</dt>
+            <dd>EcoSort Nova telah diimplementasikan di lingkungan Universitas Mataram dan SDN 3 Bajur. Kegiatan sosialisasi dilaksanakan kepada mahasiswa Program Studi Arsitektur Universitas Mataram, seluruh siswa kelas I hingga kelas V serta sebagian siswa kelas VI SDN 3 Bajur, dan diperluas melalui Festival MKWK kepada mahasiswa dari berbagai program studi serta dosen. Sebagai bentuk keberlanjutan proyek, satu unit EcoSort Nova telah ditempatkan di lingkungan Program Studi Arsitektur Universitas Mataram sebagai sarana pemilahan sampah dan media edukasi yang dapat dimanfaatkan secara berkelanjutan.
+
+Produk yang dikembangkan mengintegrasikan lima kategori tempat sampah, alat pres hasil modifikasi, fasilitas pengolahan sampah organik menjadi pupuk, serta website edukasi digital yang dapat diakses melalui QR Code. Implementasi ini meningkatkan pemahaman masyarakat dan pelajar mengenai pentingnya pemilahan sampah sejak dari sumber, mendorong kebiasaan membuang sampah sesuai jenisnya, serta memperkenalkan pemanfaatan teknologi digital sebagai media edukasi lingkungan.
+
+Selain kegiatan lapangan, video proses EcoSort Nova telah dipublikasikan melalui media sosial dan memperoleh lebih dari 3.500 tayangan, sehingga memperluas jangkauan edukasi kepada masyarakat di luar lokasi implementasi. Hasil tersebut menunjukkan bahwa EcoSort Nova tidak hanya berfungsi sebagai produk inovasi, tetapi juga sebagai media pembelajaran yang memiliki potensi untuk diterapkan di lingkungan sekolah, perguruan tinggi, maupun masyarakat sebagai upaya mendukung pengelolaan sampah yang berkelanjutan.</dd>
+            <dt>Lokasi &amp; periode pelaksanaan</dt>
+            <dd>Universitas Mataram dan SDN 3 Bajur &middot; Mei-Juni 2026</dd>
+            <dt>Nilai MKWK yang diintegrasikan</dt>
+            <dd>Pancasila, Bahasa Indonesia</dd>
+          </dl>
+        </details>
+        <div class="meta-row">
+          <span>Ketua tim: <strong>Muhammad Rifky Alfarizi</strong> (Arsitektur) &middot; 5 anggota</span>
+          <span>Dosen pendamping: <strong>Wika Wahyuni, M.Pd.</strong></span>
+        </div>
+        <div class="note-box"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 9.6v4.4M12 16.8h.01"/></svg><ul><li>Tautan “Folder Utama” mengarah ke satu file, bukan folder Drive — perlu diverifikasi kelengkapan isinya.</li></ul></div>
+        
+        <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/file/d/1tWFtPWNBSwYBuc_7Hl_RYaKXXDwDIaID/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><a class="chip chip-live" href="https://youtu.be/N3QLg4q7h9k?si=F702bEZIexTVTybs" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/file/d/1cOxuVwxLwT6kFHmyx33fnOkYQExzrcm6/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/file/d/1LFkbO5nJm7L6eWZfulAzHi2iSLJ1BthY/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/file/d/1NPC7s_ZRrO8oAo-2EYbUfc3I_C1FWj03/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/file/d/1gIFf6p-nM1H4G_-15Yx5VeL8x0FiiqUj/view?usp=drive_link" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=1R3AeFuY0i6q9WCpxKsfJ1cLN_oo9IxF1" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
+        <div class="jury-note">
+          <span class="jury-note-label">Catatan juri</span>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+        <footer class="card-foot">Didaftarkan 10 Aug 2026, 23:34 WITA</footer>
+      </article>
+      <article class="card" data-cat="poster" data-status="ok" data-search="tim hore universitas mataram inovasi pemanfaatan limbah cangkang telur program mbg sebagai pupuk organik dan sumber kalsium pakan ternak yuni hidayati">
+        <div class="card-top">
+          <div class="pills"><span class="pill pill-cat pill-poster"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster</span></div>
+          <span class="pill pill-status pill-ok"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></svg>Lengkap</span>
+        </div>
+        <h3 class="team-name">tim hore</h3>
+        <p class="univ">Universitas Mataram &middot; 4. Pemberdayaan Masyarakat</p>
+        <h4 class="proj-title">inovasi pemanfaatan limbah cangkang telur program MBG sebagai pupuk organik dan sumber kalsium pakan ternak</h4>
+        <p class="summary">Ringksannya
+1).Peningkatan konsumsi telur di Indonesia menghasilkan limbah cangkang telur dalam jumlah besar, diperkirakan mencapai 504.439–632.255 ton per tahun, dan jumlah ini berpotensi terus meningkat seiring adanya program Ma…</p>
+        <details class="detail">
+          <summary>Ringkasan &amp; dampak lengkap</summary>
+          <dl>
+            <dt>Ringkasan project</dt>
+            <dd>Ringksannya
+1).Peningkatan konsumsi telur di Indonesia menghasilkan limbah cangkang telur dalam jumlah besar, diperkirakan mencapai 504.439–632.255 ton per tahun, dan jumlah ini berpotensi terus meningkat seiring adanya program Makan Bergizi Gratis (MBG). Sayangnya, hingga saat ini pemanfaatan limbah cangkang telur masih sangat rendah (sekitar 10%), sehingga berpotensi menimbulkan pencemaran lingkungan.
+2).Sebagai solusi, kelompok kami mengembangkan inovasi pengolahan limbah cangkang telur dari kegiatan MBG menjadi pupuk organik serbuk dan sumber kalsium tambahan untuk pakan ternak. Cangkang telur mengandung kalsium karbonat (CaCO₃) sebesar 89,7–97%, sehingga sangat potensial dimanfaatkan sebagai unsur hara bagi tanaman maupun mineral tambahan bagi ternak.
+3).Implementasi dilakukan di SPPG Sekarbela Karang Pule, Kota Mataram, bekerja sama dengan pengelola program MBG, selama 3 minggu. Prosesnya meliputi pengumpulan cangkang telur, pencucian, penjemuran, penghalusan, penambahan cuka untuk meningkatkan kelarutan kalsium, hingga menjadi produk serbuk siap pakai. Produk kemudian diaplikasikan pada tanaman dan pakan ternak sapi, serta dipasarkan langsung kepada masyarakat sekitar Kota Mataram.
+4).Dampak yang dicapai antara lain: berkurangnya limbah cangkang telur dari kegiatan MBG yang sebelumnya dibuang begitu saja; tanaman yang diberi pupuk menunjukkan pertumbuhan lebih baik (daun lebih tegak dan hijau, muncul tunas baru); ternak memperoleh tambahan sumber kalsium alami; serta terbentuknya respons positif masyarakat terhadap produk sebagai alternatif pupuk kimia yang lebih murah dan ramah lingkungan. Proyek ini turut mendukung pencapaian SDG 12 melalui penerapan prinsip reuse dan recycle, sekaligus membuka peluang ekonomi kreatif berbasis pengelolaan limbah rumah tangga.</dd>
+            <dt>Dampak yang telah dicapai</dt>
+            <dd>Dampak nyaa:
+
+Kami berhasil mengolah limbah cangkang telur dari Program MBG di SPPG Sekarbela Karang Pule menjadi satu produk, yaitu serbuk cangkang telur, yang bisa dimanfaatkan untuk dua hal sekaligus: sebagai pupuk organik untuk tanaman dan sebagai sumber kalsium tambahan untuk pakan ternak.
+Hasilnya, tanaman yang diberi pupuk ini menunjukkan perubahan nyata, daun jadi lebih hijau dan tegak. Produk ini juga sudah kami coba pasarkan ke masyarakat sekitar dan mendapat respons yang antusias, karena jadi alternatif pupuk kimia yang lebih murah dan ramah lingkungan.
+Selain itu, kegiatan ini juga jadi sarana edukasi buat ibu-ibu rumah tangga di sekitar, supaya cangkang telur tidak langsung dibuang tapi dimanfaatkan kembali. Ini sejalan dengan prinsip reuse dan recycle limbah domestik sesuai SDGs 12.</dd>
+            <dt>Lokasi &amp; periode pelaksanaan</dt>
+            <dd>Lokasi yang kemarin SPPG Sekarbela Karang Pule, Kota Mataram, Nusa Tenggara Barat &middot; april-mei</dd>
+            <dt>Nilai MKWK yang diintegrasikan</dt>
+            <dd>Bahasa Indonesia</dd>
+          </dl>
+        </details>
+        <div class="meta-row">
+          <span>Ketua tim: <strong>Yuni Hidayati</strong> (S1 Peternakan) &middot; 5 anggota</span>
+          <span>Dosen pendamping: <strong>Rinda Widya Ikomah</strong></span>
+        </div>
+        
+        
+        <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/15DU4HUL54Hrz08A0cS-Sijx2srpdwvOW" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/file/d/10AwjTh9F2_hQZDP2LNnxO8PMBom5TPbD/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)</a><a class="chip chip-live" href="https://drive.google.com/file/d/1CaaCLxabcs4fVwHqimyzdfGDTkG-n3nR/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi</a><a class="chip chip-live" href="https://drive.google.com/file/d/1_mU-6z1uuowRKkAcf6PfARULW0uQWteR/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas</a><a class="chip chip-live" href="https://drive.google.com/file/d/11PotVRHtG8JZV_wtAe6lYyzJpaMWUCbj/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><a class="chip chip-live" href="https://drive.google.com/file/d/1Y9yQrjksueFttkSwDBBbBza-WdXU0hJ6/view?usp=drivesdk" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota</a><a class="chip chip-live" href="https://drive.google.com/open?id=1ddz8JdMzkgOFaNpzPs1i6qQRwIG2TwB3" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
+        <div class="jury-note">
+          <span class="jury-note-label">Catatan juri</span>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+        <footer class="card-foot">Didaftarkan 16 Aug 2026, 17:15 WITA</footer>
+      </article>
+      <article class="card" data-cat="video" data-status="warn" data-search="the last trace team universitas mataram digital graveyard; jejak digital tak pernah mati fatima azzahra">
+        <div class="card-top">
+          <div class="pills"><span class="pill pill-cat pill-video"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video</span></div>
+          <span class="pill pill-status pill-warn"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 9.6v4.4M12 16.8h.01"/></svg>Perlu tindak lanjut</span>
+        </div>
+        <h3 class="team-name">The last trace team</h3>
+        <p class="univ">Universitas Mataram &middot; Literasi digital</p>
+        <h4 class="proj-title">Digital Graveyard; Jejak Digital Tak Pernah Mati</h4>
+        <p class="summary">Digital Graveyard: Jejak Digital Tak Pernah Mati merupakan proyek edukasi literasi digital yang dilaksanakan oleh mahasiswa Universitas Mataram sebagai bagian dari Mata Kuliah Wajib Kurikulum (MKWK), khususnya dalam penerapan nila…</p>
+        <details class="detail">
+          <summary>Ringkasan &amp; dampak lengkap</summary>
+          <dl>
+            <dt>Ringkasan project</dt>
+            <dd>Digital Graveyard: Jejak Digital Tak Pernah Mati merupakan proyek edukasi literasi digital yang dilaksanakan oleh mahasiswa Universitas Mataram sebagai bagian dari Mata Kuliah Wajib Kurikulum (MKWK), khususnya dalam penerapan nilai-nilai Pendidikan Pancasila dan Pendidikan Agama. Kegiatan ini dilatarbelakangi oleh meningkatnya penggunaan media digital di kalangan remaja yang diikuti dengan berbagai permasalahan seperti cyberbullying, penyebaran hoaks, oversharing, dan digital scam. Kegiatan dilaksanakan di SMA Negeri 8 Mataram pada tanggal 18–19 Mei 2026. Pada hari pertama, tim melaksanakan booth interaktif Digital Graveyard yang terdiri atas beberapa zona edukasi, yaitu Grave of Cyberbullying, Grave of Hoax, Grave of Oversharing, dan Grave of Digital Scam. Pada hari kedua, kegiatan dilanjutkan dengan sesi edukasi dan diskusi mengenai literasi digital serta pentingnya menjaga jejak digital. Melalui kegiatan ini, peserta memperoleh pemahaman mengenai dampak perilaku digital yang tidak bijak serta pentingnya etika, keamanan, dan tanggung jawab dalam menggunakan media digital. Secara umum, kegiatan berjalan dengan baik dan mendapatkan respons positif dari peserta maupun pihak sekolah.</dd>
+            <dt>Dampak yang telah dicapai</dt>
+            <dd>Project Digital Graveyard telah memberikan edukasi literasi digital kepada siswa SMA Negeri 8 Mataram melalui 4 zona interaktif, yaitu Cyberbullying, Hoax, Oversharing, dan Digital Scam yang diikuti oleh 42 delegasi siswa dan siswi SMAN 8 Mataram, serta dilanjutkan dengan sesi edukasi dan refleksi pada 19 Mei 2026 oleh seluruh siswa siswi kelas 10 SMAN 8 Mataram. Peserta memperoleh pemahaman mengenai bentuk, risiko, dan pencegahan berbagai permasalahan digital yang ditemukan dalam hasil observasi bersama pihak BK. Dampak yang dicapai berupa tersampaikannya edukasi secara langsung, meningkatnya keterlibatan peserta melalui metode experiential learning, serta adanya refleksi peserta mengenai penggunaan media digital yang lebih bertanggung jawab. Capaian didukung oleh dokumentasi booth, kegiatan edukasi, aktivitas peserta, dan hasil reflection wall.</dd>
+            <dt>Lokasi &amp; periode pelaksanaan</dt>
+            <dd>SMAN 8 Mataram &middot; April-Mei 2026</dd>
+            <dt>Nilai MKWK yang diintegrasikan</dt>
+            <dd>Pendidikan Agama, Pancasila</dd>
+          </dl>
+        </details>
+        <div class="meta-row">
+          <span>Ketua tim: <strong>Fatima Azzahra</strong> (Pendidikan Bahasa Inggris) &middot; 5 anggota</span>
+          <span>Dosen pendamping: <strong>Maria Grace Putri Edi, M.Pd.</strong></span>
+        </div>
+        
+        <div class="missing-box"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 9.6v4.4M12 16.8h.01"/></svg><span><strong>Belum lengkap:</strong> Naskah deskripsi project, Surat pernyataan orisinalitas</span></div>
+        <div class="links-row"><a class="chip chip-live" href="https://drive.google.com/drive/folders/1fQZuztrp8D3v3gYuFfVn-rXe0CPsLxsZ?usp=sharing" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5a1 1 0 0 1 1-1h5l1.6 2H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Folder Drive Tim</a><a class="chip chip-live" href="https://youtu.be/Q0Q0smXKS2c?si=i2VYQdqKC4t7nOZh" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="13" height="13" rx="1.6"/><path d="M16 10.2l5-2.7v9l-5-2.7z"/></svg>Video (YouTube)</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.6"/><circle cx="8.3" cy="9" r="1.7"/><path d="M4 17l5.2-5.4a1.4 1.4 0 0 1 2 0L15 15.4l1.5-1.6a1.4 1.4 0 0 1 2 0L21 16.5"/></svg>Poster (PDF)<span class="chip-x">tidak ada</span></span><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h7L19 8.5V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M13 3v5.5H19"/><path d="M8.3 13h7.2M8.3 16.3h7.2"/></svg>Naskah Deskripsi<span class="chip-x">tidak ada</span></span><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5c2-3 3-5.6 3.8-8.2C8.6 7.6 9.7 5 11 5c1.4 0 .8 3-.4 5.6-1.3 2.9-3.3 6-5.2 7.9 2.6-.7 5.6-.7 8-.2 2 .4 3.7 1.2 5.6.6"/></svg>Surat Orisinalitas<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/drive/folders/1fQZuztrp8D3v3gYuFfVn-rXe0CPsLxsZ?usp=sharing" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V6.2L12 3l7 3.2V21"/><path d="M9 21v-5h6v5M9 10h.01M12 10h.01M15 10h.01M9 13.5h.01M12 13.5h.01M15 13.5h.01"/></svg>Surat Rekomendasi PT</a><span class="chip chip-missing"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1.6"/><circle cx="8" cy="11" r="2"/><path d="M5.3 16c.5-1.6 1.8-2.4 2.7-2.4s2.2.8 2.7 2.4M14 9.5h4.3M14 12.5h4.3M14 15h3"/></svg>KTM Anggota<span class="chip-x">tidak ada</span></span><a class="chip chip-live" href="https://drive.google.com/open?id=1_UgTDePjouE89vWc6AjB2OU7VmFdQ_Xw" target="_blank" rel="noopener"><svg class="ic ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.2-1.5L14 21l-2-1.5L10 21l-1.8-1.5L6 21z"/><path d="M8.5 8h7M8.5 11h7M8.5 14h4.5"/></svg>Bukti Pembayaran</a></div>
+        <div class="jury-note">
+          <span class="jury-note-label">Catatan juri</span>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+        <footer class="card-foot">Didaftarkan 18 Aug 2026, 22:22 WITA</footer>
+      </article>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    Sumber data: <strong>Formulir Pendaftaran Lomba Project MKWK Nasional 2026</strong> (jawaban per 19 Agustus 2026, WITA). Tautan berkas mengarah langsung ke Google Drive/YouTube yang diunggah tiap tim &mdash; panitia tidak menyalin isinya. Dasbor ini untuk kebutuhan internal panitia dan dewan juri; mohon tidak disebarluaskan sebagai pengumuman resmi.
+  </div>
+</footer>
+</div>
+
+<script>
+(function(){
+  var PASSWORD = 'LombaMKWK';
+  var SESSION_KEY = 'mkwk2026-jury-access';
+  var lockScreen = document.getElementById('lockScreen');
+  var app = document.getElementById('app');
+  var lockForm = document.getElementById('lockForm');
+  var lockPass = document.getElementById('lockPass');
+  var lockError = document.getElementById('lockError');
+
+  function unlock(){
+    lockScreen.style.display = 'none';
+    app.style.display = '';
+  }
+
+  try {
+    if (sessionStorage.getItem(SESSION_KEY) === '1'){
+      unlock();
+    }
+  } catch (e) { /* sessionStorage unavailable, fall through to password prompt */ }
+
+  lockForm.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    if (lockPass.value === PASSWORD){
+      try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
+      lockError.textContent = '';
+      unlock();
+    } else {
+      lockError.textContent = 'Sandi salah. Hubungi koordinator panitia jika lupa.';
+      lockPass.value = '';
+      lockPass.focus();
+    }
+  });
+})();
+</script>
+<script>
+(function(){
+  var q = document.getElementById('q');
+  var seg = document.getElementById('catSeg');
+  var onlyWarn = document.getElementById('onlyWarn');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var countEl = document.getElementById('resultCount');
+  var activeCat = 'all';
+
+  function apply(){
+    var term = q.value.trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(c){
+      var matchesCat = activeCat === 'all' || c.dataset.cat.indexOf(activeCat) !== -1;
+      var matchesTerm = !term || c.dataset.search.indexOf(term) !== -1;
+      var matchesWarn = !onlyWarn.checked || c.dataset.status === 'warn';
+      var show = matchesCat && matchesTerm && matchesWarn;
+      c.classList.toggle('is-hidden', !show);
+      if (show) shown++;
+    });
+    countEl.textContent = shown + ' dari ' + cards.length + ' tim ditampilkan';
+  }
+
+  seg.addEventListener('click', function(e){
+    var btn = e.target.closest('button');
+    if (!btn) return;
+    activeCat = btn.dataset.cat;
+    Array.prototype.forEach.call(seg.querySelectorAll('button'), function(b){ b.classList.toggle('active', b === btn); });
+    apply();
+  });
+  q.addEventListener('input', apply);
+  onlyWarn.addEventListener('change', apply);
+})();
+</script>
+
+</body>
+</html>
