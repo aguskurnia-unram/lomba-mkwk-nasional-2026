@@ -184,14 +184,15 @@ footer.site{border-top:1px solid var(--line); padding:26px 0 40px; font-size:12.
       <a href="../">Verifikasi Peserta</a>
       <a href="./" class="active">Penilaian Juri</a>
     </nav>
-    <h1>Penilaian Juri &mdash; Tahap Pra-Event</h1>
-    <p class="lede">Input skor Video &amp; Poster mengikuti rubrik resmi Bab VII Juknis. Nilai tersimpan langsung ke server sehingga rekap peringkat di bawah selalu menggabungkan skor semua juri secara real-time.</p>
-    <div class="flag"><span>&#9888;&#65039;</span><span><b>Bukan pengumuman resmi.</b> Rekap &amp; peringkat di sini adalah alat bantu kerja dewan juri untuk mengusulkan finalis &mdash; keputusan final tetap melalui rapat dewan juri. Pengumuman finalis resmi disampaikan panitia terpisah pada 20 Agustus 2026.</span></div>
+    <h1>Penilaian Juri</h1>
+    <p class="lede">Input skor mengikuti rubrik resmi Bab VII Juknis untuk dua tahap: Pra-Event (Video &amp; Poster, 19 Agustus) dan Presentasi Finalis (hari-H, 22 Agustus). Nilai tersimpan langsung ke server sehingga rekap peringkat di bawah selalu menggabungkan skor semua juri secara real-time.</p>
+    <div class="flag"><span>&#9888;&#65039;</span><span><b>Bukan pengumuman resmi.</b> Rekap &amp; peringkat di sini adalah alat bantu kerja dewan juri untuk mengusulkan finalis dan pemenang &mdash; keputusan final tetap melalui rapat dewan juri (Bab VII.C Juknis: &ldquo;keputusan dewan juri bersifat final&rdquo;). Pengumuman resmi disampaikan panitia terpisah.</span></div>
     <div class="weight-strip">
       <span class="weight-chip"><b>Video 30%</b> &mdash; Konten 15% + Produksi 10% + Integrasi MKWK 5%</span>
       <span class="weight-chip"><b>Poster 20%</b> &mdash; Isi Ilmiah 10% + Estetika 10%</span>
-      <span class="weight-chip">Presentasi hari-H (50%) dinilai terpisah pada 22 Agustus</span>
+      <span class="weight-chip"><b>Presentasi 50%</b> &mdash; Substansi 20% + Integrasi MKWK 15% + Inovasi 10% + Q&amp;A 5%</span>
     </div>
+    <div class="weight-strip" id="juryStrip"></div>
   </div>
 </header>
 
@@ -202,7 +203,12 @@ footer.site{border-top:1px solid var(--line); padding:26px 0 40px; font-size:12.
 <div class="juror-bar">
   <div class="wrap row">
     <label for="jurorName">Nama juri:</label>
-    <input type="text" id="jurorName" placeholder="Nama lengkap Anda">
+    <input type="text" id="jurorName" placeholder="Nama lengkap Anda" list="jurorList">
+    <datalist id="jurorList"></datalist>
+    <div class="tabbtns" id="stageTabs">
+      <button data-stage="praevent" class="active">Pra-Event</button>
+      <button data-stage="presentasi">Presentasi Finalis</button>
+    </div>
     <span id="connStatus" class="conn-status conn-wait">Menghubungkan&hellip;</span>
     <div class="tabbtns" id="viewTabs">
       <button data-view="input" class="active">Input Nilai</button>
@@ -213,15 +219,16 @@ footer.site{border-top:1px solid var(--line); padding:26px 0 40px; font-size:12.
 
 <div class="wrap">
   <section id="viewInput">
+    <p id="stageNote" style="font-size:12.5px; color:var(--ink-dim); margin:16px 0 0"></p>
     <div class="roster" id="roster"><!-- rendered by JS --></div>
   </section>
 
   <section id="viewRekap" style="display:none">
-    <p style="font-size:13px; color:var(--ink-dim); margin-top:18px">Skor Akhir = rata-rata seluruh juri yang sudah mengisi, dihitung dengan bobot resmi Juknis. Tim kategori ganda digabung <code>(Video&times;30 + Poster&times;20) / 50</code> agar setara dengan tim satu kategori. 10 baris teratas (garis putus-putus) diusulkan sebagai finalis.</p>
+    <p style="font-size:13px; color:var(--ink-dim); margin-top:18px">Skor Pra-Event &amp; Presentasi = rata-rata seluruh juri yang mengisi, dihitung bobot resmi Juknis. Total Akhir = Skor Pra-Event&times;50% + Skor Presentasi&times;50% (baru terisi setelah presentasi hari-H dinilai). Sebelum itu, peringkat memakai Skor Pra-Event untuk mengusulkan 10 finalis (garis putus-putus).</p>
     <div class="rekap-wrap">
       <table class="rekap">
         <thead>
-          <tr><th>Peringkat</th><th>Tim</th><th>Perguruan Tinggi</th><th>Kategori</th><th>Skor Video</th><th>Skor Poster</th><th>Skor Akhir</th><th>Juri mengisi</th></tr>
+          <tr><th>Peringkat</th><th>Tim</th><th>Perguruan Tinggi</th><th>Kategori</th><th>Skor Pra-Event</th><th>Skor Presentasi</th><th>Total Akhir</th><th>Juri mengisi</th></tr>
         </thead>
         <tbody id="rekapBody"></tbody>
       </table>
@@ -246,8 +253,22 @@ const CRITERIA = {
   a3: { label: "Integrasi Nilai MKWK",    cat: "Video", weight: 5,  hint: "Nilai MKWK eksplisit & terdokumentasi kuat dalam video" },
   b1: { label: "Kualitas Isi Ilmiah",     cat: "Poster", weight: 10, hint: "Masalah jelas, metode tepat, dampak terukur & berbasis data" },
   b2: { label: "Estetika & Keterbacaan",  cat: "Poster", weight: 10, hint: "Desain menarik, hierarki tipografi jelas, terbaca di layar" },
+  c1: { label: "Substansi & Dampak",      cat: "Presentasi", weight: 20, hint: "Dampak signifikan, terukur, melibatkan komunitas nyata, bukti kuat" },
+  c2: { label: "Integrasi Nilai MKWK",    cat: "Presentasi", weight: 15, hint: "Nilai MKWK eksplisit & kritis dibahas dalam presentasi" },
+  c3: { label: "Inovasi & Orisinalitas",  cat: "Presentasi", weight: 10, hint: "Pendekatan baru, solusi kreatif, bukan pengulangan project lain" },
+  c4: { label: "Penguasaan & Q&A",        cat: "Presentasi", weight: 5,  hint: "Seluruh anggota menguasai materi, menjawab kritis & percaya diri" },
 };
-const CRIT_ORDER = ["a1", "a2", "a3", "b1", "b2"];
+const CRIT_ORDER_PRAEVENT = ["a1", "a2", "a3", "b1", "b2"];
+const CRIT_ORDER_PRESENTASI = ["c1", "c2", "c3", "c4"];
+
+// Dewan juri (sumber: Google Sheet "Juri Lomba", PJ Lomba) — untuk saran nama di kolom "Nama juri".
+const JURORS = [
+  "Dr. Epin Saepudin, M.Pd. (ITB)",
+  "Dr. Heri Santoso, S.S., M.Hum. (UGM)",
+  "Ir. H. Riadi Budiman, S.T., M.T., M.Pd., IPM., ASEAN Eng. (Untan)",
+  "Aurelius Rofinus Lolong Teluma, S.S., M.A. (Unram)",
+  "Ida Ayu Sutarini, S.Sn., M.Ds. (Unram)",
+];
 
 const PASSWORD_KEY = "mkwk2026-jury-access";
 const JUROR_KEY = "mkwk2026-juror-name";
@@ -255,6 +276,12 @@ const JUROR_KEY = "mkwk2026-juror-name";
 let TOKEN = "";
 let ALL_SCORES = []; // {team_slug, juror_name, criterion, score, note, updated_at}
 let apiOk = false;
+let STAGE = "praevent"; // "praevent" | "presentasi"
+
+const STAGE_NOTE = {
+  praevent: "Menilai karya Video &amp; Poster yang sudah dikumpulkan (Bab VII: 30% + 20%). Hanya kriteria sesuai kategori tim yang tim itu ikuti yang ditampilkan.",
+  presentasi: "Menilai presentasi hari-H, 22 Agustus 2026 (Bab VII: 50%). Hanya berlaku untuk tim yang lolos sebagai 10 finalis &mdash; tim lain boleh diabaikan pada tahap ini.",
+};
 
 /* ---------------- Lock screen ---------------- */
 (function initLock(){
@@ -308,6 +335,21 @@ function boot(){
     try { localStorage.setItem(JUROR_KEY, jurorInput.value.trim()); } catch (e) {}
     renderRoster();
   });
+
+  document.getElementById("jurorList").innerHTML = JURORS.map(n => '<option value="' + esc(n) + '">').join("");
+  document.getElementById("juryStrip").innerHTML =
+    '<span class="weight-chip">Dewan juri: ' + JURORS.map(esc).join(" &middot; ") + '</span>';
+
+  document.getElementById("stageTabs").addEventListener("click", function(ev){
+    const btn = ev.target.closest("button");
+    if (!btn) return;
+    STAGE = btn.dataset.stage;
+    document.querySelectorAll("#stageTabs button").forEach(b => b.classList.toggle("active", b === btn));
+    document.getElementById("stageNote").innerHTML = STAGE_NOTE[STAGE];
+    renderRoster();
+    if (document.getElementById("viewRekap").style.display !== "none") renderRekap();
+  });
+  document.getElementById("stageNote").innerHTML = STAGE_NOTE[STAGE];
 
   document.getElementById("viewTabs").addEventListener("click", function(ev){
     const btn = ev.target.closest("button");
@@ -373,8 +415,11 @@ function bandFor(score){
 function renderRoster(){
   const juror = document.getElementById("jurorName").value.trim();
   const roster = document.getElementById("roster");
+  const stageOrder = STAGE === "presentasi" ? CRIT_ORDER_PRESENTASI : CRIT_ORDER_PRAEVENT;
   roster.innerHTML = TEAMS.map(function(t, idx){
-    const crits = CRIT_ORDER.filter(c => t.cats.indexOf(CRITERIA[c].cat) !== -1);
+    // Presentasi criteria apply to any finalist regardless of original category;
+    // pra-event criteria only apply to the category(ies) the team actually entered.
+    const crits = STAGE === "presentasi" ? stageOrder : stageOrder.filter(c => t.cats.indexOf(CRITERIA[c].cat) !== -1);
     const critHtml = crits.map(function(c){
       const meta = CRITERIA[c];
       const val = scoreFor(t.slug, juror, c);
@@ -390,7 +435,7 @@ function renderRoster(){
     }).join("");
 
     const pills = t.cats.map(c => '<span class="pill pill-' + c.toLowerCase() + '">' + c + '</span>').join("");
-    const savedRows = ALL_SCORES.filter(s => s.team_slug === t.slug && (s.juror_name || "").trim().toLowerCase() === juror.toLowerCase());
+    const savedRows = ALL_SCORES.filter(s => s.team_slug === t.slug && stageOrder.indexOf(s.criterion) !== -1 && (s.juror_name || "").trim().toLowerCase() === juror.toLowerCase());
     const lastSaved = savedRows.length ? savedRows.reduce((a, b) => (a.updated_at > b.updated_at ? a : b)).updated_at : null;
 
     return '<article class="score-card' + (savedRows.length ? ' is-saved' : '') + '" id="team-' + t.slug + '" data-slug="' + t.slug + '">' +
@@ -508,48 +553,57 @@ function renderRekap(){
   const rows = TEAMS.map(function(t){
     const hasVideo = t.cats.indexOf("Video") !== -1;
     const hasPoster = t.cats.indexOf("Poster") !== -1;
+
+    // --- Pra-Event: Video 30% + Poster 20%, normalized to a 0–100 scale ---
     let videoScore = null, posterScore = null;
     if (hasVideo) {
       const a1 = avgOf(t.slug, "a1"), a2 = avgOf(t.slug, "a2"), a3 = avgOf(t.slug, "a3");
-      if (a1 !== null || a2 !== null || a3 !== null) {
-        videoScore = ((a1 || 0) * 15 + (a2 || 0) * 10 + (a3 || 0) * 5) / 30;
-      }
+      if (a1 !== null || a2 !== null || a3 !== null) videoScore = ((a1 || 0) * 15 + (a2 || 0) * 10 + (a3 || 0) * 5) / 30;
     }
     if (hasPoster) {
       const b1 = avgOf(t.slug, "b1"), b2 = avgOf(t.slug, "b2");
-      if (b1 !== null || b2 !== null) {
-        posterScore = ((b1 || 0) * 10 + (b2 || 0) * 10) / 20;
-      }
+      if (b1 !== null || b2 !== null) posterScore = ((b1 || 0) * 10 + (b2 || 0) * 10) / 20;
     }
-    let finalScore = null;
-    if (videoScore !== null && posterScore !== null) finalScore = (videoScore * 30 + posterScore * 20) / 50;
-    else if (videoScore !== null) finalScore = videoScore;
-    else if (posterScore !== null) finalScore = posterScore;
+    let praEventScore = null;
+    if (videoScore !== null && posterScore !== null) praEventScore = (videoScore * 30 + posterScore * 20) / 50;
+    else if (videoScore !== null) praEventScore = videoScore;
+    else if (posterScore !== null) praEventScore = posterScore;
+
+    // --- Presentasi Finalis: C1-C4, 50% total, normalized to a 0-100 scale ---
+    const c1 = avgOf(t.slug, "c1"), c2 = avgOf(t.slug, "c2"), c3 = avgOf(t.slug, "c3"), c4 = avgOf(t.slug, "c4");
+    let presentasiScore = null;
+    if (c1 !== null || c2 !== null || c3 !== null || c4 !== null) {
+      presentasiScore = ((c1 || 0) * 20 + (c2 || 0) * 15 + (c3 || 0) * 10 + (c4 || 0) * 5) / 50;
+    }
+
+    // --- Total Akhir: only once both stages have at least one score ---
+    const totalScore = (praEventScore !== null && presentasiScore !== null) ? praEventScore * 0.5 + presentasiScore * 0.5 : null;
+    const sortScore = totalScore !== null ? totalScore : praEventScore;
 
     const jurors = new Set(ALL_SCORES.filter(s => s.team_slug === t.slug).map(s => (s.juror_name || "").trim().toLowerCase()));
 
-    return { t, videoScore, posterScore, finalScore, jurorCount: jurors.size };
+    return { t, praEventScore, presentasiScore, totalScore, sortScore, jurorCount: jurors.size };
   });
 
   rows.sort(function(a, b){
-    if (a.finalScore === null && b.finalScore === null) return 0;
-    if (a.finalScore === null) return 1;
-    if (b.finalScore === null) return -1;
-    return b.finalScore - a.finalScore;
+    if (a.sortScore === null && b.sortScore === null) return 0;
+    if (a.sortScore === null) return 1;
+    if (b.sortScore === null) return -1;
+    return b.sortScore - a.sortScore;
   });
 
   const body = document.getElementById("rekapBody");
   body.innerHTML = rows.map(function(r, i){
-    const rank = r.finalScore === null ? "–" : (i + 1);
+    const rank = r.sortScore === null ? "–" : (i + 1);
     const cls = (typeof rank === "number" && rank <= 10 ? "top10" : "") + (rank === 10 ? " cutoff" : "");
     return "<tr class=\"" + cls + "\">" +
       "<td class=\"rank\">" + rank + "</td>" +
       "<td>" + esc(r.t.team) + "</td>" +
       "<td>" + esc(r.t.univ) + "</td>" +
       "<td>" + r.t.cats.join(" + ") + "</td>" +
-      "<td class=\"num\">" + (r.videoScore === null ? "–" : r.videoScore.toFixed(1)) + "</td>" +
-      "<td class=\"num\">" + (r.posterScore === null ? "–" : r.posterScore.toFixed(1)) + "</td>" +
-      "<td class=\"num\"><b>" + (r.finalScore === null ? "–" : r.finalScore.toFixed(1)) + "</b></td>" +
+      "<td class=\"num\">" + (r.praEventScore === null ? "–" : r.praEventScore.toFixed(1)) + "</td>" +
+      "<td class=\"num\">" + (r.presentasiScore === null ? "–" : r.presentasiScore.toFixed(1)) + "</td>" +
+      "<td class=\"num\"><b>" + (r.totalScore === null ? "–" : r.totalScore.toFixed(1)) + "</b></td>" +
       "<td class=\"jcount\">" + r.jurorCount + " juri</td>" +
     "</tr>";
   }).join("");
