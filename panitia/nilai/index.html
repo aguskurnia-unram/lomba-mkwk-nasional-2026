@@ -95,6 +95,21 @@ h1{font-family:var(--font-display); font-weight:700; text-wrap:balance; font-siz
 .tabbtns{display:inline-flex; background:var(--paper-raised); border:1px solid var(--line); border-radius:9px; padding:3px; gap:2px; margin-left:auto}
 .tabbtns button{border:none; background:transparent; font:inherit; font-size:13px; padding:8px 14px; border-radius:6px; color:var(--ink-dim); cursor:pointer; font-weight:600}
 .tabbtns button.active{background:var(--navy); color:#fff}
+
+/* Resource panel — jalur penilaian & unduhan cadangan */
+.res-panel{background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius); padding:16px 18px; margin:18px 0; box-shadow:var(--shadow)}
+.res-panel h2{font-size:13.5px; text-transform:uppercase; letter-spacing:.4px; color:var(--ink-dim); font-weight:700; margin:0 0 4px}
+.res-panel .res-sub{font-size:12.5px; color:var(--ink-faint); margin:0 0 12px}
+.res-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:10px}
+.res-card{display:flex; gap:11px; align-items:flex-start; border:1px solid var(--line); border-radius:10px; padding:11px 12px; text-decoration:none; color:inherit; background:var(--paper-sunk)}
+.res-card:hover{border-color:var(--navy)}
+.res-card .res-ic{flex:0 0 30px; width:30px; height:30px; border-radius:8px; background:var(--navy-soft); color:var(--navy); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:13px}
+.res-card.res-2 .res-ic{background:var(--gold-soft); color:var(--gold)}
+.res-card.res-3 .res-ic{background:var(--ok-soft); color:var(--ok)}
+.res-card.res-4 .res-ic{background:var(--warn-soft); color:var(--warn)}
+.res-card b{display:block; font-size:13px; color:var(--ink)}
+.res-card span{display:block; font-size:11.5px; color:var(--ink-faint); margin-top:2px; line-height:1.4}
+.res-order{font-size:11.5px; color:var(--ink-faint); margin-top:10px}
 .conn-status{font-size:12px; padding:4px 10px; border-radius:999px; font-weight:700}
 .conn-ok{background:var(--ok-soft); color:var(--ok)}
 .conn-bad{background:var(--danger-soft); color:var(--danger)}
@@ -198,6 +213,30 @@ footer.site{border-top:1px solid var(--line); padding:26px 0 40px; font-size:12.
 
 <div class="wrap">
   <div id="connBanner"></div>
+
+  <div class="res-panel">
+    <h2>4 Jalur Penilaian — pakai sesuai kondisi</h2>
+    <p class="res-sub">Web digital di bawah ini adalah jalur utama. Tiga lainnya adalah cadangan berjenjang bila internet/server bermasalah — hasilnya tetap wajib dipindahkan ke sini oleh panitia begitu sistem normal kembali.</p>
+    <div class="res-grid">
+      <a class="res-card res-1" href="#roster">
+        <div class="res-ic">1</div>
+        <div><b>Web digital (halaman ini)</b><span>Real-time, otomatis terekap &amp; terhitung peringkat. Jalur utama.</span></div>
+      </a>
+      <a class="res-card res-2" href="../unduhan/Penilaian-Juri-Lomba-Project-MKWK-Nasional-2026.xlsx" download>
+        <div class="res-ic">2</div>
+        <div><b>Google Sheets / Excel</b><span>Unduh, lalu unggah ke Drive untuk versi kolaboratif — atau isi langsung offline di Excel.</span></div>
+      </a>
+      <a class="res-card res-3" href="../unduhan/Penilaian-Juri-Lomba-Project-MKWK-Nasional-2026.xlsx" download>
+        <div class="res-ic">3</div>
+        <div><b>Ketik manual (offline)</b><span>File sama seperti di atas — dibuka &amp; diisi langsung di laptop tanpa internet.</span></div>
+      </a>
+      <a class="res-card res-4" href="../unduhan/Lembar-Penilaian-Manual-Cadangan-MKWK-Nasional-2026.pdf" download>
+        <div class="res-ic">4</div>
+        <div><b>Cetak &amp; tulis tangan</b><span>PDF siap cetak — cadangan terakhir bila perangkat elektronik tidak bisa diandalkan sama sekali.</span></div>
+      </a>
+    </div>
+    <p class="res-order">Urutan pemakaian yang disarankan: 1 &rarr; 2/3 &rarr; 4, dari yang paling otomatis ke yang paling manual.</p>
+  </div>
 </div>
 
 <div class="juror-bar">
