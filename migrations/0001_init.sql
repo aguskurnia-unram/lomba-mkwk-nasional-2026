@@ -7,7 +7,8 @@ CREATE TABLE IF NOT EXISTS scores (
   id          INTEGER PRIMARY KEY AUTOINCREMENT,
   team_slug   TEXT NOT NULL,
   juror_name  TEXT NOT NULL,
-  criterion   TEXT NOT NULL CHECK (criterion IN ('a1','a2','a3','b1','b2')),
+  -- a1-a3: Video (pra-event) · b1-b2: Poster (pra-event) · c1-c4: Presentasi finalis (hari-H)
+  criterion   TEXT NOT NULL CHECK (criterion IN ('a1','a2','a3','b1','b2','c1','c2','c3','c4')),
   score       REAL NOT NULL CHECK (score >= 0 AND score <= 100),
   note        TEXT,
   created_at  TEXT NOT NULL DEFAULT (datetime('now')),

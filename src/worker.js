@@ -4,7 +4,8 @@
 // "run_worker_first": ["/api/*"] di wrangler.jsonc) — worker ini hanya
 // menangani baca/tulis skor juri ke D1.
 
-const CRITERIA = new Set(["a1", "a2", "a3", "b1", "b2"]);
+// a1-a3: Video (pra-event) · b1-b2: Poster (pra-event) · c1-c4: Presentasi finalis (hari-H)
+const CRITERIA = new Set(["a1", "a2", "a3", "b1", "b2", "c1", "c2", "c3", "c4"]);
 
 export default {
   async fetch(request, env) {
