@@ -1,14 +1,35 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "lomba-mkwk-nasional-2026",
+  "main": "src/worker.js",
   "compatibility_date": "2026-07-27",
   "observability": {
     "enabled": true
   },
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS",
+    // Only /api/* is routed to the Worker below; every other request (index.html,
+    // panitia/*, flier.jpg, ...) is served directly as a static asset as before.
+    "run_worker_first": ["/api/*"]
   },
   "compatibility_flags": [
     "nodejs_compat"
+  ],
+  "vars": {
+    // Shared token gate for POST /api/scores, checked server-side in src/worker.js.
+    // Same value as the client-side password on /panitia/ and /panitia/nilai/.
+    // Not a high-security secret (it lives in this public repo) — see README-JURI.md.
+    "JURI_TOKEN": "LombaMKWK"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "mkwk-juri-db",
+      // Placeholder — replace with the real database_id after running:
+      //   npx wrangler d1 create mkwk-juri-db
+      // See README-JURI.md for the full setup steps.
+      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+    }
   ]
 }
