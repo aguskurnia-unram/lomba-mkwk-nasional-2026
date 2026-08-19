@@ -11,17 +11,21 @@ sudah login Cloudflare, atau `wrangler login` dulu).
 npx wrangler d1 create mkwk-juri-db
 ```
 
-Perintah ini mencetak `database_id`. Salin nilainya, lalu tempelkan ke
-`wrangler.jsonc` menggantikan `REPLACE_WITH_YOUR_D1_DATABASE_ID`:
+Perintah ini mencetak `database_id`. Blok `d1_databases` sengaja **belum ada**
+di `wrangler.jsonc` (dihapus sementara agar `wrangler deploy` untuk seluruh
+situs tidak gagal gara-gara ID placeholder) — tambahkan kembali di akhir
+file, sebelum kurung kurawal penutup terakhir:
 
 ```jsonc
-"d1_databases": [
-  {
-    "binding": "DB",
-    "database_name": "mkwk-juri-db",
-    "database_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  // ← ganti ini
-  }
-]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "mkwk-juri-db",
+      "database_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  // ← dari output perintah di atas
+    }
+  ]
+}
 ```
 
 ## 2. Terapkan skema tabel

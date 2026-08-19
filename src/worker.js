@@ -10,6 +10,11 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    if (url.pathname.startsWith("/api/") && !env.DB) {
+      // D1 belum di-setup (lihat README-JURI.md) — gagal jelas, jangan crash.
+      return json({ error: "db_not_configured", message: "Database penilaian belum di-deploy panitia. Lihat README-JURI.md." }, 503);
+    }
+
     if (url.pathname === "/api/scores" && request.method === "GET") {
       return handleGetScores(request, env);
     }
