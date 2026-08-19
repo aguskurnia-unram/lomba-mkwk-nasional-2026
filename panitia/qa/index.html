@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Uji Sistem Penilaian — MKWK 2026</title>
+<meta name="description" content="Alat uji otomatis untuk memastikan sistem penilaian juri Lomba Project MKWK Nasional 2026 berfungsi tanpa kesalahan hitung, lalu membersihkan data uji secara otomatis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f7f4ec; --paper-raised:#ffffff; --paper-sunk:#efe9d9;
+  --ink:#1c1f24; --ink-dim:#615c4e; --ink-faint:#8b8574;
+  --line:#e2dbc7; --line-strong:#cfc6ab;
+  --navy:#173e60; --navy-soft:#e2eaf1;
+  --gold:#a97a1f; --gold-soft:#f2e4bf;
+  --ok:#2c7a56; --ok-soft:#dcefe2;
+  --warn:#a85a17; --warn-soft:#f6e2c9;
+  --danger:#b3261e; --danger-soft:#fbe4e1;
+  --shadow:0 1px 2px rgba(23,42,58,.06), 0 8px 24px -12px rgba(23,42,58,.18);
+  --radius:12px;
+  --font-display:'Fraunces',ui-serif,Georgia,'Times New Roman',serif;
+  --font-body:'Public Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#12151b; --paper-raised:#1a1e26; --paper-sunk:#0d0f14;
+    --ink:#eae6da; --ink-dim:#aba695; --ink-faint:#7b7768;
+    --line:#2b2f38; --line-strong:#3a3f4a;
+    --navy:#8fb8dd; --navy-soft:#1c2c3c;
+    --gold:#e0b45f; --gold-soft:#332a13;
+    --ok:#68c79a; --ok-soft:#173226;
+    --warn:#e2954a; --warn-soft:#392712;
+    --danger:#e5786f; --danger-soft:#3a1a17;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12151b; --paper-raised:#1a1e26; --paper-sunk:#0d0f14;
+  --ink:#eae6da; --ink-dim:#aba695; --ink-faint:#7b7768;
+  --line:#2b2f38; --line-strong:#3a3f4a;
+  --navy:#8fb8dd; --navy-soft:#1c2c3c;
+  --gold:#e0b45f; --gold-soft:#332a13;
+  --ok:#68c79a; --ok-soft:#173226;
+  --warn:#e2954a; --warn-soft:#392712;
+  --danger:#e5786f; --danger-soft:#3a1a17;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--font-body); line-height:1.55; -webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:920px; margin:0 auto; padding:0 22px}
+.ic{width:16px;height:16px;flex:0 0 auto}
+
+/* Lock screen (pola sama dengan halaman panitia lain) */
+.lock-screen{position:fixed; inset:0; z-index:999; display:flex; align-items:center; justify-content:center; background:linear-gradient(160deg,var(--navy) 0%, #0e2c47 100%); padding:24px}
+.lock-card{width:100%; max-width:360px; background:var(--paper-raised); border-radius:16px; padding:30px 28px 26px; box-shadow:0 20px 60px -18px rgba(0,0,0,.5)}
+.lock-card .lock-icon{width:42px; height:42px; border-radius:11px; background:var(--gold-soft); color:var(--gold); display:flex; align-items:center; justify-content:center; margin-bottom:14px}
+.lock-card .lock-icon svg{width:22px; height:22px}
+.lock-card h2{font-family:var(--font-display); font-size:21px; font-weight:700; margin:0 0 6px; color:var(--ink)}
+.lock-card p{font-size:13px; color:var(--ink-dim); margin:0 0 18px; line-height:1.5}
+.lock-form{display:flex; flex-direction:column; gap:10px}
+.lock-form input{font:inherit; font-size:15px; padding:11px 13px; border-radius:9px; border:1.5px solid var(--line); background:var(--paper); color:var(--ink); outline:none}
+.lock-form input:focus{border-color:var(--navy)}
+.lock-form button{font:inherit; font-weight:700; font-size:14px; padding:11px 13px; border-radius:9px; border:none; background:var(--navy); color:#fff; cursor:pointer}
+.lock-form button:hover{background:#0e2c47}
+.lock-error{font-size:12.5px; color:var(--warn); min-height:16px; margin:0}
+
+/* Masthead */
+.masthead{background:linear-gradient(160deg,var(--navy) 0%, #0e2c47 100%); color:#f3f0e6}
+.masthead .wrap{padding:30px 22px 26px}
+.eyebrow{font-size:12px; letter-spacing:1.3px; text-transform:uppercase; font-weight:600; color:#c9dcec; display:flex; align-items:center; gap:8px}
+.eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.page-tabs{display:flex; gap:4px; margin-top:16px}
+.page-tabs a{font-size:13px; font-weight:700; padding:8px 14px; border-radius:8px 8px 0 0; text-decoration:none; color:#c9dcec; background:rgba(255,255,255,.06)}
+.page-tabs a.active{background:var(--paper); color:var(--navy)}
+.page-tabs a:not(.active):hover{background:rgba(255,255,255,.14); color:#fff}
+h1{font-family:var(--font-display); font-weight:700; text-wrap:balance; font-size:clamp(24px,4vw,34px); margin:10px 0 8px; letter-spacing:-.01em}
+.masthead .lede{max-width:640px; color:#d8e2ea; font-size:14.5px; margin:0 0 4px}
+.masthead .flag{margin-top:16px; display:inline-flex; gap:10px; align-items:flex-start; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); border-radius:10px; padding:10px 14px; font-size:13px; color:#eef1e9; max-width:640px}
+.masthead .flag b{color:#fff}
+
+.panel{background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius); padding:20px 22px; margin:22px 0; box-shadow:var(--shadow)}
+.panel h2{font-family:var(--font-display); font-size:18px; font-weight:700; margin:0 0 8px}
+.panel p{font-size:13.5px; color:var(--ink-dim); margin:0 0 6px}
+.panel ul{font-size:13px; color:var(--ink-dim); margin:8px 0; padding-left:20px}
+.panel ul li{margin:3px 0}
+
+.run-row{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:16px}
+.btn-run{font:inherit; font-weight:700; font-size:14.5px; padding:12px 20px; border-radius:9px; border:none; background:var(--navy); color:#fff; cursor:pointer}
+.btn-run:hover{background:#0e2c47}
+.btn-run:disabled{background:var(--line-strong); cursor:not-allowed}
+.progress-label{font-size:12.5px; color:var(--ink-faint)}
+
+.summary{margin:18px 0; padding:14px 16px; border-radius:10px; font-size:14px; font-weight:700; display:none; align-items:center; gap:10px}
+.summary.show{display:flex}
+.summary.pass{background:var(--ok-soft); color:var(--ok)}
+.summary.fail{background:var(--danger-soft); color:var(--danger)}
+.summary.running{background:var(--gold-soft); color:var(--gold)}
+
+.log{background:var(--paper-sunk); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-top:14px; max-height:480px; overflow-y:auto; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:12.5px; line-height:1.7; white-space:pre-wrap; word-break:break-word; display:none}
+.log.show{display:block}
+.log .ok{color:var(--ok)}
+.log .fail{color:var(--danger); font-weight:700}
+.log .hd{color:var(--navy); font-weight:700; display:block; margin-top:10px}
+.log .hd:first-child{margin-top:0}
+
+footer.site{border-top:1px solid var(--line); padding:26px 0 40px; font-size:12.5px; color:var(--ink-faint)}
+@media (prefers-reduced-motion: reduce){ *{transition:none !important} }
+</style>
+</head>
+<body>
+
+<div class="lock-screen" id="lockScreen">
+  <div class="lock-card">
+    <div class="lock-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
+    </div>
+    <h2>Akses Panitia</h2>
+    <p>Halaman uji sistem ini khusus panitia dan dewan juri Lomba Project MKWK Nasional 2026. Masukkan sandi akses untuk melanjutkan.</p>
+    <form class="lock-form" id="lockForm" autocomplete="off">
+      <input type="password" id="lockPass" placeholder="Sandi akses" autocomplete="off" autofocus>
+      <p class="lock-error" id="lockError"></p>
+      <button type="submit">Buka Halaman</button>
+    </form>
+  </div>
+</div>
+
+<div id="app" style="display:none">
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Pusat MKWK&ndash;MKWU, LPMPP &middot; Universitas Mataram &middot; Dokumen kerja internal</div>
+    <nav class="page-tabs">
+      <a href="../">Verifikasi Peserta</a>
+      <a href="../nilai/">Penilaian Juri</a>
+      <a href="./" class="active">Uji Sistem</a>
+    </nav>
+    <h1>Uji Sistem Penilaian</h1>
+    <p class="lede">Simulasi 5 juri menilai seluruh tim di tahap Pra-Event &amp; Presentasi Finalis <b>lewat API sungguhan situs ini</b> &mdash; bukan cuma tes di komputer lain &mdash; lalu memverifikasi semua hasil hitung dan menghapus seluruh data ujinya sendiri secara otomatis di akhir. Aman dijalankan kapan saja, tidak menyentuh nilai juri asli.</p>
+    <div class="flag"><span>&#128295;</span><span>Memakai nama juri palsu yang jelas ditandai (&ldquo;&#129514; QA Otomatis&rdquo;) dan dihapus total di langkah terakhir &mdash; skor 5 juri asli Anda tidak tersentuh sama sekali.</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="panel">
+    <h2>Apa yang diuji?</h2>
+    <ul>
+      <li>Koneksi &amp; otentikasi ke <code>/api/scores</code> (termasuk penolakan token salah)</li>
+      <li>Simpan skor Pra-Event dari 5 juri uji &times; 12 tim asli (sesuai kategori Video/Poster masing-masing)</li>
+      <li>Simpan skor Presentasi Finalis dari 5 juri uji &times; 5 tim contoh</li>
+      <li>Rata-rata per kriteria &amp; rumus Rekap (Pra-Event 30%+20%, Presentasi 50%, Total Akhir 50%+50%) dihitung ulang &amp; dicocokkan ke hasil server</li>
+      <li>Isi ulang skor tim yang sama tidak menggandakan baris (upsert)</li>
+      <li>Skor yang salah format (di luar 0&ndash;100, kriteria tidak dikenal) ditolak server</li>
+      <li>Hapus skor satu tahap tidak ikut menghapus tahap lain (mis. hapus Pra-Event tidak menghapus Presentasi)</li>
+      <li><b>Bersih-bersih penuh</b> di akhir &mdash; dicek ulang sampai benar-benar tidak ada sisa data uji</li>
+    </ul>
+    <div class="run-row">
+      <button class="btn-run" id="runBtn">Jalankan Uji Otomatis</button>
+      <span class="progress-label" id="progressLabel"></span>
+    </div>
+    <div class="summary" id="summary"></div>
+    <div class="log" id="log"></div>
+  </div>
+</div>
+
+<footer class="site"><div class="wrap">Lomba Project MKWK Nasional 2026 &middot; Pusat MKWK&ndash;MKWU, LPMPP Universitas Mataram</div></footer>
+
+</div>
+
+<script>
+const PASSWORD_KEY = "mkwk2026-jury-access";
+let TOKEN = "";
+
+/* ---------------- Lock screen (identik dengan halaman panitia lain, sesi sandi dipakai bersama) ---------------- */
+function relock(message){
+  try { sessionStorage.removeItem(PASSWORD_KEY); } catch (e) {}
+  TOKEN = "";
+  document.getElementById("app").style.display = "none";
+  document.getElementById("lockScreen").style.display = "";
+  const err = document.getElementById("lockError");
+  if (err) err.textContent = message || "";
+  const pass = document.getElementById("lockPass");
+  if (pass) { pass.value = ""; pass.focus(); }
+}
+
+(function initLock(){
+  const lockScreen = document.getElementById("lockScreen");
+  const app = document.getElementById("app");
+  const lockForm = document.getElementById("lockForm");
+  const lockPass = document.getElementById("lockPass");
+  const lockError = document.getElementById("lockError");
+
+  function unlock(token){
+    TOKEN = token;
+    lockScreen.style.display = "none";
+    app.style.display = "";
+  }
+
+  try {
+    const saved = sessionStorage.getItem(PASSWORD_KEY);
+    if (saved) { unlock(saved); return; }
+  } catch (e) {}
+
+  lockForm.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    const val = lockPass.value;
+    fetch("/api/scores", { headers: { Authorization: "Bearer " + val } })
+      .then(function(res){
+        if (res.status === 401) {
+          lockError.textContent = "Sandi salah. Hubungi koordinator panitia jika lupa.";
+          lockPass.value = ""; lockPass.focus();
+          return;
+        }
+        if (res.ok) { try { sessionStorage.setItem(PASSWORD_KEY, val); } catch (e) {} }
+        unlock(val);
+      })
+      .catch(function(){ unlock(val); });
+  });
+})();
+
+/* ---------------- Data uji: 12 tim asli (sama seperti di halaman Verifikasi Peserta) ---------------- */
+const TEAMS = [
+  { slug: "nusa-data-team", cats: ["Video"] },
+  { slug: "garudaaksi", cats: ["Poster"] },
+  { slug: "nawasena", cats: ["Video"] },
+  { slug: "tim-karsa-nusantara-umri", cats: ["Video", "Poster"] },
+  { slug: "grow-with-nature", cats: ["Video"] },
+  { slug: "panca-inspirasi", cats: ["Poster"] },
+  { slug: "teamkwu", cats: ["Video"] },
+  { slug: "bahagia-grup", cats: ["Poster"] },
+  { slug: "ecorizz", cats: ["Poster"] },
+  { slug: "sortnova-team", cats: ["Video"] },
+  { slug: "tim-hore", cats: ["Poster"] },
+  { slug: "the-last-trace-team", cats: ["Video"] },
+];
+const CRIT_PRAEVENT_BY_CAT = { Video: ["a1", "a2", "a3"], Poster: ["b1", "b2"] };
+const PRESENTASI_CRITS = ["c1", "c2", "c3", "c4"];
+const FINALISTS = TEAMS.slice(0, 5); // 5 tim contoh yang diuji sebagai "finalis" hari-H
+
+// 5 juri UJI (bukan nama juri asli) — jelas ditandai supaya tidak pernah
+// tertukar dengan skor sungguhan, dan gampang dicari/dihapus kalau prosesnya
+// terputus di tengah jalan.
+const QA_JURORS = ["🧪 QA Otomatis 1", "🧪 QA Otomatis 2", "🧪 QA Otomatis 3", "🧪 QA Otomatis 4", "🧪 QA Otomatis 5"];
+
+function scoreFor(teamIdx, jurorIdx, critIdx){
+  return 60 + ((teamIdx * 7 + jurorIdx * 13 + critIdx * 5) % 35); // 60..94, deterministik tapi bervariasi
+}
+
+/* ---------------- Runner ---------------- */
+const logEl = document.getElementById("log");
+const summaryEl = document.getElementById("summary");
+const runBtn = document.getElementById("runBtn");
+const progressLabel = document.getElementById("progressLabel");
+let failures = [];
+let checks = 0;
+
+function esc(s){ const d = document.createElement("div"); d.textContent = s == null ? "" : String(s); return d.innerHTML; }
+function logHeader(text){ logEl.innerHTML += '<span class="hd">' + esc(text) + '</span>\n'; logEl.scrollTop = logEl.scrollHeight; }
+function logLine(label, cond, detail){
+  checks++;
+  if (!cond) failures.push(label + (detail ? " — " + detail : ""));
+  logEl.innerHTML += '<span class="' + (cond ? "ok" : "fail") + '">' + (cond ? "  OK  " : " GAGAL ") + '</span>' + esc(label) + (detail ? " — " + esc(detail) : "") + '\n';
+  logEl.scrollTop = logEl.scrollHeight;
+}
+function logPlain(text){ logEl.innerHTML += esc(text) + '\n'; logEl.scrollTop = logEl.scrollHeight; }
+function setProgress(text){ progressLabel.textContent = text; }
+
+async function api(path, opts){
+  opts = opts || {};
+  const res = await fetch(path, {
+    method: opts.method || "GET",
+    headers: Object.assign({ Authorization: "Bearer " + TOKEN, "Content-Type": "application/json" }, opts.headers || {}),
+    body: opts.body ? JSON.stringify(opts.body) : undefined,
+  });
+  let body = null;
+  try { body = await res.json(); } catch (e) {}
+  return { status: res.status, body: body };
+}
+
+// Jalankan daftar fungsi async dengan konkurensi terbatas, supaya cepat tapi
+// tidak membanjiri Worker dengan ratusan request sekaligus.
+async function runBatched(items, concurrency, fn){
+  let i = 0;
+  async function worker(){
+    while (i < items.length){
+      const idx = i++;
+      await fn(items[idx], idx);
+    }
+  }
+  const workers = [];
+  for (let w = 0; w < concurrency; w++) workers.push(worker());
+  await Promise.all(workers);
+}
+
+async function cleanupAll(){
+  setProgress("Membersihkan data uji…");
+  await runBatched(TEAMS, 4, async function(t){
+    for (const juror of QA_JURORS){
+      await api("/api/scores?team_slug=" + encodeURIComponent(t.slug) + "&juror_name=" + encodeURIComponent(juror), { method: "DELETE" });
+    }
+  });
+}
+
+async function runTests(){
+  failures = []; checks = 0;
+  logEl.innerHTML = "";
+  logEl.classList.add("show");
+  summaryEl.classList.remove("show", "pass", "fail");
+  summaryEl.classList.add("show", "running");
+  summaryEl.textContent = "⏳ Uji sedang berjalan…";
+  runBtn.disabled = true;
+
+  try {
+    logHeader("0. Sanity: token salah harus ditolak");
+    setProgress("Memeriksa otentikasi…");
+    {
+      const r = await api("/api/scores", { headers: { Authorization: "Bearer token-salah-sengaja" } });
+      logLine("Token salah → 401", r.status === 401);
+    }
+
+    logHeader("1. Bersihkan sisa uji sebelumnya (jaga-jaga proses terputus)");
+    await cleanupAll();
+    {
+      const r = await api("/api/scores");
+      const leftover = (r.body && r.body.scores || []).filter(s => QA_JURORS.map(j => j.toLowerCase()).includes((s.juror_name || "").trim().toLowerCase()));
+      logLine("Tidak ada sisa data uji sebelum mulai", leftover.length === 0, leftover.length + " baris ditemukan");
+    }
+
+    logHeader("2. Kirim skor Pra-Event: 5 juri uji × 12 tim");
+    setProgress("Mengirim skor Pra-Event…");
+    const expected = {};
+    for (const t of TEAMS) expected[t.slug] = {};
+    let postFail = 0;
+    const praEventJobs = [];
+    for (let ji = 0; ji < QA_JURORS.length; ji++){
+      for (let ti = 0; ti < TEAMS.length; ti++){
+        praEventJobs.push({ ji, ti });
+      }
+    }
+    await runBatched(praEventJobs, 6, async function(job){
+      const juror = QA_JURORS[job.ji], t = TEAMS[job.ti];
+      const crits = t.cats.flatMap(c => CRIT_PRAEVENT_BY_CAT[c]);
+      const entries = crits.map(function(c, ci){
+        const s = scoreFor(job.ti, job.ji, ci);
+        (expected[t.slug][c] = expected[t.slug][c] || []).push(s);
+        return { criterion: c, score: s };
+      });
+      const r = await api("/api/scores", { method: "POST", body: { team_slug: t.slug, juror_name: juror, entries: entries } });
+      if (r.status !== 200 || !r.body || !r.body.ok) postFail++;
+    });
+    logLine("Semua " + praEventJobs.length + " kiriman Pra-Event tersimpan (200 OK)", postFail === 0, postFail + " gagal");
+
+    logHeader("3. Kirim skor Presentasi Finalis: 5 juri uji × 5 tim contoh");
+    setProgress("Mengirim skor Presentasi Finalis…");
+    const expectedPresentasi = {};
+    for (const t of FINALISTS) expectedPresentasi[t.slug] = {};
+    let postFail2 = 0;
+    const presJobs = [];
+    for (let ji = 0; ji < QA_JURORS.length; ji++) for (let ti = 0; ti < FINALISTS.length; ti++) presJobs.push({ ji, ti });
+    await runBatched(presJobs, 6, async function(job){
+      const juror = QA_JURORS[job.ji], t = FINALISTS[job.ti];
+      const entries = PRESENTASI_CRITS.map(function(c, ci){
+        const s = scoreFor(job.ti + 20, job.ji, ci);
+        (expectedPresentasi[t.slug][c] = expectedPresentasi[t.slug][c] || []).push(s);
+        return { criterion: c, score: s };
+      });
+      const r = await api("/api/scores", { method: "POST", body: { team_slug: t.slug, juror_name: juror, entries: entries } });
+      if (r.status !== 200 || !r.body || !r.body.ok) postFail2++;
+    });
+    logLine("Semua " + presJobs.length + " kiriman Presentasi tersimpan (200 OK)", postFail2 === 0, postFail2 + " gagal");
+
+    logHeader("4. Ambil ulang semua skor & verifikasi jumlah baris");
+    setProgress("Memverifikasi data tersimpan…");
+    const rAll = await api("/api/scores");
+    const allScores = (rAll.body && rAll.body.scores) || [];
+    const qaScores = allScores.filter(s => QA_JURORS.map(j => j.toLowerCase()).includes((s.juror_name || "").trim().toLowerCase()));
+    const expectedRows = QA_JURORS.length * TEAMS.reduce((sum, t) => sum + t.cats.flatMap(c => CRIT_PRAEVENT_BY_CAT[c]).length, 0)
+      + QA_JURORS.length * FINALISTS.length * PRESENTASI_CRITS.length;
+    logLine("Jumlah baris skor uji tersimpan = " + expectedRows, qaScores.length === expectedRows, "dapat " + qaScores.length);
+
+    logHeader("5. Verifikasi rata-rata per kriteria per tim");
+    setProgress("Mencocokkan rata-rata…");
+    function avgOf(slug, criterion){
+      const rows = qaScores.filter(s => s.team_slug === slug && s.criterion === criterion);
+      if (!rows.length) return null;
+      return rows.reduce((a, b) => a + Number(b.score), 0) / rows.length;
+    }
+    let avgFail = 0;
+    for (const t of TEAMS) for (const c of Object.keys(expected[t.slug])) {
+      const got = avgOf(t.slug, c);
+      const want = expected[t.slug][c].reduce((a, b) => a + b, 0) / expected[t.slug][c].length;
+      if (Math.abs(got - want) > 1e-9) avgFail++;
+    }
+    for (const t of FINALISTS) for (const c of PRESENTASI_CRITS) {
+      const got = avgOf(t.slug, c);
+      const want = expectedPresentasi[t.slug][c].reduce((a, b) => a + b, 0) / expectedPresentasi[t.slug][c].length;
+      if (Math.abs(got - want) > 1e-9) avgFail++;
+    }
+    logLine("Semua rata-rata per kriteria per tim cocok", avgFail === 0, avgFail + " kriteria meleset");
+
+    logHeader("6. Verifikasi rumus Rekap: Skor Pra-Event, Presentasi, Total Akhir");
+    setProgress("Mencocokkan rumus rekap…");
+    function meanOf(arr){ return arr ? arr.reduce((a, b) => a + b, 0) / arr.length : null; }
+    let rekapFail = 0;
+    for (const t of TEAMS){
+      const hasVideo = t.cats.includes("Video"), hasPoster = t.cats.includes("Poster");
+      const a1 = meanOf(expected[t.slug].a1), a2 = meanOf(expected[t.slug].a2), a3 = meanOf(expected[t.slug].a3);
+      const b1 = meanOf(expected[t.slug].b1), b2 = meanOf(expected[t.slug].b2);
+      let refVideo = hasVideo ? ((a1 || 0) * 15 + (a2 || 0) * 10 + (a3 || 0) * 5) / 30 : null;
+      let refPoster = hasPoster ? ((b1 || 0) * 10 + (b2 || 0) * 10) / 20 : null;
+      let refPraEvent = hasVideo && hasPoster ? (refVideo * 30 + refPoster * 20) / 50 : (hasVideo ? refVideo : refPoster);
+
+      const gotA1 = avgOf(t.slug, "a1"), gotA2 = avgOf(t.slug, "a2"), gotA3 = avgOf(t.slug, "a3");
+      const gotB1 = avgOf(t.slug, "b1"), gotB2 = avgOf(t.slug, "b2");
+      let gotVideo = hasVideo ? ((gotA1 || 0) * 15 + (gotA2 || 0) * 10 + (gotA3 || 0) * 5) / 30 : null;
+      let gotPoster = hasPoster ? ((gotB1 || 0) * 10 + (gotB2 || 0) * 10) / 20 : null;
+      let gotPraEvent = hasVideo && hasPoster ? (gotVideo * 30 + gotPoster * 20) / 50 : (hasVideo ? gotVideo : gotPoster);
+      if (Math.abs(gotPraEvent - refPraEvent) > 1e-9) rekapFail++;
+
+      if (FINALISTS.some(f => f.slug === t.slug)){
+        const c1 = meanOf(expectedPresentasi[t.slug].c1), c2 = meanOf(expectedPresentasi[t.slug].c2), c3 = meanOf(expectedPresentasi[t.slug].c3), c4 = meanOf(expectedPresentasi[t.slug].c4);
+        const refPresentasi = (c1 * 20 + c2 * 15 + c3 * 10 + c4 * 5) / 50;
+        const refTotal = refPraEvent * 0.5 + refPresentasi * 0.5;
+        const gc1 = avgOf(t.slug, "c1"), gc2 = avgOf(t.slug, "c2"), gc3 = avgOf(t.slug, "c3"), gc4 = avgOf(t.slug, "c4");
+        const gotPresentasi = (gc1 * 20 + gc2 * 15 + gc3 * 10 + gc4 * 5) / 50;
+        const gotTotal = gotPraEvent * 0.5 + gotPresentasi * 0.5;
+        if (Math.abs(gotPresentasi - refPresentasi) > 1e-9) rekapFail++;
+        if (Math.abs(gotTotal - refTotal) > 1e-9) rekapFail++;
+      }
+    }
+    logLine("Semua Skor Pra-Event / Presentasi / Total Akhir cocok rumus resmi (30%+20%, 50%, 50%+50%)", rekapFail === 0, rekapFail + " nilai meleset");
+
+    logHeader("7. Isi ulang skor (upsert): tidak boleh menggandakan baris");
+    setProgress("Menguji isi-ulang skor…");
+    {
+      const t = TEAMS[0], juror = QA_JURORS[0];
+      const r1 = await api("/api/scores", { method: "POST", body: { team_slug: t.slug, juror_name: juror, entries: [{ criterion: "a1", score: 33 }] } });
+      logLine("Isi ulang a1=33 → 200", r1.status === 200);
+      const r2 = await api("/api/scores");
+      const rows = (r2.body.scores || []).filter(s => s.team_slug === t.slug && s.juror_name === juror && s.criterion === "a1");
+      logLine("Tidak ada baris ganda setelah isi ulang", rows.length === 1, rows.length + " baris ditemukan");
+      logLine("Nilai ter-update jadi 33", rows.length === 1 && Number(rows[0].score) === 33, "dapat " + (rows[0] && rows[0].score));
+    }
+
+    logHeader("8. Validasi input ditolak dengan benar");
+    setProgress("Menguji validasi input…");
+    {
+      const rBad1 = await api("/api/scores", { method: "POST", body: { team_slug: "x-qa", juror_name: QA_JURORS[0], entries: [{ criterion: "a1", score: 150 }] } });
+      logLine("Skor di atas 100 ditolak (400)", rBad1.status === 400);
+      const rBad2 = await api("/api/scores", { method: "POST", body: { team_slug: "x-qa", juror_name: QA_JURORS[0], entries: [{ criterion: "zz", score: 50 }] } });
+      logLine("Kriteria tidak dikenal ditolak (400)", rBad2.status === 400);
+    }
+
+    logHeader("9. Hapus satu tahap tidak boleh ikut menghapus tahap lain");
+    setProgress("Menguji hapus terskop tahap…");
+    {
+      const t = FINALISTS[0], juror = QA_JURORS[1];
+      const critsPraEvent = t.cats.flatMap(c => CRIT_PRAEVENT_BY_CAT[c]);
+      const rDel = await api("/api/scores?team_slug=" + t.slug + "&juror_name=" + encodeURIComponent(juror) + "&criteria=" + critsPraEvent.join(","), { method: "DELETE" });
+      logLine("Hapus terskop Pra-Event → 200", rDel.status === 200 && rDel.body && rDel.body.ok);
+      const rCheck = await api("/api/scores");
+      const rows = rCheck.body.scores || [];
+      const stillPra = rows.some(s => s.team_slug === t.slug && s.juror_name === juror && critsPraEvent.includes(s.criterion));
+      const stillPres = rows.some(s => s.team_slug === t.slug && s.juror_name === juror && PRESENTASI_CRITS.includes(s.criterion));
+      logLine("Skor Pra-Event juri ini untuk tim ini sudah hilang", !stillPra);
+      logLine("Skor Presentasi juri ini untuk tim ini TETAP ADA (tidak ikut terhapus)", stillPres);
+    }
+
+    logHeader("10. Bersih-bersih total & verifikasi bersih");
+    setProgress("Menghapus seluruh data uji…");
+    await cleanupAll();
+    {
+      const rFinal = await api("/api/scores");
+      const leftover = (rFinal.body.scores || []).filter(s => QA_JURORS.map(j => j.toLowerCase()).includes((s.juror_name || "").trim().toLowerCase()));
+      logLine("Semua data uji terhapus bersih (tidak ada sisa)", leftover.length === 0, leftover.length + " baris tersisa");
+    }
+
+    logHeader("11. Tanpa token / token salah selalu ditolak");
+    {
+      const r1 = await api("/api/scores", { headers: { Authorization: "Bearer " } });
+      logLine("Tanpa token → 401", r1.status === 401);
+    }
+
+  } catch (err) {
+    failures.push("Error tak terduga: " + (err && err.message ? err.message : String(err)));
+    logPlain("\n❌ ERROR TAK TERDUGA: " + (err && err.message ? err.message : String(err)));
+    // Selalu coba bersihkan walau ada error di tengah jalan.
+    try { await cleanupAll(); logPlain("(Sudah mencoba membersihkan data uji meski terjadi error.)"); } catch (e2) {}
+  }
+
+  setProgress("");
+  runBtn.disabled = false;
+  summaryEl.classList.remove("running");
+  if (failures.length === 0){
+    summaryEl.classList.add("pass");
+    summaryEl.textContent = "✅ Semua " + checks + " pengecekan lolos — sistem penilaian berfungsi normal, data uji sudah bersih.";
+  } else {
+    summaryEl.classList.add("fail");
+    summaryEl.textContent = "❌ " + failures.length + " dari " + checks + " pengecekan gagal — lihat rincian di bawah, dan hubungi pengembang sebelum lomba berlangsung.";
+  }
+}
+
+runBtn.addEventListener("click", function(){
+  runTests().catch(function(e){ console.error(e); });
+});
+</script>
+</body>
+</html>
