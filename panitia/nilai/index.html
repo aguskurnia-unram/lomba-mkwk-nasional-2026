@@ -222,13 +222,13 @@ footer.site{border-top:1px solid var(--line); padding:26px 0 40px; font-size:12.
         <div class="res-ic">1</div>
         <div><b>Web digital (halaman ini)</b><span>Real-time, otomatis terekap &amp; terhitung peringkat. Jalur utama.</span></div>
       </a>
-      <a class="res-card res-2" href="../unduhan/Penilaian-Juri-Lomba-Project-MKWK-Nasional-2026.xlsx" download>
+      <a class="res-card res-2" href="https://docs.google.com/spreadsheets/d/1OsFH_tfyXqK15b9YNB1rxp7jADLbGLb3/edit?usp=sharing&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">
         <div class="res-ic">2</div>
-        <div><b>Google Sheets / Excel</b><span>Unduh, lalu unggah ke Drive untuk versi kolaboratif — atau isi langsung offline di Excel.</span></div>
+        <div><b>Google Sheets (kolaboratif)</b><span>Sudah dibagikan &amp; siap diisi bareng oleh semua juri sekaligus — tinggal buka &amp; login akun Google.</span></div>
       </a>
       <a class="res-card res-3" href="../unduhan/Penilaian-Juri-Lomba-Project-MKWK-Nasional-2026.xlsx" download>
         <div class="res-ic">3</div>
-        <div><b>Ketik manual (offline)</b><span>File sama seperti di atas — dibuka &amp; diisi langsung di laptop tanpa internet.</span></div>
+        <div><b>Ketik manual (offline)</b><span>Unduh salinan &amp; isi langsung di Excel/laptop tanpa internet — tidak otomatis tersinkron ke juri lain.</span></div>
       </a>
       <a class="res-card res-4" href="../unduhan/Lembar-Penilaian-Manual-Cadangan-MKWK-Nasional-2026.pdf" download>
         <div class="res-ic">4</div>
@@ -404,24 +404,30 @@ function boot(){
   loadScores();
 }
 
-function setConn(state, text){
+function setConn(state, text, bannerHtml){
   const el = document.getElementById("connStatus");
   el.className = "conn-status " + (state === "ok" ? "conn-ok" : state === "bad" ? "conn-bad" : "conn-wait");
   el.textContent = text;
   const banner = document.getElementById("connBanner");
-  if (state === "bad") {
-    banner.innerHTML = '<div class="banner banner-danger">&#9888;&#65039; Tidak bisa terhubung ke server penilaian (<code>/api/scores</code>). Kemungkinan database belum di-deploy panitia. Nilai yang Anda isi <b>tidak akan tersimpan</b> sampai koneksi ini kembali normal — hubungi PJ Lomba.</div>';
-  } else {
-    banner.innerHTML = "";
-  }
+  banner.innerHTML = (state === "bad" && bannerHtml) ? '<div class="banner banner-danger">' + bannerHtml + '</div>' : "";
 }
 
 function loadScores(){
   setConn("wait", "Menghubungkan…");
   fetch("/api/scores", { headers: { Authorization: "Bearer " + TOKEN } })
     .then(function(res){
-      if (res.status === 401) { setConn("bad", "Sandi ditolak server"); throw new Error("unauthorized"); }
-      if (!res.ok) throw new Error("http " + res.status);
+      if (res.status === 401) {
+        setConn("bad", "Sandi ditolak server", "&#9888;&#65039; Sandi yang Anda masukkan tidak dikenali server (HTTP 401). Coba muat ulang halaman dan masukkan sandi lagi — kalau tetap gagal, sandi mungkin sudah diganti panitia.");
+        throw new Error("unauthorized");
+      }
+      if (res.status === 503) {
+        setConn("bad", "Database belum siap (503)", "&#9888;&#65039; Server merespons tapi database penilaian belum terhubung di sisi Cloudflare (HTTP 503). Ini murni masalah setup panitia, bukan sesuatu yang bisa Anda perbaiki — hubungi PJ Lomba, dan pakai <a href=\"#\" onclick=\"document.querySelector('.res-card.res-2').scrollIntoView({behavior:'smooth'});return false;\">jalur cadangan di bawah</a> sementara waktu.");
+        throw new Error("db not configured");
+      }
+      if (!res.ok) {
+        setConn("bad", "Server error (" + res.status + ")", "&#9888;&#65039; Server merespons dengan error HTTP " + res.status + " saat memuat /api/scores. Nilai yang Anda isi <b>tidak akan tersimpan</b> sampai ini diperbaiki — hubungi PJ Lomba dan sebutkan kode error ini, atau pakai jalur cadangan di bawah sementara waktu.");
+        throw new Error("http " + res.status);
+      }
       return res.json();
     })
     .then(function(data){
@@ -432,7 +438,8 @@ function loadScores(){
     })
     .catch(function(err){
       apiOk = false;
-      setConn("bad", "Tidak terhubung");
+      if (err.message === "unauthorized" || err.message === "db not configured" || /^http \d/.test(err.message)) return; // banner already set above
+      setConn("bad", "Tidak terhubung", "&#9888;&#65039; Tidak bisa menjangkau server sama sekali (bukan error dari server, tapi gagal terkoneksi — periksa internet Anda, atau situs sedang tidak bisa diakses). Nilai yang Anda isi <b>tidak akan tersimpan</b> sampai koneksi ini kembali normal — pakai jalur cadangan di bawah sementara waktu.");
     });
 }
 
