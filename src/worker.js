@@ -11,9 +11,18 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    if (url.pathname.startsWith("/api/") && !env.DB) {
-      // D1 belum di-setup (lihat README-JURI.md) — gagal jelas, jangan crash.
-      return json({ error: "db_not_configured", message: "Database penilaian belum di-deploy panitia. Lihat README-JURI.md." }, 503);
+    if (url.pathname.startsWith("/api/")) {
+      // Otentikasi diperiksa DULU, sebelum status database — supaya token
+      // yang salah selalu dapat 401 (bukan 503), sehingga halaman lock-screen
+      // tidak pernah salah menganggap sandi yang salah sebagai valid hanya
+      // karena DB kebetulan belum siap (lihat bug yang diperbaiki di sini).
+      if (!isAuthorized(request, env)) {
+        return json({ error: "unauthorized" }, 401);
+      }
+      if (!env.DB) {
+        // D1 belum di-setup (lihat README-JURI.md) — gagal jelas, jangan crash.
+        return json({ error: "db_not_configured", message: "Database penilaian belum di-deploy panitia. Lihat README-JURI.md." }, 503);
+      }
     }
 
     if (url.pathname === "/api/scores" && request.method === "GET") {
