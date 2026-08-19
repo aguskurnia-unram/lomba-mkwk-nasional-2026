@@ -21,17 +21,12 @@
     // Same value as the client-side password on /panitia/ and /panitia/nilai/.
     // Not a high-security secret (it lives in this public repo) — see README-JURI.md.
     "JURI_TOKEN": "LombaMKWK"
-  }
-  // d1_databases (Penilaian Juri backend) intentionally omitted for now —
-  // a placeholder database_id here would make `wrangler deploy` fail for
-  // the WHOLE site, not just /panitia/nilai/. Once you've run
-  // `npx wrangler d1 create mkwk-juri-db` (see README-JURI.md), add back:
-  //
-  // "d1_databases": [
-  //   {
-  //     "binding": "DB",
-  //     "database_name": "mkwk-juri-db",
-  //     "database_id": "<your real database_id>"
-  //   }
-  // ]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "mkwk-juri-db",
+      "database_id": "f8b65ade-6ab8-4d84-a5ae-6227c6a4de39"
+    }
+  ]
 }
